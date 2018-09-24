@@ -1,2 +1,2 @@
 # PpGmlDB
-P patens gene model lookup database
+Physcomitrella patens gene model lookup database

@@ -5,7 +5,8 @@
 
 <?php
 // Connecting, selecting database
-$dbconn = pg_connect("host=localhost dbname=pp_annot3 user=web_usr password=moss33!")
+include_once 'pp_database_data.php';
+$dbconn = pg_connect($connectionString)
     or die('Could not connect: ' . pg_last_error());
 
 $search_input = test_input($_GET["search_keywords"]);

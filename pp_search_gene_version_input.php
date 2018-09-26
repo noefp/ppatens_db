@@ -1,5 +1,6 @@
 <?php
-	$dbconn = pg_connect("host=localhost dbname=pp_annot3 user=web_usr password=moss33!")
+	 include_once 'pp_database_data.php';
+	$dbconn = pg_connect($connectionString)
 	or die('Could not connect: ' . pg_last_error());
 	$query='select distinct genome_version from "public"."gene" order by genome_version asc;';
 	$versions_res=pg_query($query) or die('Cannot access list of genome versions: ' . pg_last_error());

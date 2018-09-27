@@ -30,8 +30,12 @@ BEGIN
 			newCharAtCurrentPos :='b';
 		ELSIF (current == 'p' AND next != 'h') THEN
 			newCharAtCurrentPos='b';
-		ELSIF ((current='d' OR current=='t') and (next != 'c' and next != 's' and next != 'z'))  THEN 
-			newCharAtCurrentPos='c';
+		ELSIF (current='d' OR current=='t') THEN
+			IF (next != 'c' and next != 's' and next != 'z')  THEN 
+				newCharAtCurrentPos='c';
+			ELSE
+				newCharAtCurrentPos='i';
+		END IF;
 		ELSIF (current == 'f' or current == 'v' or current =='w') THEN
 			newCharAtCurrentPos='d';
 		ELSIF (current=='p' and next == 'h') THEN
@@ -48,8 +52,22 @@ BEGIN
 				newCharAtCurrentPos='i';
 			ELSIF (last == '' or last== ' ') and (next !='a' AND next !='h' and next !='k' and next !='l' and next !='o' and next != 'q' and next != 'r' and next != 'u' and next != 'x') THEN
 				newCharAtCurrentPos='i';
+			ELSIF (next !='a' AND next!='h' AND next !='k' AND next !='o' AND next !='q' AND next !='u' AND next !='u' AND next!='x') THEN
+				newCharAtCurrentPos='i';
 			END IF;
-				
+		ELSIF (current=='x' and (last!='c' and last !='k' and last !='q')) THEN
+			newCharAtCurrentPos='ei';
+		ELSIF (current=='l') THEN
+			newCharAtCurrentPos='f';
+		ELSIF	(current =='m' OR current =='n') THEN
+			newCharAtCurrentPos='g';
+		ELSIF (current == 'r') THEN
+			newCharAtCurrentPos='h';
+		ELSIF (current=='s' OR current=='z') THEN
+			newCharAtCurrentPos='i';
+		ELSIF (current=='x' and (last=='c' OR last =='k' OR last =='q')) THEN
+			newCharAtCurrentPos='i';
+		
 		ELSE
 			newCharAtCurrentPos := current;
 		END IF;

@@ -1,3 +1,11 @@
+DROP TABLE IF EXISTS "public".annotation_phonetic";
+CREATE table "public"."annotation_phonetic" (
+	annot_phonetic_id int not null primary key,
+	annotation_id bigint not null,
+	phoneticDesc text not null,
+	constraint fk_anot_phonetic_to_annot foreign key (annotation_id) references "public"."annotation" (annotation_id)
+);
+
 CREATE OR REPLACE FUNCTION getPhoneticCode(stringToEncode TEXT)
 RETURNS TEXT as $$
 DECLARE 
@@ -76,3 +84,16 @@ BEGIN
 	return result;
 END;
 $$ language plpgsql;
+
+CREATE FUNCTION updateAnnotationPhonetic()
+	RETURNS trigger AS $updateAnnotationPhonetic$
+BEGIN
+	update "public"."annotation_phonetic"
+		set phoneticDesc=getPhoneticCode(new.annot_desc)
+		where annotation_id=new.annotation_id;
+	return new;
+END;
+$updateAnnotationPhonetic$ LANGUAGE plpgsql;
+
+CREATE trigger updateAnnotationPhonetic after update on "public"."annotation"
+	FOR EACH ROW EXECUTE PROCEDURE updateAnnotationPhonetic();

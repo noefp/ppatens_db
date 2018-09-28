@@ -20,61 +20,61 @@ DECLARE
 BEGIN
 	SELECT lower(stringToEncode) INTO lowerString	;
 	SELECT ' ' INTO current;
-	SELECT substring(lowerString,i,i) INTO next;
+	SELECT substring(lowerString,i,1) INTO next;
 
 	WHILE (i<=char_length(stringToEncode)) LOOP
 		SELECT current INTO last;
 		SELECT next INTO current;
 		i:=i+1;
-		SELECT substring(lowerString,i,i) INTO next;
-		IF(current=='a' OR current =='e' OR current == 'i' OR current == 'o' OR current == 'u' OR current =='ö' OR current == 'ü' OR current == 'ä') THEN
+		SELECT substring(lowerString,i,1) INTO next;
+		IF(current='a' OR current ='e' OR current = 'i' OR current = 'o' OR current = 'u' OR current ='ö' OR current = 'ü' OR current = 'ä') THEN
 			if(last='' OR last=' ') THEN
 				newCharAtCurrentPos='a';
 			ELSE
 				newCharAtCurrentPos='';
 			END IF;
-		ELSIF (current=='h') THEN
+		ELSIF (current='h') THEN
 			newCharAtCurrentPos:='a';
-		ELSIF (current=='b') THEN
+		ELSIF (current='b') THEN
 			newCharAtCurrentPos :='b';
-		ELSIF (current == 'p' AND next != 'h') THEN
+		ELSIF (current = 'p' AND next <> 'h') THEN
 			newCharAtCurrentPos='b';
-		ELSIF (current='d' OR current=='t') THEN
-			IF (next != 'c' and next != 's' and next != 'z')  THEN 
+		ELSIF (current='d' OR current='t') THEN
+			IF (next <> 'c' and next <> 's' and next <> 'z')  THEN 
 				newCharAtCurrentPos='c';
 			ELSE
 				newCharAtCurrentPos='i';
 		END IF;
-		ELSIF (current == 'f' or current == 'v' or current =='w') THEN
+		ELSIF (current = 'f' or current = 'v' or current ='w') THEN
 			newCharAtCurrentPos='d';
-		ELSIF (current=='p' and next == 'h') THEN
+		ELSIF (current='p' and next = 'h') THEN
 			newCharAtCurrentPos='d';
-		ELSIF (current=='g' or current == 'h' or current =='q') THEN
+		ELSIF (current='g' or current = 'h' or current ='q') THEN
 			newCharAtCurrentPos='e';
-		ELSIF (current=='c') THEN 
-			IF ((last == '' OR last==' ') AND (next == 'a' OR next=='h' OR next=='k' or next=='l' or next=='o' or next =='q' or next=='r' or next=='u' or next=='x')) THEN
+		ELSIF (current='c') THEN 
+			IF ((last = '' OR last=' ') AND (next = 'a' OR next='h' OR next='k' or next='l' or next='o' or next ='q' or next='r' or next='u' or next='x')) THEN
 				newCharAtCurrentPos='e';
-			ELSIF (next=='a' or next=='h' or next=='k' or next=='o' or next='q'  or next='u' or next=='x') and (last !='s' and last !='z')
+			ELSIF (next='a' or next='h' or next='k' or next='o' or next='q'  or next='u' or next='x') and (last <>'s' and last <>'z')
 			THEN
 				newCharAtCurrentPos='e';
-			ELSIF (last=='s' OR last=='z') THEN
+			ELSIF (last='s' OR last='z') THEN
 				newCharAtCurrentPos='i';
-			ELSIF (last == '' or last== ' ') and (next !='a' AND next !='h' and next !='k' and next !='l' and next !='o' and next != 'q' and next != 'r' and next != 'u' and next != 'x') THEN
+			ELSIF (last = '' or last= ' ') and (next <>'a' AND next <>'h' and next <>'k' and next <>'l' and next <>'o' and next <> 'q' and next <> 'r' and next <> 'u' and next <> 'x') THEN
 				newCharAtCurrentPos='i';
-			ELSIF (next !='a' AND next!='h' AND next !='k' AND next !='o' AND next !='q' AND next !='u' AND next !='u' AND next!='x') THEN
+			ELSIF (next <>'a' AND next<>'h' AND next <>'k' AND next <>'o' AND next <>'q' AND next <>'u' AND next <>'u' AND next<>'x') THEN
 				newCharAtCurrentPos='i';
 			END IF;
-		ELSIF (current=='x' and (last!='c' and last !='k' and last !='q')) THEN
+		ELSIF (current='x' and (last<>'c' and last <>'k' and last <>'q')) THEN
 			newCharAtCurrentPos='ei';
-		ELSIF (current=='l') THEN
+		ELSIF (current='l') THEN
 			newCharAtCurrentPos='f';
-		ELSIF	(current =='m' OR current =='n') THEN
+		ELSIF	(current ='m' OR current ='n') THEN
 			newCharAtCurrentPos='g';
-		ELSIF (current == 'r') THEN
+		ELSIF (current = 'r') THEN
 			newCharAtCurrentPos='h';
-		ELSIF (current=='s' OR current=='z') THEN
+		ELSIF (current='s' OR current='z') THEN
 			newCharAtCurrentPos='i';
-		ELSIF (current=='x' and (last=='c' OR last =='k' OR last =='q')) THEN
+		ELSIF (current='x' and (last='c' OR last ='k' OR last ='q')) THEN
 			newCharAtCurrentPos='i';
 		
 		ELSE
@@ -96,10 +96,12 @@ BEGIN
 END;
 $updateAnnotationPhonetic$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE trigger updateAnnotationPhonetic after update on "public"."annotation"
+DROP trigger updateAnnotationPhonetic on "public"."annotation";
+CREATE  trigger updateAnnotationPhonetic after update on "public"."annotation"
 	FOR EACH ROW EXECUTE PROCEDURE updateAnnotationPhonetic();
 	
-CREATE OR REPLACE FUNCTION insertAnnotationPhonetic()
+	
+CREATE  OR REPLACE FUNCTION insertAnnotationPhonetic()
 	RETURNS trigger AS $insertAnnotationPhonetic$
 BEGIN
 	insert into "public"."annotation_phonetic"
@@ -108,5 +110,9 @@ BEGIN
 END;
 $insertAnnotationPhonetic$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE trigger insertAnnotationPhonetic after insert on "public"."annotation"
+DROP trigger IF EXISTS insertAnnotationPhonetic ON "public"."annotation";
+CREATE  trigger insertAnnotationPhonetic after insert on "public"."annotation"
 	FOR EACH ROW EXECUTE PROCEDURE insertAnnotationPhonetic();
+	
+	 SELECT annotation_id, getPhoneticCode(annot_desc)
+		 FROM "public"."annotation";

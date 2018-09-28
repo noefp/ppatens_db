@@ -13,21 +13,19 @@
 <script type="text/javascript">
 $('#chkGeneSearch').change(function(){
 	if($(this).is(":checked"))
-		$('#selGeneVersion').prop('disabled',false);
+		$('[name=selGeneVersion]').prop('disabled',false);
 	else
-		$('#selGeneVersion').prop('disabled',true);
+		$('[name=selGeneVersion]').prop('disabled',true);
 	});
 </script>
 
-<select id="selGeneVersion" disabled="true">
 	<?php
 		$versions=pg_fetch_all_columns($versions_res) or die("Invalid result after version-request:".pg_last_error());
 		foreach($versions as $version)
 		{
-			echo "<option>" . $version . "</option>";
+			echo "<input type='checkbox' disabled='true' name='selGeneVersion'>" . $version . "</input>";
 		}
 	?>
-	</select
 	<?php
 	// Closing connection
 pg_close($dbconn);

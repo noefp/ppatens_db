@@ -10,6 +10,9 @@
     <label for="search_box">Insert a gene ID or annotation keywords</label>
     <input type="search_box" class="form-control" id="search_box" name="search_keywords">
   </div>
+  <?php
+	include('pp_search_gene_version_input.php');
+  ?>
   <button type="submit" class="btn btn-default pull-right">Search</button>
 </form>
 

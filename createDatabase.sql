@@ -1,3 +1,6 @@
+
+
+-- Creating phonetic table for annotation table.
 DROP TABLE IF EXISTS "public"."annotation_phonetic";
 
 CREATE table "public"."annotation_phonetic" (
@@ -7,6 +10,7 @@ CREATE table "public"."annotation_phonetic" (
 	constraint fk_anot_phonetic_to_annot foreign key (annotation_id) references "public"."annotation" (annotation_id)
 );
 
+-- Function which returns the phonetic code of a text. It's using a modified cologne phonetics algorithm- instead of 1-8 and - it's using a-i. The 0 is never added so removal is not necessarry. 
 CREATE OR REPLACE FUNCTION getPhoneticCode(stringToEncode TEXT)
 RETURNS TEXT as $$
 DECLARE 
@@ -86,6 +90,8 @@ BEGIN
 END;
 $$ language plpgsql;
 
+-- Creating triggers which update the phonetics table after update or insert on annotation.
+
 CREATE OR REPLACE FUNCTION updateAnnotationPhonetic()
 	RETURNS trigger AS $updateAnnotationPhonetic$
 BEGIN
@@ -113,6 +119,8 @@ $insertAnnotationPhonetic$ LANGUAGE plpgsql;
 DROP trigger IF EXISTS insertAnnotationPhonetic ON "public"."annotation";
 CREATE  trigger insertAnnotationPhonetic after insert on "public"."annotation"
 	FOR EACH ROW EXECUTE PROCEDURE insertAnnotationPhonetic();
-	
-	 SELECT annotation_id, getPhoneticCode(annot_desc)
+
+-- Inserting data added to annotation before trigger was created.	
+INSERT INTO "public"."annotation_phonetic" (annotation_id, phoneticDesc)
+		 SELECT annotation_id, getPhoneticCode(annot_desc)
 		 FROM "public"."annotation";

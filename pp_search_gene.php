@@ -5,10 +5,23 @@
   <br>
 
 <?php
-print_r($_GET);
 $current_version = "3.3";
 
 // Performing SQL query
+if(isset($_GET["version_search"]) and $_GET["version_search"]=="on")
+{
+	isset($_GET["selGeneVersion"])
+		$versions=$_GET["selGeneVersion"];
+		else
+			$versions=[]
+}
+else
+{
+	// Getting all versions
+	$res=pg_query(getVersionsQuery()) or die('Query failed: ' . pg_last_error());
+	$versions=pg_fetch_all_columns($versions_res) or die("Invalid result after version-request:".pg_last_error());
+}
+	
 $query = "SELECT * FROM gene WHERE gene_name ILIKE '%$search_input%' ORDER BY genome_version DESC, gene_name ASC";
 $res = pg_query($query) or die('Query failed: ' . pg_last_error());
 

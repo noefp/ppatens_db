@@ -5,6 +5,7 @@
   <br>
 
 <?php
+print_r($_GET);
 $current_version = "3.3";
 
 // Performing SQL query

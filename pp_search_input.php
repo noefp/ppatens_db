@@ -9,7 +9,7 @@
   <div class="form-group">
     <label for="search_box">Insert a gene ID or annotation keywords</label>
     <input type="search_box" class="form-control" id="search_box" name="search_keywords">
-	<input type="checkbox" class="checkbox" id="chkExactSearch">Exact search</input>
+	<input type="checkbox" class="checkbox" id="chkExactSearch"name="exact_search">Exact search</input>
   </div>
   <?php
 	include('pp_search_gene_version_input.php');

@@ -10,19 +10,23 @@ $current_version = "3.3";
 // Performing SQL query
 if(isset($_GET["version_search"]) and $_GET["version_search"]=="on")
 {
-	isset($_GET["selGeneVersion"])
+	if(isset($_GET["selGeneVersion"]))
+	{
 		$versions=$_GET["selGeneVersion"];
+	}
 		else
-			$versions=[]
+		{
+			$versions=[];
+		}
 }
 else
 {
 	// Getting all versions
-	$res=pg_query(getVersionsQuery()) or die('Query failed: ' . pg_last_error());
+	$versions_res=pg_query(getVersionsQuery()) or die('Query failed: ' . pg_last_error());
 	$versions=pg_fetch_all_columns($versions_res) or die("Invalid result after version-request:".pg_last_error());
 }
 	
-$query = "SELECT * FROM gene WHERE gene_name ILIKE '%$search_input%' ORDER BY genome_version DESC, gene_name ASC";
+$query = getGenesForSearchAndVersion($search_input, $versions);
 $res = pg_query($query) or die('Query failed: ' . pg_last_error());
 
 if (pg_fetch_assoc($res)) {
@@ -30,44 +34,36 @@ if (pg_fetch_assoc($res)) {
   $res = pg_query($query) or die('Query failed: ' . pg_last_error());
 
   // Printing results in HTML
-  echo "<table class=\"table annot_table\">\n<tr><th>Current Gene</th><th>Gene Found</th><th>Gene Version</th></tr>\n";
+  echo "<table class=\"table annot_table\">\n<tr>";
+foreach ($versions as $versionItem)
+{
+echo "<th>".$versionItem."</th>";
+}
+echo "</tr>\n";
+
 
   $counter = 0;
 
   while ($line = pg_fetch_array($res, null, PGSQL_ASSOC)) {
-      $found_gene_name = $line["gene_name"];
-      $found_gene_id = $line["gene_id"];
-      $found_gene_version = $line["genome_version"];
-
-      if ($found_gene_version == $current_version) {
-
-        echo "<tr><td><a href=\"pp_annot.php?name=$found_gene_name\" target=\"_blank\">$found_gene_name</a></td><td><a href=\"pp_annot.php?name=$found_gene_name\" target=\"_blank\">$found_gene_name</a></td><td>$found_gene_version</td></tr>\n";
-        $counter++;
-
-        if ($counter >= $max_row) {
-          echo "<tr><td colspan=\"4\">Number of genes found exceeded the limit to display, Please refine your search.</td></tr>\n";
-          break;
-        }
-
-      }
-      else {
-        $gene_id_query = "SELECT * FROM gene JOIN gene_gene ON(gene_id=gene_id1) WHERE gene_id2=$found_gene_id";
-        $gid_res = pg_query($gene_id_query) or die('Query failed: ' . pg_last_error());
-
-
-        while ($line = pg_fetch_array($gid_res, null, PGSQL_ASSOC)) {
-            $new_gene_name = $line["gene_name"];
-            echo "<tr><td><a href=\"pp_annot.php?name=$new_gene_name\" target=\"_blank\">$new_gene_name</a></td><td><a href=\"pp_annot.php?name=$found_gene_name\" target=\"_blank\">$found_gene_name</a></td><td>$found_gene_version</td></tr>\n";
-
-            $counter++;
-
-            if ($counter >= $max_row) {
-              echo "<tr><td colspan=\"4\">Number of genes found exceeded the limit to display, Please refine your search.</td></tr>\n";
-              break 2;
-            }
-        }
-      }
-
+	$counter++;
+	if ($counter >= $max_row) {
+		echo "<tr><td colspan=\"4\">Number of genes found exceeded the limit to display, Please refine your search.</td></tr>\n";
+        break;
+    }
+	echo "<tr>";
+	$contentsColumn=$line["generow"];
+	$splittedRow=explode(")\",\"(",substr($contentsColumn,3,strlen($contentsColumn)-6));
+	$splittedEntries=array_map(function($item) { return explode(",",$item);},$splittedRow);
+	foreach($versions as $versionItem)
+	{
+		$filteredRow=array_filter($splittedEntries, function($versionArray) use($versionItem) { return $versionArray[1]==$versionItem;});
+		if(sizeof($filteredRow)==0)
+			echo "<td></td>";
+		else
+			echo "<td>".array_pop($filteredRow)[2]."</td>";
+	}
+	echo "</tr>";
+	
   }
   echo "</table>\n\n";
 }

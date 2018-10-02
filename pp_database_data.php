@@ -20,6 +20,6 @@ WHERE ge1.gene_name ILIKE '%" . $searchString . "%'
 }
 function getVersionsQuery()
 {
-	return 'select distinct genome_version from "public"."gene" order by genome_version asc;';
+	return 'select distinct genome_version from "public"."gene" order by genome_version desc;';
 }
 ?>

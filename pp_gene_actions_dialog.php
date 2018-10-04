@@ -2,7 +2,7 @@
 </div>
 <script type="text/javascript">
   $( function() {
-	  $("#dlgGeneActions").dialog({title:"My testing dialog", autoOpen:false,
+	  $("#dlgGeneActions").dialog({title:"Select action to perform with selected gene:", autoOpen:false,
 	  open:function() {
 		  $("#dlgGeneActions").dialog({buttons:[
 			  { text:"close", click:function() {$(this).dialog("close")}},

@@ -155,6 +155,9 @@ GRANT ALL PRIVILEGES ON annotation TO web_usr;
 GRANT ALL PRIVILEGES ON gene_annotation TO web_usr;
 GRANT ALL PRIVILEGES ON annotation_phonetic TO web_usr;
 
+CREATE INDEX ON annotation (annot_term,annot_desc);
+CREATE INDEX ON annotation_phonetic (phoneticDesc,phoneticTerm);
+CREATE INDEX ON gene (gene_name);
 
 -- Run this if you have an existing schema containing filled tables to insert all phonetic descriptions and terms into phonetic table:
 -- INSERT INTO annotation_phonetic (annotation_id, phoneticDesc, phoneticTerm)  select annotation_id, getPhoneticCode(annot_desc), getPhoneticCode(annot_term) FROM annotation;

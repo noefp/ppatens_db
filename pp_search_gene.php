@@ -1,4 +1,6 @@
-
+<?php
+include "pp_gene_actions_dialog.php";
+?>
 <div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_section"><h3>Genes found</h3></div>
 
 <div id="gene_section" class="collapse in">
@@ -60,12 +62,22 @@ echo "</tr>\n";
 		if(sizeof($filteredRow)==0)
 			echo "<td></td>";
 		else
-			echo "<td>".array_pop($filteredRow)[2]."</td>";
+		{
+			$currentVersionRow=array_pop($filteredRow);
+		echo "<td><button name=\"openSelectAction\" value=\"" . $currentVersionRow[0] . "\">".$currentVersionRow[2]."</button></td>";
+		}
 	}
 	echo "</tr>";
 	
   }
   echo "</table>\n\n";
+  echo "<script type=\"text/javascript\">
+  $(\"[name=openSelectAction]\").click(function()  
+  {
+	  $(\"#dlgGeneActions\").data(\"gid\", $(this).prop(\"value\"));
+	  $(\"#dlgGeneActions\").dialog(\"open\");
+  });
+</script>";
 }
 else {
   echo "<p class=\"yellow_col\">No genes found.</p>\n";

@@ -114,33 +114,35 @@ $$;
 CREATE TABLE annotation_phonetic (
     annot_phonetic_id bigserial NOT NULL,
     annotation_id bigint NOT NULL references annotation(annotation_id),
-    phoneticdesc text NOT NULL
+    phoneticDesc text,
+	phoneticTerm text not null
 );
 
-CREATE FUNCTION public.insertannotationphonetic() RETURNS trigger
+CREATE OR REPLACE FUNCTION public.insertannotationphonetic() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
 BEGIN
 	insert into "public"."annotation_phonetic"
-		(annotation_id,phoneticDesc) values(new.annotation_id,getPhoneticCode(new.annot_desc));
+		(annotation_id,phoneticDesc,phoneticTerm) values(new.annotation_id,getPhoneticCode(new.annot_desc),getPhoneticCode(new.annot_term));
 	return new;
 END;
 $$;
 
-CREATE FUNCTION public.updateannotationphonetic() RETURNS trigger
+CREATE OR REPLACE FUNCTION public.updateannotationphonetic() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
 BEGIN
 	update "public"."annotation_phonetic"
-		set phoneticDesc=getPhoneticCode(new.annot_desc)
+		set phoneticDesc=getPhoneticCode(new.annot_desc),
+		phoneticTerm=getPhoneticCode(new.annot_desc)
 		where annotation_id=new.annotation_id;
 	return new;
 END;
 $$;
 
-CREATE TRIGGER insertannotationphonetic AFTER INSERT ON public.annotation FOR EACH ROW EXECUTE PROCEDURE public.insertannotationphonetic();
+CREATE TRIGGER insertAnnotationPhonetic AFTER INSERT ON public.annotation FOR EACH ROW EXECUTE PROCEDURE public.insertannotationphonetic();
 
-CREATE TRIGGER updateannotationphonetic AFTER UPDATE ON public.annotation FOR EACH ROW EXECUTE PROCEDURE public.updateannotationphonetic();
+CREATE TRIGGER updateAnnotationPhonetic AFTER UPDATE ON public.annotation FOR EACH ROW EXECUTE PROCEDURE public.updateannotationphonetic();
 
 
 
@@ -154,3 +156,5 @@ GRANT ALL PRIVILEGES ON gene_annotation TO web_usr;
 GRANT ALL PRIVILEGES ON annotation_phonetic TO web_usr;
 
 
+-- Run this if you have an existing schema containing filled tables to insert all phonetic descriptions and terms into phonetic table:
+-- INSERT INTO annotation_phonetic (annotation_id, phoneticDesc, phoneticTerm)  select annotation_id, getPhoneticCode(annot_desc), getPhoneticCode(annot_term) FROM annotation;

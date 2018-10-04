@@ -64,7 +64,7 @@ echo "</tr>\n";
 		else
 		{
 			$currentVersionRow=array_pop($filteredRow);
-		echo "<td><button name=\"openSelectAction\" value=\"" . $currentVersionRow[0] . "\">".$currentVersionRow[2]."</button></td>";
+		echo "<td><a href=\"\" name=\"openSelectAction\" gid=\"" . $currentVersionRow[0] . "\" gname=\"".$currentVersionRow[2]."\">".$currentVersionRow[2]."</a></td>";
 		}
 	}
 	echo "</tr>";
@@ -74,7 +74,8 @@ echo "</tr>\n";
   echo "<script type=\"text/javascript\">
   $(\"[name=openSelectAction]\").click(function()  
   {
-	  $(\"#dlgGeneActions\").data(\"gid\", $(this).prop(\"value\"));
+	  $(\"#dlgGeneActions\").data(\"gid\", $(this).attr(\"gid\"));
+	  $(\"#dlgGeneActions\").data(\"gname\", $(this).attr(\"gname\"));
 	  $(\"#dlgGeneActions\").dialog(\"open\");
   });
 </script>";

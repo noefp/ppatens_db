@@ -6,7 +6,7 @@
 	  open:function() {
 		  $("#dlgGeneActions").dialog({buttons:[
 			  { text:"close", click:function() {$(this).dialog("close")}},
-				  {text:"Search for annotations", click:function(){window.open("");}}
+				  {text:"Search for annotations", click:function(){window.open(`pp_annot.php?name=${$('#dlgGeneActions').data('gname')}`);}}
 		  ]});
 	  }
 	  });

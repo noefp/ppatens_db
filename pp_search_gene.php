@@ -7,7 +7,7 @@ include "pp_gene_actions_dialog.php";
   <br>
 
 <?php
-$current_version = "3.3";
+//$current_version = "3.3";
 
 // Performing SQL query
 if(isset($_GET["version_search"]) and $_GET["version_search"]=="on")
@@ -27,7 +27,7 @@ else
 	$versions_res=pg_query(getVersionsQuery()) or die('Query failed: ' . pg_last_error());
 	$versions=pg_fetch_all_columns($versions_res) or die("Invalid result after version-request:".pg_last_error());
 }
-	
+	$current_version = max($versions);
 $query = getGenesForSearchAndVersion($search_input, $versions);
 $res = pg_query($query) or die('Query failed: ' . pg_last_error());
 
@@ -56,6 +56,15 @@ echo "</tr>\n";
 	$contentsColumn=$line["generow"];
 	$splittedRow=explode(")\",\"(",substr($contentsColumn,3,strlen($contentsColumn)-6));
 	$splittedEntries=array_map(function($item) { return explode(",",$item);},$splittedRow);
+	$curVersionRow=array_filter($splittedEntries,function($entry) use($current_version) { return $entry[1]==$current_version;});
+	if(sizeof($curVersionRow)>0)
+	{
+		$curGName=$curVersionRow[array_keys($curVersionRow)[0]][2];
+	}
+	else
+	{
+		$curGName="";
+	}
 	foreach($versions as $versionItem)
 	{
 		$filteredRow=array_filter($splittedEntries, function($versionArray) use($versionItem) { return $versionArray[1]==$versionItem;});
@@ -63,8 +72,8 @@ echo "</tr>\n";
 			echo "<td></td>";
 		else
 		{
-			$currentVersionRow=array_pop($filteredRow);
-		echo "<td><a href=\"\" name=\"openSelectAction\" gid=\"" . $currentVersionRow[0] . "\" gname=\"".$currentVersionRow[2]."\">".$currentVersionRow[2]."</a></td>";
+			$currentVersionRow=$filteredRow[array_keys($filteredRow)[0]];
+					echo "<td><a href=\"#dlgGeneActions\" name=\"openSelectAction\" gid=\"" . $currentVersionRow[0] . "\" gname=\"".$currentVersionRow[2]."\" curGName=\" " . $curGName . "\">".$currentVersionRow[2]."</a></td>";
 		}
 	}
 	echo "</tr>";
@@ -76,6 +85,7 @@ echo "</tr>\n";
   {
 	  $(\"#dlgGeneActions\").data(\"gid\", $(this).attr(\"gid\"));
 	  $(\"#dlgGeneActions\").data(\"gname\", $(this).attr(\"gname\"));
+	  $(\"#dlgGeneActions\").data(\"curGName\", $(this).attr(\"curGName\"));
 	  $(\"#dlgGeneActions\").dialog(\"open\");
   });
 </script>";

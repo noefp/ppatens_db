@@ -36,22 +36,23 @@ if (pg_fetch_assoc($res)) {
   $res = pg_query($query) or die('Query failed: ' . pg_last_error());
 
   // Printing results in HTML
-  echo "<table class=\"table annot_table\">\n<tr>";
+  echo "<table class=\"table annot_table\" id=\"genesTable\">\n<thead><tr>";
 foreach ($versions as $versionItem)
 {
+
 echo "<th>".$versionItem."</th>";
 }
-echo "</tr>\n";
+echo "</tr></thead>\n<tbody>\n";
 
 
   $counter = 0;
 
   while ($line = pg_fetch_array($res, null, PGSQL_ASSOC)) {
 	$counter++;
-	if ($counter >= $max_row) {
-		echo "<tr><td colspan=\"4\">Number of genes found exceeded the limit to display, Please refine your search.</td></tr>\n";
-        break;
-    }
+	// if ($counter >= $max_row) {
+//		echo "<tr><td colspan=\"4\">Number of genes found exceeded the limit to display, Please refine your search.</td></tr>\n";
+        // break;
+    //}
 	echo "<tr>";
 	$contentsColumn=$line["generow"];
 	$splittedRow=explode(")\",\"(",substr($contentsColumn,3,strlen($contentsColumn)-6));
@@ -79,8 +80,9 @@ echo "</tr>\n";
 	echo "</tr>";
 	
   }
-  echo "</table>\n\n";
+  echo "</tbody></table>\n\n";
   echo "<script type=\"text/javascript\">
+  $(\"#genesTable\").dataTable();
   $(\"[name=openSelectAction]\").click(function()  
   {
 	  $(\"#dlgGeneActions\").data(\"gid\", $(this).attr(\"gid\"));

@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/js/datatables/datatables.css">
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
     <script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/datatables/datatables.js"></script>
   </head>
 
   <body>

@@ -97,7 +97,7 @@ echo "</tr></thead>\n<tbody>\n";
   }
   echo "</tbody></table>\n\n";
   echo "<script type=\"text/javascript\">
-  $(\"#genesTable\").dataTable({dom:'Bfrtip',buttons:['csv','copy']});
+  $(\"#genesTable\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"{$search_input}\"},'copy']});
 </script>";
 }
 else {

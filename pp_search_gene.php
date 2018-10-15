@@ -73,8 +73,23 @@ echo "</tr></thead>\n<tbody>\n";
 			echo "<td></td>";
 		else
 		{
-			$currentVersionRow=$filteredRow[array_keys($filteredRow)[0]];
-					echo "<td><a href=\"#dlgGeneActions\" name=\"openSelectAction\" gid=\"" . $currentVersionRow[0] . "\" gname=\"".$currentVersionRow[2]."\" curGName=\" " . $curGName . "\">".$currentVersionRow[2]."</a></td>";
+			if(sizeof($filteredRow)==1)
+			{
+				$currentVersionRow=$filteredRow[array_keys($filteredRow)[0]];
+				echo "<td><a href=\"#dlgGeneActions\" name=\"openSelectAction\" gid=\"" . $currentVersionRow[0] . "\" gname=\"".$currentVersionRow[2]."\" curGName=\" " . $curGName . "\">".$currentVersionRow[2]."</a></td>";
+			}
+			else
+			{
+				$tdStr="";
+				foreach($filteredRow as $versionVariant)
+				{
+					$tdStr="{$tdStr} <a href=\"#dlgGeneActions\" name=\"openSelectAction\" gid=\" {$versionVariant[0]}\" gname=\"{$versionVariant[2]}\" curGName=\" {$versionVariant[2]}\">{$versionVariant[2]}</a> |";
+				}
+				$tdStr=substr($tdStr,0,-1);	
+				echo "<td> {$tdStr} </td>";
+				
+			}
+					
 		}
 	}
 	echo "</tr>";

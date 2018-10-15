@@ -11,8 +11,14 @@
     <script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/datatables/datatables.js"></script>
-  </head>
+	<script type="text/javascript" charset="utf8" src="js/datatables/datatables.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.flash.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.jqueryui.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.print.min.js"></script>
+	  </head>
 
   <body>
 

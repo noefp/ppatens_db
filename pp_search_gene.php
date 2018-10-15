@@ -82,7 +82,7 @@ echo "</tr></thead>\n<tbody>\n";
   }
   echo "</tbody></table>\n\n";
   echo "<script type=\"text/javascript\">
-  $(\"#genesTable\").dataTable();
+  $(\"#genesTable\").dataTable({dom:'Bfrtip',buttons:['csv','copy']});
   $(\"[name=openSelectAction]\").click(function()  
   {
 	  $(\"#dlgGeneActions\").data(\"gid\", $(this).attr(\"gid\"));

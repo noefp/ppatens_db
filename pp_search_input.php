@@ -1,4 +1,7 @@
-<?php include_once 'ppdb_header.php';?>
+<?php 
+include_once 'ppdb_header.php';
+include "pp_compare_genes.php";
+?>
 
 <div class="page_container">
 
@@ -17,7 +20,7 @@
   <button type="submit" class="btn btn-default pull-right">Search</button>
 </form>
 
-
+<button id="btnCompare" value="Compare genes"></button>
 <br>
 <br>
 </div>
@@ -67,7 +70,7 @@ $(document).ready(function () {
   });
 
 });
-
+$("#btnCompare").click(function() {$("#dlgEnterMultiple").dialog("open");});
 </script>
 
 

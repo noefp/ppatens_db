@@ -1,5 +1,5 @@
 <div id="dlgEnterMultiple">
-<form action="compareGenes.php" method="get">
+<form action="pp_compare_genes.php" method="get">
 <textarea name="txtGenes"></textarea>
 <input type="submit" value="compare"/>
 </form>

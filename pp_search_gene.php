@@ -1,5 +1,5 @@
 <?php
-include "pp_gene_actions_dialog.php";
+$seperator=';'
 ?>
 <div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_section"><h3>Genes found</h3></div>
 
@@ -83,7 +83,7 @@ echo "</tr></thead>\n<tbody>\n";
 				$tdStr="";
 				foreach($filteredRow as $versionVariant)
 				{
-					$tdStr="{$tdStr} <a href=\"pp_annot.php?name={$versionVariant[2]}\" target=\"_blank\" name=\"openSelectAction\" gid=\" {$versionVariant[0]}\" gname=\"{$versionVariant[2]}\" curGName=\" {$versionVariant[2]}\">{$versionVariant[2]}</a> |";
+					$tdStr="{$tdStr}<a href=\"pp_annot.php?name={$versionVariant[2]}\" target=\"_blank\" name=\"openSelectAction\" gid=\" {$versionVariant[0]}\" gname=\"{$versionVariant[2]}\" curGName=\" {$versionVariant[2]}\">{$versionVariant[2]}</a>{$seperator}";
 				}
 				$tdStr=substr($tdStr,0,-1);	
 				echo "<td> {$tdStr} </td>";
@@ -97,7 +97,7 @@ echo "</tr></thead>\n<tbody>\n";
   }
   echo "</tbody></table>\n\n";
   echo "<script type=\"text/javascript\">
-  $(\"#genesTable\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"{$search_input}\"},'copy']});
+  $(\"#genesTable\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy']});
 </script>";
 }
 else {

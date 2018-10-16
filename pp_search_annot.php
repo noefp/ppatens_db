@@ -18,7 +18,7 @@ if(isset($_GET["exact_search"]) and $_GET["exact_search"]=="on")
 }
 else
 {
- $query="SELECT an.*, gene_name FROM (SELECT getPhoneticCode('$search_input') AS phoneticSearchString) as pho,  (annotation an inner join annotation_phonetic aph on an.annotation_id=aph.annotation_id) JOIN gene_annotation gan on gan.annotation_id=an.annotation_id JOIN gene gen on gen.gene_id=gan.gene_id WHERE aph.phoneticDesc SIMILAR TO '%' || pho.phoneticSearchString || '%' OR aph.phoneticTerm ILIKE '%' || pho.phoneticSearchString || '%'";
+ $query="SELECT * FROM annotation JOIN gene_annotation USING(annotation_id) JOIN gene USING(gene_id) WHERE annot_desc %> '%$desc_input%' OR annot_term ILIKE '%$search_input%'";
 }
 
 // $query = "SELECT * FROM annotation WHERE annot_desc ILIKE '%$search_input%' OR annot_term ILIKE '%$search_input%'";

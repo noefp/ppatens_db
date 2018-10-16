@@ -26,10 +26,10 @@ $res = pg_query($query) or die('Query failed: ' . pg_last_error());
 
 if (pg_fetch_assoc($res)) {
   // Printing results in HTML
-  echo "<table class=\"table annot_table\">\n<tr><th>Gene</th><th>Term</th><th>Description</th><th>Source</th></tr>\n";
+  echo "<table class=\"table annot_table\" id=\"tblAnnotations\">\n<thead><tr><th>Gene</th><th>Term</th><th>Description</th><th>Source</th></tr></thead>\n";
+  echo "<tbody>\n";
 
-  $counter = 0;
-
+  
   while ($line = pg_fetch_array($res, null, PGSQL_ASSOC)) {
       $found_gene = $line["gene_name"];
       $found_term = $line["annot_term"];
@@ -37,15 +37,13 @@ if (pg_fetch_assoc($res)) {
       $found_type = $line["annot_type"];
 
       echo "<tr><td><a href=\"pp_annot.php?name=$found_gene\" target=\"_blank\">$found_gene</a></td><td>$found_term</td><td>$found_desc</td><td style=\"white-space: nowrap;\">$found_type</td></tr>\n";
-      $counter++;
-
-      if ($counter >= $max_row) {
-        echo "<tr><td colspan=\"4\">Number of annotations found exceeded the limit to display, Please refine your search.</td></tr>\n";
-        break;
-      }
+      
   }
 
-  echo "</table>\n\n";
+  echo "</tbody></table>\n\n";
+  echo "<script type=\"text/javascript\">
+  $(\"#tblAnnotations\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});
+  </script>";
 }
 else {
   echo "<p class=\"yellow_col\">No annotations found.</p>\n";

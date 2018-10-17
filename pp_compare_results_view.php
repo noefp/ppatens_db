@@ -9,7 +9,10 @@ $dbconn = pg_connect($connectionString)
 $dbRes=pg_query($query) or die('Query failed: ' . pg_last_error());
 echo "<table class=\"table\" id=\"tblResults\"><thead><tr><th>Gene name</th><th>Version</th></tr></thead><tbody>";
 while($row=pg_fetch_array($dbRes,null, PGSQL_ASSOC)) {
-	echo "<tr><td><a href=\"pp_annot.php?name={$row["gene_name"]}\">{$row["gene_name"]}</a></td><td>{$row["genome_version"]}</td></tr>";
+	if(empty($row["gene_id"]))
+		echo "<tr><td>{$row["gene_name"]}</td><td>!</td></tr>";
+	else
+		echo "<tr><td><a href=\"pp_annot.php?name={$row["gene_name"]}\">{$row["gene_name"]}</a></td><td>{$row["genome_version"]}</td></tr>";
 }	
 echo "</tbody></table>\n";
 echo "<script type=\"text/javascript\">\n$(\"#tblResults\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});\n</script>";

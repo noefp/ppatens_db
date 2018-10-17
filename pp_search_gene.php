@@ -9,7 +9,7 @@ $seperator=';'
 <?php
 //$current_version = "3.3";
 
-// Performing SQL query
+// Retrieving versions to use before SQL query is performed.
 if(isset($_GET["version_search"]) and $_GET["version_search"]=="on")
 {
 	if(isset($_GET["selGeneVersion"]))

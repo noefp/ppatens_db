@@ -7,11 +7,12 @@ $query="SELECT gene_id, searchValues.gene_name, genome_version FROM gene right j
 $dbconn = pg_connect($connectionString)
 	or die('Could not connect: ' . pg_last_error());
 $dbRes=pg_query($query) or die('Query failed: ' . pg_last_error());
-echo "<table><thead><tr><th>Gene name</th><th>Version</th></tr></thead><tbody>";
+echo "<table class=\"table\" id=\"tblResults\"><thead><tr><th>Gene name</th><th>Version</th></tr></thead><tbody>";
 while($row=pg_fetch_array($dbRes,null, PGSQL_ASSOC)) {
 	echo "<tr><td><a href=\"pp_annot.php?name={$row["gene_name"]}\">{$row["gene_name"]}</a></td><td>{$row["genome_version"]}</td></tr>";
 }	
-echo "</tbody></table>";
+echo "</tbody></table>\n";
+echo "<script type=\"text/javascript\">\n$(\"#tblResults\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});\n</script>";
 // Freeing result and closing connection.
 pg_free_result($dbRes);
 pg_close($dbconn);

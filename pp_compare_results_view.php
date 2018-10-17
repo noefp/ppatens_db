@@ -15,7 +15,7 @@ while($row=pg_fetch_array($dbRes,null, PGSQL_ASSOC)) {
 		echo "<tr><td><a href=\"pp_annot.php?name={$row["gene_name"]}\">{$row["gene_name"]}</a></td><td>{$row["genome_version"]}</td></tr>";
 }	
 echo "</tbody></table>\n";
-echo "<script type=\"text/javascript\">\n$(\"#tblResults\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});\n</script>";
+echo "<script type=\"text/javascript\">\n$(\"#tblResults\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"geneList\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});\n</script>";
 // Freeing result and closing connection.
 pg_free_result($dbRes);
 pg_close($dbconn);

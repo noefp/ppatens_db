@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="js/datatables/datatables.css">
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/DataTables/Select-1.2.6/css/select.dataTables.min.css">
     <script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -19,6 +20,7 @@
 	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.html5.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.jqueryui.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.print.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/DataTables/Select-1.2.6/js/dataTables.select.min.js"></script>
 	  </head>
 
   <body>

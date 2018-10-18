@@ -2,8 +2,8 @@
 include_once "ppdb_header.php";
 include "pp_database_data.php";
 $gNamesArr=explode("\n",$_GET["txtGenes"]);
-$gNameValues=implode(",",array_map(function($input) { return trim(pg_escape_string($input)) ;},$gNamesArr));
-$query="SELECT gene_id, searchValues.gene_name, genome_version FROM gene right join unnest('{{$gNameValues}}'::text[]) WITH ORDINALITY AS searchValues(gene_name,ord) using(gene_name) order by searchValues.ord asc";
+$gNameValues=substr(implode(",",array_map(function($input) {if(empty(trim($input))) return ""; else  return "'" . trim(pg_escape_string($input))."'" ;},$gNamesArr)),0,-1);
+$query="SELECT gene_id, searchValues.gene_name, genome_version FROM gene right join unnest(array[{$gNameValues}]) WITH ORDINALITY AS searchValues(gene_name,ord) using(gene_name) order by searchValues.ord asc";
 $dbconn = pg_connect($connectionString)
 	or die('Could not connect: ' . pg_last_error());
 $dbRes=pg_query($query) or die('Query failed: ' . pg_last_error());

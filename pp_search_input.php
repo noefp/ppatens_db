@@ -20,7 +20,7 @@ include "pp_compare_genes.php";
   <button type="submit" class="btn btn-default pull-right">Search</button>
 </form>
 
-<button id="btnCompare" value="Compare genes"></button>
+<button id="btnCompare" value="Compare genes" class="btn btn-default"></button>
 <br>
 <br>
 </div>

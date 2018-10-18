@@ -18,12 +18,12 @@
 				$('[name="selGeneVersion[]"]').prop('disabled',true);
 		});
 	</script>
-	<div class="checkbox">
+	<div class="form-check-inline">
 		<?php
 			$versions=pg_fetch_all_columns($versions_res) or die("Invalid result after version-request:".pg_last_error());
 			foreach($versions as $version)
 			{
-				echo "<input type='checkbox' disabled='true' name='selGeneVersion[]' value='" . $version ."'>" . $version . "</input>";
+				echo "<input type='checkbox' disabled='true' name='selGeneVersion[]' value='" . $version . " class='form-check-input'>" . $version . "</input>";
 			}
 		?>
 	</div>

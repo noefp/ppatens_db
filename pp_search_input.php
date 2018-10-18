@@ -20,7 +20,7 @@ include "pp_compare_genes.php";
   <button type="submit" class="btn btn-default pull-right">Search</button>
 </form>
 
-<button id="btnCompare" value="Compare genes" class="btn btn-default"></button>
+<button id="btnCompare" class="btn btn-default" data-toggle="modal" data-target="#dlgEnterMultiple">Compare genes</button>
 <br>
 <br>
 </div>
@@ -70,7 +70,7 @@ $(document).ready(function () {
   });
 
 });
-$("#btnCompare").click(function() {$("#dlgEnterMultiple").dialog("open");});
+
 </script>
 
 

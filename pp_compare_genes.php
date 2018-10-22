@@ -8,9 +8,11 @@
 			</button>
 		</div>
 		<div class="modal-body">
-		<form method="get" action="pp_compare_results_view.php">
-			<textarea name="txtGenes"></textarea>
-			<input type="submit" class="btn btn-search">search</input>
+			<form method="get" action="pp_compare_results_view.php">
+				<textarea name="txtGenes"></textarea>
+				<input type="checkbox" name="chkShowAnnot">Show annotations</input>
+				<input type="submit" class="btn btn-search">search</input>
+			</form>
 		</div>
 		<div class="modal-footer">
 		</div>

@@ -47,10 +47,17 @@ else
 		if(empty($row["gene_id"]))
 			echo "<tr><td>{$row["gene_name"]}</td><td>!</td>{$annotStr}</tr>";
 		else
-			echo "<tr><td><a href=\"pp_annot.php?name={$row["gene_name"]}\">{$row["gene_name"]}</a></td><td>{$row["genome_version"]}</td>{$annotStr}</tr>";
+			echo "<tr id='${row["gene_name"]}' ><td><a href=\"pp_annot.php?name={$row["gene_name"]}\">{$row["gene_name"]}</a></td><td>{$row["genome_version"]}</td>{$annotStr}</tr>";
 	}	
 	echo "</tbody></table>\n";
-	echo "<script type=\"text/javascript\">\n$(\"#tblResults\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"geneList\",fieldSeparator:\"\\t\"},'copy'],bFilter:false,ordering:false,select:\"multi+shiftString\"});\n</script>";
+	echo "<script type=\"text/javascript\">\n$(\"#tblResults\").dataTable({dom:'Bfrtip',
+	buttons:[{text:'fasta', action:function(e,dt,node,config) 
+	{ 
+	window.open(\"pp_blastdbcmd.php?filename=results.fasta&\" + dt.rows({selected:true}).ids().toArray().filter(function(curId) { return curId != 'undefined';}).map(function(curId) {return \"gids[]=\"+curId;}).join('\&'));
+	}},
+	'selectAll', 'selectNone',
+	{extend:'csv', title:\"geneList\",fieldSeparator:\"\\t\"},
+	'copy'],bFilter:false,ordering:false,select:\"multi+shiftString\"});\n</script>";
 	// Freeing result and closing connection.
 	pg_free_result($dbRes);
 	pg_close($dbconn);

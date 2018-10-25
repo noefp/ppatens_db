@@ -15,7 +15,8 @@ include "pp_compare_genes.php";
 	<input type="checkbox" class="checkbox" id="chkExactSearch"name="exact_search">Exact search</input>
   </div>
   <?php
-	include('pp_search_gene_version_input.php');
+	include_once('pp_search_gene_version_input.php');
+	getCheckboxes("chkGeneVersions", "selGeneVersion");
   ?>
   <button type="submit" class="btn btn-default pull-right">Search</button>
 </form>

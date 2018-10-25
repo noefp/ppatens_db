@@ -6,13 +6,14 @@ include_once "pp_paths.php";
 
 function getPossibleDbs() 
 {
-	exec("c:\\users\\vmb\\lumex.bat find " . getBlastdbBaseLocation() ."*.fasta.pin",$ret);
+	exec("c:\\users\\vmb\\lumex.bat find " . getBlastdbBaseLocation() ."*.fasta.pin -maxdepth 0 -readable -type f -printf '%f\\n'",$ret);
 	return $ret;
 }
+
 function getFastaFile($gids,$dbPath)
 {
 	$blastdbcmdPath=getBlastdbcmdPath();
-	$blastDbLocation=$dbPath;
+	$blastDbLocation=getBlastdbBaseLocation()  . $dbPath .".fasta";
 	exec("{$blastdbcmdPath} -db {$blastDbLocation} -entry " . escapeshellarg(implode(",",$gids)),$ret);
 	return implode("\n",$ret);
 
@@ -32,9 +33,12 @@ if(isset($_GET["gids"]))
 	echo implode("\n",array_map(function($row) { return "<input type=\"hidden\" value=\"{$row}\" name=\"gids[]\"></input>";},$_GET["gids"]));
 	echo "<input type=\"hidden\" name=\"filename\" value=\"{$_GET["filename"]}\"></input>";
 	echo "<select name=\"dbPath\">";
-		echo implode('\n',array_map(function($path){$path=substr($path,0,-4);return "<option value=\"{$path}\">{$path}</option>";},$dbs));
+		echo implode('\n',array_map(function($path){$path=substr($path,0,-10);return "<option value=\"{$path}\">" . 
+		str_replace("_", " ",$path) 
+		."</option>";},$dbs));
+		echo "</select>";
 		echo "<input type=\"submit\"></input>";
-		echo "</select></form></body></html>";
+		echo "</form></body></html>";
 	}
 	
 ?>

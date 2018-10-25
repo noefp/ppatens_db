@@ -10,9 +10,16 @@ if(sizeof($gNamesArr)==0)
 else
 {
 	// Connecting to db
-	$dbconn = pg_connect($connectionString)
+	$dbconn = pg_connect(getConnectionString())
 	or die('Could not connect: ' . pg_last_error());
-	
+	$versionWhere="";
+	if(isset($_GET["chkVersionName"]) and  sizeof($_GET["chkVersionName"])>0)
+	{
+	$versionWhere="where g.genome_version in(" . implode(",",
+	array_map( function($versionItem) 
+		{return "'" . pg_escape_string($versionItem) . "'"; },$_GET["chkVersionName"])
+	) . ") or g.gene_name=searchValues.search_name";
+	}
 	// Getting all annotation types.
 	$query="SELECT distinct annot_type from annotation order by annot_type";
 	$res=pg_query($query) or die("Couldn't query database.");
@@ -24,6 +31,7 @@ else
 	inner join (gene g2 inner join gene_annotation on gene_annotation.gene_id=g2.gene_id) on g2.gene_id=gene_id1 or g2.gene_id=gene_id2
 	inner join annotation on annotation.annotation_id=gene_annotation.annotation_id
 	right join unnest(array[{$gNameValues}]) WITH ORDINALITY AS searchValues(search_name,ord) on search_name=g2.gene_name
+		{$versionWhere}
 	group by g.gene_id, g.gene_name, searchValues.ord, g.genome_version 
 	order by searchValues.ord asc";
 	$dbRes=pg_query($query) or die('Query failed: ' . pg_last_error());

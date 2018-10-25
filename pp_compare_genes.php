@@ -12,17 +12,12 @@
 			<form method="get" action="pp_compare_results_view.php">
 				<textarea name="txtGenes" id="txtGenes"></textarea>
 				<input type="checkbox" name="chkShowAnnot">Show annotations</input>
+				<?php 
+				include_once "pp_search_gene_version_input.php";
+				getCheckboxes("chkGenesModalId", "chkVersionName");
+				?>
 				<input type="submit" class="btn btn-search">search</input>
 			</form>
-							<button id="btnDownload">Download as fasta</button>
-
-			<script type="text/javascript">
-				$("#btnDownload").click(function()
-				{
-					
-					window.open("pp_blastdbcmd.php?filename=results.fasta&" + $("#txtGenes").prop("value").split("\n").map(function(row){return "gids[]=" + row;}).join("&"));
-				});
-			</script>
 		</div>
 		<div class="modal-footer">
 		</div>

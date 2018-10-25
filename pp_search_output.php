@@ -6,7 +6,7 @@
 <?php
 // Connecting, selecting database
 include_once 'pp_database_data.php';
-$dbconn = pg_connect($connectionString)
+$dbconn = pg_connect(getConnectionString())
     or die('Could not connect: ' . pg_last_error());
 
 $search_input = test_input($_GET["search_keywords"]);

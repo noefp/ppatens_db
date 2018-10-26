@@ -1,6 +1,7 @@
-<?php 
+<?php
 include_once 'ppdb_header.php';
 include "pp_compare_genes.php";
+include "pp_fasta_download.php";
 ?>
 
 <div class="page_container">
@@ -22,6 +23,7 @@ include "pp_compare_genes.php";
 </form>
 
 <button id="btnCompare" class="btn btn-default" data-toggle="modal" data-target="#dlgEnterMultiple">Compare genes</button>
+<button id="btnDownload" class="btn btn-default" data-toggle="modal" data-target="#dlgDownload">Download sequences</button>
 <br>
 <br>
 </div>

@@ -10,16 +10,9 @@ $seperator=';'
 //$current_version = "3.3";
 
 // Retrieving versions to use before SQL query is performed.
-if(isset($_GET["version_search"]) and $_GET["version_search"]=="on")
+if(isset($_GET["selGeneVersion"]))
 {
-	if(isset($_GET["selGeneVersion"]))
-	{
-		$versions=$_GET["selGeneVersion"];
-	}
-		else
-		{
-			$versions=[];
-		}
+	$versions=$_GET["selGeneVersion"];
 }
 else
 {
@@ -27,7 +20,7 @@ else
 	$versions_res=pg_query(getVersionsQuery()) or die('Query failed: ' . pg_last_error());
 	$versions=pg_fetch_all_columns($versions_res) or die("Invalid result after version-request:".pg_last_error());
 }
-	$current_version = max($versions);
+$current_version = max($versions);
 $query = getGenesForSearchAndVersion($search_input, $versions);
 $res = pg_query($query) or die('Query failed: ' . pg_last_error());
 

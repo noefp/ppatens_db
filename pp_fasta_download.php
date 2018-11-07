@@ -9,6 +9,15 @@
 		</div>
 		<div class="modal-body">
 				<textarea class="form-control" id="txtDownloadGenes"></textarea>
+				<?php
+				include "pp_blastdbcmd.php";
+				$dbs=getPossibleDbs();
+	echo "<select id=\"dbPath\">";
+		echo implode('\n',array_map(function($path){$path=substr($path,0,-10);return "<option value=\"{$path}\">" . 
+		str_replace("_", " ",$path) 
+		."</option>";},$dbs));
+		echo "</select>";
+		?>
 				<button class="button" id="btnSend">Download</button>
 				<script type="text/javascript">
 				$("#btnSend").click(function(){
@@ -16,7 +25,9 @@
 					{
 						return "gids[]=" + row.trim();
 					}).join("&");
-					window.open("pp_blastdbcmd.php?filename=results.fasta&" + paramStr);
+paramStr+="&dbPath="+$("#dbPath").val();
+paramStr+="&filename=pp_dwl_"+$("#dbPath").val() +"_"+ new Date().toLocaleDateString()+".fasta";
+					window.open("pp_blastdbcmd.php?" + paramStr);
 					
 				})
 				</script>

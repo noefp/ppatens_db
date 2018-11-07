@@ -17,13 +17,13 @@ include "pp_fasta_download.php";
   </div>
   <?php
 	include_once('pp_search_gene_version_input.php');
-	getCheckboxes("chkGeneVersions", "selGeneVersion");
+	getCheckboxes("selGeneVersion");
   ?>
   <button type="submit" class="btn btn-default pull-right">Search</button>
 </form>
 
-<button id="btnCompare" class="btn btn-default" data-toggle="modal" data-target="#dlgEnterMultiple">Compare genes</button>
-<button id="btnDownload" class="btn btn-default" data-toggle="modal" data-target="#dlgDownload">Download sequences</button>
+<input type="text" readonly id="txtCompare" value="Compare genes" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/>
+<input type="text" readonly id="txtDownload" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgDownload" value="Download sequences"/>
 <br>
 <br>
 </div>

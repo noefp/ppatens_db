@@ -14,7 +14,7 @@
 				<input type="checkbox" name="chkShowAnnot">Show annotations</input>
 				<?php 
 				include_once "pp_search_gene_version_input.php";
-				getCheckboxes("chkGenesModalId", "chkVersionName");
+				getCheckboxes("chkVersionName");
 				?>
 				<input type="submit" class="btn btn-search">search</input>
 			</form>

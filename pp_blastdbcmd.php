@@ -6,7 +6,7 @@ include_once "pp_paths.php";
 
 function getPossibleDbs() 
 {
-	exec("c:\\users\\vmb\\lumex.bat find " . getBlastdbBaseLocation() ."*.fasta.pin -maxdepth 0 -readable -type f -printf '%f\\n'",$ret);
+	exec("c:\\users\\vmb\\lumex.bat find " . getBlastdbBaseLocation() ."*.fasta.*in -maxdepth 0 -readable -type f -printf '%f\\n'",$ret);
 	return $ret;
 }
 

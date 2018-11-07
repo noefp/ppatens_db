@@ -10,7 +10,7 @@ $current_version = "3.3";
 
 // Connecting, selecting database
 include_once 'pp_database_data.php';
-$dbconn = pg_connect(getConnectionString)
+$dbconn = pg_connect(getConnectionString())
     or die('Could not connect: ' . pg_last_error());
 
 $gene_name = test_input($_GET["name"]);

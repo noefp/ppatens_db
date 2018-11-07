@@ -26,7 +26,7 @@
 						return "gids[]=" + row.trim();
 					}).join("&");
 paramStr+="&dbPath="+$("#dbPath").val();
-paramStr+="&filename=pp_dwl_"+$("#dbPath").val() +"_"+ new Date().toLocaleDateString()+".fasta";
+paramStr+="&filename=pp_GmlDB_"+$("#dbPath").val() +"_"+ new Date().toLocaleDateString()+".fasta";
 					window.open("pp_blastdbcmd.php?" + paramStr);
 					
 				})

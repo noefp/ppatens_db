@@ -77,7 +77,7 @@ foreach($versions as $versionItem)
 			// Creating columns for each annotation filled with content if a matching annotation was found in the array.
 			$annotStr=implode(array_map(function($type) use($annotEntries) {return "<td>" . 
 					implode(
-						array_map(function($currAnnot){return $currAnnot[0];},
+						array_map(function($currAnnot){return str_replace("\\\"","",$currAnnot[0]);},
 							array_filter($annotEntries,function($item) use($type) { return $item[1] == $type;})),
 					
 					";")

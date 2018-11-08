@@ -7,13 +7,13 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="js/datatables/datatables.css">
+	<link rel="stylesheet" type="text/css" href="css/datatables.css">
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
-	<link rel="stylesheet" href="css/DataTables/Select-1.2.6/css/select.dataTables.min.css">
+	<link rel="stylesheet" href="js/DataTables/Select-1.2.6/css/select.dataTables.min.css">
     <script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/datatables/datatables.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="js/DataTables/datatables.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/dataTables.buttons.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.bootstrap.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.flash.min.js"></script>

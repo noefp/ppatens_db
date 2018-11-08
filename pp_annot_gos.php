@@ -2,9 +2,9 @@
 <!-- <h3>Gene Ontology (GO)</h3> -->
 <!-- <br> -->
 
-<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#go_section"><h3>Gene Ontology (GO)</h3></div>
+<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#go_section"><h3 class="yellow_col">Gene Ontology (GO)</h3></div>
 
-<div id="go_section" class="collapse in">
+<div class="yellow_col" id="go_section" class="collapse in">
   <br>
 
 

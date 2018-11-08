@@ -29,20 +29,21 @@ Pp3c1_21730V3.1
       </div>
 
 				<button class="button btn btn-success pull-right" id="btnSend">Download</button>
-				<script type="text/javascript">
-				$("#btnSend").click(function(){
-					var paramStr=$("#txtDownloadGenes").val().split("\n").map(function(row)
-					{
-						return "gids[]=" + row.trim();
-					}).join("&");
-paramStr+="&dbPath="+$("#dbPath").val();
-paramStr+="&filename=pp_GmlDB_"+$("#dbPath").val() +"_"+ new Date().toLocaleDateString()+".fasta";
-					window.open("pp_blastdbcmd.php?" + paramStr);
-
-          $("#dlgDownload").modal("hide");
-				})
-				</script>
 		</div>
 	</div>
 </div>
 </div>
+
+<script type="text/javascript">
+  $("#btnSend").click(function(){
+    var paramStr=$("#txtDownloadGenes").val().split("\n").map(function(row)
+    {
+      return "gids[]=" + row.trim();
+    }).join("&");
+  paramStr+="&dbPath="+$("#dbPath").val();
+  paramStr+="&filename=Pp_GMLDB_"+$("#dbPath").val() +"_"+ new Date().toLocaleDateString()+".fasta";
+    window.open("pp_blastdbcmd.php?" + paramStr);
+
+    $("#dlgDownload").modal("hide");
+  })
+</script>

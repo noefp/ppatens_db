@@ -15,7 +15,8 @@
 			$versions=pg_fetch_all_columns($versions_res) or die("Invalid result after version-request:".pg_last_error());
 			foreach($versions as $version)
 			{
-				echo "<input type='checkbox' checked name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>" . $version . "</input>";
+				echo "<label class='checkbox-inline'><input type='checkbox' checked name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>" . $version . "</label>";
+				// echo "<input type='checkbox' checked name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>" . $version . "</input>";
 			}
 		?>
 	</div>

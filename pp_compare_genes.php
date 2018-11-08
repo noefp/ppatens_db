@@ -1,25 +1,33 @@
 <div id="dlgEnterMultiple" class="modal fade" role="dialog" tabIndex=-1 aria-labelledby="Enter gene identifiers to search":" >
-  <div class="modal-dialog" role="document">
+  <!-- <div class="modal-dialog" role="document"> -->
+  <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">Enter gene identifiers to search:</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title" id="exampleModalLabel">Gene version lookup</h4>
 		</div>
-		<div class="modal-body">
-			
-			<form method="get" action="pp_compare_results_view.php">
-				<textarea name="txtGenes" id="txtGenes"></textarea>
+		<div class="modal-body" style="height:355px">
+
+			<form id="gene_version_lookup">
+			<!-- <form method="get" action="pp_compare_results_view.php"> -->
+			<!-- <form id="gene_version_lookup" method="post" action="pp_compare_results_view.php"> -->
+        <label for="txtGenes">Paste a list of gene IDs</label>
+				<textarea name="txtGenes" id="txtGenes" class="form-control" rows="10">
+Pp3c1_10000V3.1
+Pp3c2_3600V3.1
+Pp3c1_21730V3.1
+        </textarea>
+
 				<input type="checkbox" name="chkShowAnnot">Show annotations</input>
-				<?php 
+				<?php
 				include_once "pp_search_gene_version_input.php";
 				getCheckboxes("chkVersionName");
 				?>
-				<input type="submit" class="btn btn-search">search</input>
+				<button type="submit" class="btn btn-success pull-right" form="gene_version_lookup" formaction="pp_compare_results_view.php" formmethod="post" formenctype="multipart/form-data">search</button>
+				<!-- <input type="submit" class="btn btn-search">search</input> -->
+
 			</form>
-		</div>
-		<div class="modal-footer">
+
 		</div>
 	</div>
 </div>

@@ -75,7 +75,8 @@ html,body {
 .navbar-default .navbar-brand:hover {
     color: #ffff00;
 }
-th,td,h3,label, .yellow_col {
+/*th,td,h3,label, .yellow_col {*/
+.yellow_col {
 	color: #ffcc00;
 }
 
@@ -90,7 +91,3 @@ a:hover {
 #ppatens_search_form{
   height:200px
 }
-
-
-.form-group {color:#ffffff}
-.modal-dialog {background-color:#ff00ff}

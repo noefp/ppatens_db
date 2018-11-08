@@ -42,7 +42,7 @@ if (pg_fetch_assoc($res)) {
 
   echo "</tbody></table>\n\n";
   echo "<script type=\"text/javascript\">
-  $(\"#tblAnnotations\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', text:'Download', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});
+  $(\"#tblAnnotations\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', text:'Download', title:\"PpGMLDB_{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});
   </script>";
 }
 else {

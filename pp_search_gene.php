@@ -5,6 +5,7 @@ $seperator=';'
 
 <div id="gene_section" class="collapse in">
   <br>
+  <div class="data_table_frame">
 
 <?php
 //$current_version = "3.3";
@@ -90,15 +91,16 @@ echo "</tr></thead>\n<tbody>\n";
   }
   echo "</tbody></table>\n\n";
   echo "<script type=\"text/javascript\">
-  $(\"#genesTable\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});
+  $(\"#genesTable\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', text:'Download', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});
 </script>";
 }
 else {
-  echo "<p class=\"yellow_col\">No genes found.</p>\n";
+  echo "<p>No genes found.</p>\n";
 }
 
 // Free resultset
 pg_free_result($res);
 ?>
 
+  </div>
 </div>

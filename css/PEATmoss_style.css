@@ -11,7 +11,7 @@ html,body {
 }
 
 .page_container {
-  max-width: 900px;
+  max-width: 950px;
   margin:auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -80,13 +80,11 @@ html,body {
 	color: #ffcc00;
 }
 
-.table {
-  background-color: #fff;
-}
 
 .data_table_frame {
   background-color: #fff;
-  padding:20px;
+  padding:10px;
+  overflow-x: scroll;
 }
 
 a {

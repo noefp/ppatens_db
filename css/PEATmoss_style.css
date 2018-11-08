@@ -80,6 +80,15 @@ html,body {
 	color: #ffcc00;
 }
 
+.table {
+  background-color: #fff;
+}
+
+.data_table_frame {
+  background-color: #fff;
+  padding:20px;
+}
+
 a {
 	color: #6ae;
 }

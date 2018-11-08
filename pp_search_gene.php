@@ -1,7 +1,7 @@
 <?php
 $seperator=';'
 ?>
-<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_section"><h3>Genes found</h3></div>
+<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_section"><h3 class="yellow_col">Genes found</h3></div>
 
 <div id="gene_section" class="collapse in">
   <br>
@@ -78,15 +78,15 @@ echo "</tr></thead>\n<tbody>\n";
 				{
 					$tdStr="{$tdStr}<a href=\"pp_annot.php?name={$versionVariant[2]}\" target=\"_blank\" name=\"openSelectAction\" gid=\" {$versionVariant[0]}\" gname=\"{$versionVariant[2]}\" curGName=\" {$versionVariant[2]}\">{$versionVariant[2]}</a>{$seperator}";
 				}
-				$tdStr=substr($tdStr,0,-1);	
+				$tdStr=substr($tdStr,0,-1);
 				echo "<td> {$tdStr} </td>";
-				
+
 			}
-					
+
 		}
 	}
 	echo "</tr>";
-	
+
   }
   echo "</tbody></table>\n\n";
   echo "<script type=\"text/javascript\">

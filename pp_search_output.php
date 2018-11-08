@@ -12,7 +12,7 @@ $dbconn = pg_connect(getConnectionString())
 $search_input = test_input($_GET["search_keywords"]);
 $max_row = 25;
 
-echo "\n<br><h3>Search Input</h3>\n<div class=\"well\">$search_input</div><br>\n";
+echo "\n<br><h3 class=\"yellow_col\">Search Input</h3>\n<div class=\"well\">$search_input</div><br>\n";
 
 function test_input($data) {
   $data = preg_replace('/[\<\>]+/',' ',$data);

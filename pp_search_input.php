@@ -13,17 +13,29 @@ include "pp_fasta_download.php";
   <div class="form-group">
     <label for="search_box">Insert a gene ID or annotation keywords</label>
     <input type="search_box" class="form-control" id="search_box" name="search_keywords">
-	<input type="checkbox" class="checkbox" id="chkExactSearch"name="exact_search">Exact search</input>
+	<!-- <input type="checkbox" class="checkbox" id="chkExactSearch"name="exact_search">Exact search</input> -->
+  	<div class="checkbox">
+      <label><input type="checkbox" id="chkExactSearch"name="exact_search"> Exact search</label>
+    </div>
   </div>
-  <?php
-	include_once('pp_search_gene_version_input.php');
-	getCheckboxes("selGeneVersion");
-  ?>
+
   <button type="submit" class="btn btn-default pull-right">Search</button>
 </form>
 
-<input type="text" readonly id="txtCompare" value="Compare genes" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/>
-<input type="text" readonly id="txtDownload" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgDownload" value="Download sequences"/>
+
+<!-- <input type="text" readonly id="txtCompare" placeholder="Compare genes" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/> -->
+<div class="form-group">
+  <label for="search_box">Find other gene versions for a list of genes</label>
+  <input type="text" id="txtCompare" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/>
+</div>
+
+<br>
+<!-- <input type="text" readonly id="txtDownload" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgDownload" value="Download sequences"/> -->
+<div class="form-group">
+  <label for="search_box">Download sequences for a list of genes</label>
+  <input type="text" id="txtDownload" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgDownload"/>
+</div>
+
 <br>
 <br>
 </div>

@@ -1,7 +1,7 @@
 <?php
 include_once "ppdb_header.php";
 include "pp_database_data.php";
-$gNamesArr=array_filter(explode("\n",$_GET["txtGenes"]),function($gName) {return ! empty($gName);});
+$gNamesArr=array_filter(explode("\n",trim($_GET["txtGenes"])),function($gName) {return ! empty($gName);});
 
 if(sizeof($gNamesArr)==0)
 {

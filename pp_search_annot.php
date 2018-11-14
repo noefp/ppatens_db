@@ -41,9 +41,6 @@ if (pg_fetch_assoc($res)) {
   }
 
   echo "</tbody></table>\n\n";
-  echo "<script type=\"text/javascript\">
-  $(\"#tblAnnotations\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', text:'Download', title:\"PpGMLDB_{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});
-  </script>";
 }
 else {
   echo "<p class=\"yellow_col\">No annotations found.</p>\n";
@@ -54,3 +51,23 @@ pg_free_result($res);
 ?>
   </div>
 </div>
+
+<script type="text/javascript">
+  $("#tblAnnotations").dataTable({
+    dom:'Bfrtip',
+    buttons:[{
+      extend:'csv',
+      text:'Download',
+      title:"PpGMLDB_annotations",
+      fieldBoundary: '',
+      fieldSeparator:"\t"},
+      {
+        extend:'excel',
+        text:'Excel',
+        title:"PpGMLDB_annotations",
+        fieldSeparator:"\t"
+      },
+      'copy'],
+      bFilter:false
+    });
+</script>

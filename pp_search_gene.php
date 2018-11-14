@@ -1,7 +1,9 @@
 <?php
 $seperator=';'
 ?>
-<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_section"><h3 class="yellow_col">Genes found</h3></div>
+<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_section">
+  <h3 class="yellow_col">Genes found</h3>
+</div>
 
 <div id="gene_section" class="collapse in">
   <br>
@@ -90,9 +92,7 @@ echo "</tr></thead>\n<tbody>\n";
 
   }
   echo "</tbody></table>\n\n";
-  echo "<script type=\"text/javascript\">
-  $(\"#genesTable\").dataTable({dom:'Bfrtip',buttons:[{extend:'csv', text:'Download', title:\"{$search_input}\",fieldSeparator:\"\\t\"},'copy'],bFilter:false});
-</script>";
+
 }
 else {
   echo "<p>No genes found.</p>\n";
@@ -104,3 +104,24 @@ pg_free_result($res);
 
   </div>
 </div>
+
+<script type="text/javascript">
+  $("#genesTable").dataTable({
+    dom:'Bfrtip',
+    buttons:[{
+      extend:'csv',
+      text:'Download',
+      title:"PpGMLDB_gene_list",
+      fieldBoundary: '',
+      fieldSeparator:"\t"
+    },
+    {
+      extend:'excel',
+      text:'Excel',
+      title:"PpGMLDB_gene_list",
+      fieldSeparator:"\t"
+    },
+    'copy'],
+    bFilter:false
+  });
+</script>

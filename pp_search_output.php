@@ -50,12 +50,6 @@ pg_close($dbconn);
 <br>
 </div>
 
-<style>
-  .page_container {
-    width: 90%;
-    margin: auto;
-  }
-</style>
 
 
 <?php include_once 'ppdb_footer.php';?>

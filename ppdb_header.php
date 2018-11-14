@@ -47,12 +47,15 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="dropdown"><a id="overview_link" class="menu_click_dropdown dropdown-toggle pointer_cursor" data-toggle="dropdown">Tools</a>
+            <li><a href="blast_input.php">BLAST</a></li>
+            <li><a href="blast_input.php">Donwloads</a></li>
+            <li><a href="blast_input.php">Links</a></li>
+            <!-- <li class="dropdown"><a id="overview_link" class="menu_click_dropdown dropdown-toggle pointer_cursor" data-toggle="dropdown">Tools</a>
               <ul class="dropdown-menu">
                 <li><a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">PEATmoss</a></li>
                 <li><a href="https://plantcode.online.uni-marburg.de/tapscan/index.php">TAPscan</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

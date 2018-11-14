@@ -9,8 +9,6 @@
 		<div class="modal-body" style="height:355px">
 
 			<form id="gene_version_lookup">
-			<!-- <form method="get" action="pp_compare_results_view.php"> -->
-			<!-- <form id="gene_version_lookup" method="get" action="pp_compare_results_view.php"> -->
         <label for="txtGenes">Paste a list of gene IDs</label>
 				<textarea name="txtGenes" id="txtGenes" class="form-control" rows="10">
 Pp3c1_10000V3.1
@@ -23,8 +21,7 @@ Pp3c1_21730V3.1
 				include_once "pp_search_gene_version_input.php";
 				getCheckboxes("chkVersionName");
 				?>
-				<button type="submit" class="btn btn-success pull-right" form="gene_version_lookup" formaction="pp_compare_results_view.php" formmethod="get" formenctype="multipart/form-data">search</button>
-				<!-- <input type="submit" class="btn btn-search">search</input> -->
+				<button type="submit" class="btn btn-success pull-right" form="gene_version_lookup" formaction="pp_compare_results_view.php" formmethod="get">search</button>
 
 			</form>
 

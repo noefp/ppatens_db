@@ -1,5 +1,5 @@
 <?php
-function getConnectionString(){return "host=localhost dbname=pp_annot3 user=web_usr password=moss33!";};
+include_once "pp_database_access.php";
 function getGenesForSearchAndVersion($searchString, $versions)
 {
 	$searchString=pg_escape_string($searchString); 

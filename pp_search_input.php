@@ -13,10 +13,10 @@ include "pp_fasta_download.php";
   <div class="form-group">
     <label for="search_box" class="yellow_col">Insert a gene ID or annotation keywords</label>
     <input type="search_box" class="form-control" id="search_box" name="search_keywords">
-	<!-- <input type="checkbox" class="checkbox" id="chkExactSearch"name="exact_search">Exact search</input> -->
-  	<div class="checkbox">
+
+  	<!-- <div class="checkbox">
       <label><input type="checkbox" id="chkExactSearch" name="exact_search"> <span class="yellow_col">Exact search</span></label>
-    </div>
+    </div> -->
   </div>
 
   <button type="submit" class="btn btn-default pull-right">Search</button>

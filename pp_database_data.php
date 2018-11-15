@@ -22,4 +22,11 @@ function getVersionsQuery()
 {
 	return 'select distinct genome_version from "public"."gene" order by genome_version desc;';
 }
+// Use this for postgres 10 and above
+function getGinWhere($field, $searchString)
+{
+	$postgres_version=10;
+	if($postgres_version<10) return "{$field} ilike '%{$searchString}%'";
+	else return "'{$searchString}' <% {$field}";
+}
 ?>

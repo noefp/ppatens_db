@@ -23,14 +23,15 @@ function get_dir_and_files($dir_name) {
     return $file_array;
 }
 
-$seq_files_found = get_dir_and_files("../indexed_files/blast_plus_dbs/"); // call the function
-$seq_files_found2 = get_dir_and_files("../downloads/"); // call the function
+$blast_files_found = get_dir_and_files("../indexed_files/blast_plus_dbs/"); // call the function
+$seqs_found = get_dir_and_files("../downloads/"); // call the function
+$annot_found = get_dir_and_files("../annotations/"); // call the function
 
 if ($seq_files_found || $seq_files_found2) {
   echo "<h3 class=\"yellow_col\">Sequences</h3><ul class=\"well pp_list\">";
 }
 
-foreach ($seq_files_found as $file) {
+foreach ($blast_files_found as $file) {
 
   $is_fasta = preg_match('/\.fasta$/', $file, $match);
 
@@ -44,35 +45,30 @@ foreach ($seq_files_found as $file) {
   }
 }
 
-foreach ($seq_files_found2 as $file) {
+foreach ($seqs_found as $file) {
 
-  $is_fasta = preg_match('/\.fasta$/', $file, $match);
-  $is_zip = preg_match('/\.zip/', $file, $match);
-
-  if ($is_fasta || $is_zip) {
-    // $file1 = str_replace("_"," ",$file);
-
-      if ($file) {
-        echo "<li><a href=\"../downloads/$file\" download>$file</a></li>";
-      } else {
-        echo "<li>No Sequeces Found.</li>";
-      }
-  }
-
-      // echo "<div class=\"well\"><h4>Annotations</h4><ul>";
-      //
-      // if ($annot_found) {
-      //   foreach ($annot_found as $annot_file) {
-      //     echo "<li><a href=\"species/$sps/$v/annotations/$annot_file\" download>$annot_file</a></li>";
-      //   }
-      //
-      //   echo "</ul></div>";
-      // } else {
-      //   echo "<li>No Annotations Found.</li></ul></div>";
-      // }
-    // }
+    if ($file) {
+      echo "<li><a href=\"../downloads/$file\" download>$file</a></li>";
+    }
 }
-echo "</ul>";
+if ($seq_files_found || $seq_files_found2) {
+  echo "</ul>";
+}
+
+if ($annot_found) {
+  echo "<h4>Annotations</h4><ul class=\"well pp_list\">";
+}
+
+foreach ($annot_found as $file) {
+
+    if ($file) {
+      echo "<li><a href=\"../annotations/$file\" download>$file</a></li>";
+    }
+}
+
+if ($annot_found) {
+  echo "</ul>";
+}
 
 ?>
 

@@ -54,7 +54,7 @@ foreach($versions as $versionItem)
 	echo "<th>{$versionItem}</th>";
 }
 
-	if(isset($_GET["chkShowAnnot"])) echo implode("",array_map(function($type) {return "<th>{$type}</th>";},$annotTypes));
+	if(isset($_GET["chkShowAnnot"])) echo implode("",array_map(function($type) {return "<th style=\"min-width:200px\">{$type}</th>";},$annotTypes));
 	echo "</tr></thead><tbody>";
 	while($row=pg_fetch_array($dbRes,null, PGSQL_ASSOC)) {
 

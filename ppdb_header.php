@@ -48,8 +48,8 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="blast_input.php">BLAST</a></li>
-            <li><a href="blast_input.php">Donwloads</a></li>
-            <li><a href="blast_input.php">Links</a></li>
+            <li><a href="downloads.php">Downloads</a></li>
+            <li><a href="links.php">Links</a></li>
             <!-- <li class="dropdown"><a id="overview_link" class="menu_click_dropdown dropdown-toggle pointer_cursor" data-toggle="dropdown">Tools</a>
               <ul class="dropdown-menu">
                 <li><a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">PEATmoss</a></li>

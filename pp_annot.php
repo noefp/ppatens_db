@@ -59,6 +59,7 @@ if ($ori_gene_version != $current_version) {
 
   echo "<tr><td><a href=\"pp_annot.php?name=$new_gene_name\" target=\"_blank\">$new_gene_name</a></td><td>$gene_name</td><td>$gene_version</td></tr>\n";
   // echo "<tr><td><a href=\"pp_annot.php?name=$new_gene_name\" target=\"_blank\">$new_gene_name</a></td><td><a href=\"pp_annot.php?name=$gene_name\" target=\"_blank\">$gene_name</a></td><td>$gene_version</td></tr>\n";
+  pg_free_result($res2);
   }
   echo "</table>\n\n";
 
@@ -84,7 +85,6 @@ if ($ori_gene_version == $current_version) {
 <?php
 // Free resultset
 pg_free_result($res);
-pg_free_result($res2);
 
 // Closing connection
 pg_close($dbconn);

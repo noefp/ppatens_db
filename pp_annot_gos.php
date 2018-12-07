@@ -15,7 +15,7 @@ $go_bp_query = "SELECT * FROM annotation JOIN gene_annotation USING(annotation_i
 $go_res = pg_query($go_bp_query) or die('Query failed: ' . pg_last_error());
 
 // Printing results in HTML
-echo "<table class=\"table annot_table\">\n<tr><th>GO term</th><th>Description</th><th>Ontology</th></tr>\n";
+echo "<table class=\"table annot_table\">\n<tr><th style=\"width:150px\">GO term</th><th style=\"width:700px\">Description</th><th style=\"width:50px\">Ontology</th></tr>\n";
 
 while ($line = pg_fetch_array($go_res, null, PGSQL_ASSOC)) {
     $go_id = $line["annot_term"];
@@ -38,7 +38,7 @@ $go_mf_query = "SELECT * FROM annotation JOIN gene_annotation USING(annotation_i
 $go_res = pg_query($go_mf_query) or die('Query failed: ' . pg_last_error());
 
 // Printing results in HTML
-echo "<table class=\"table annot_table\">\n<tr><th>GO term</th><th>Description</th><th>Ontology</th></tr>\n";
+echo "<table class=\"table annot_table\">\n<tr><th style=\"width:150px\">GO term</th><th style=\"width:700px\">Description</th><th style=\"width:50px\">Ontology</th></tr>\n";
 
 while ($line = pg_fetch_array($go_res, null, PGSQL_ASSOC)) {
     $go_id = $line["annot_term"];
@@ -61,7 +61,7 @@ $go_cc_query = "SELECT * FROM annotation JOIN gene_annotation USING(annotation_i
 $go_res = pg_query($go_cc_query) or die('Query failed: ' . pg_last_error());
 
 // Printing results in HTML
-echo "<table class=\"table annot_table\">\n<tr><th>GO term</th><th>Description</th><th>Ontology</th></tr>\n";
+echo "<table class=\"table annot_table\">\n<tr><th style=\"width:150px\">GO term</th><th style=\"width:700px\">Description</th><th style=\"width:50px\">Ontology</th></tr>\n";
 
 while ($line = pg_fetch_array($go_res, null, PGSQL_ASSOC)) {
     $go_id = $line["annot_term"];

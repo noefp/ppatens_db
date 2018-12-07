@@ -24,7 +24,7 @@ function get_dir_and_files($dir_name) {
 $seq_files_found = get_dir_and_files("../indexed_files/blast_plus_dbs/"); // call the function
 
 if ($seq_files_found) {
-  echo "<h4 class=\"yellow_col\">Sequences</h4><ul class=\"well\">";
+  echo "<h3 class=\"yellow_col\">Sequences</h3><ul class=\"well pp_list\">";
 }
 
 foreach ($seq_files_found as $file) {

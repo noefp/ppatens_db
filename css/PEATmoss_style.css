@@ -99,3 +99,14 @@ a:hover {
 #ppatens_search_form{
   height:200px
 }
+
+.pp_list {
+  padding-top:45px;
+  padding-left:45px;
+}
+
+.pp_list>li {
+  padding-left:10px;
+  padding-bottom:20px;
+  font-size:18px;
+}

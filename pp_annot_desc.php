@@ -1,9 +1,11 @@
 
 <!-- <h3>Annotations</h3> -->
 
-<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#annot_section"><h3 class="yellow_col">Annotations</h3></div>
+<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#annot_section" aria-expanded="true">
+  <h3 class="yellow_col">Annotations</h3>
+</div>
 
-<div  class="yellow_col" id="annot_section" class="collapse in">
+<div id="annot_section" class="collapse in yellow_col">
   <br>
 
 <?php

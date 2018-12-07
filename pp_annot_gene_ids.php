@@ -1,9 +1,9 @@
 
 <!-- <h3>Other Gene Versions</h3> -->
 
-<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_ver_section"><h3 class="yellow_col">Other Gene Versions</h3></div>
+<div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_ver_section" aria-expanded="true"><h3 class="yellow_col">Other Gene Versions</h3></div>
 
-<div class="yellow_col" id="gene_ver_section" class="collapse in">
+<div id="gene_ver_section" class="collapse in yellow_col">
   <br>
 
 <?php

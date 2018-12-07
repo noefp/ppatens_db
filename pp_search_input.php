@@ -23,17 +23,22 @@ include "pp_fasta_download.php";
 </form>
 
 
-<!-- <input type="text" readonly id="txtCompare" placeholder="Compare genes" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/> -->
-<div class="form-group">
-  <label for="search_box" class="yellow_col">Find other gene versions for a list of genes</label>
-  <input type="text" id="txtCompare" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/>
-</div>
+<div class="row">
 
-<br>
-<!-- <input type="text" readonly id="txtDownload" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgDownload" value="Download sequences"/> -->
-<div class="form-group">
-  <label for="search_box" class="yellow_col">Download sequences for a list of genes</label>
-  <input type="text" id="txtDownload" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgDownload"/>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <!-- <input type="text" readonly id="txtCompare" placeholder="Compare genes" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/> -->
+    <div class="form-group">
+      <label for="search_box" class="yellow_col">Find other gene versions for a list of genes</label>
+      <input type="text" id="txtCompare" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/>
+    </div>
+</div>
+<div class="col-sm-6 col-md-6 col-lg-6">
+
+    <!-- <input type="text" readonly id="txtDownload" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgDownload" value="Download sequences"/> -->
+    <div class="form-group">
+      <label for="search_box" class="yellow_col">Download sequences for a list of genes</label>
+      <input type="text" id="txtDownload" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgDownload"/>
+    </div>
 </div>
 
 <br>

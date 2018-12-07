@@ -6,9 +6,9 @@ include_once "pp_paths.php";
 
 <h3 class="text-center yellow_col">BLAST</h3>
 
-<div class="margin-10">
+<div class="margin-20">
 
-  <form action="run_blast.php" method="post">
+  <form id="blast_form" action="run_blast.php" method="post">
 
     <div class="form-group">
       <label for="blast_sequence" class="yellow_col">Paste a sequence</label>
@@ -35,8 +35,8 @@ CTGGTGCCTGTAGACGCGGTGGGATTGG
           <option value='blastn' selected>BLASTn</option>
           <option value='blastp'>BLASTp</option>
           <option value='blastx'>BLASTx</option>
-          <option value='tblastn'>tBLASTn</option>
-          <option value='tblastx'>tBLASTx</option>
+          <!-- <option value='tblastn'>tBLASTn</option> -->
+          <!-- <option value='tblastx'>tBLASTx</option> -->
         </select>
       </div>
 
@@ -100,7 +100,7 @@ CTGGTGCCTGTAGACGCGGTGGGATTGG
     <br>
     <br>
     <div class="text-center">
-      <button typ="submit" id="blast_button" class="btn btn-primary">BLAST</button>
+      <button type="submit" id="blast_button" class="btn btn-primary">BLAST</button>
     </div>
   </form>
   <br>
@@ -108,7 +108,68 @@ CTGGTGCCTGTAGACGCGGTGGGATTGG
 </div>
 
 <style>
-  .margin-10 {
-    margin: 10px;
+  .margin-20 {
+    margin: 20px;
   }
 </style>
+
+<script>
+  $(document).ready(function () {
+
+    $('#blast_button').click(function () {
+      var seq_type = "nt";
+      var input_seq = $('#blast_sequence').val();
+      var blast_db = $('#sel1').val();
+      var blast_program = $('#blast_program').val();
+
+      var trimmed_seq = input_seq.trim();
+      trimmed_seq = trimmed_seq.replace(/^>.+\n/,"");
+      trimmed_seq = trimmed_seq.replace(/\n/g,"");
+      var seq_length = trimmed_seq.length;
+
+      var nt_count = (trimmed_seq.match(/[ACGNTacgnt]/g)||[]).length
+
+      if (nt_count < seq_length*0.9) {
+        seq_type = "prot";
+      }
+
+      // alert("nt_count: "+nt_count+" seq_length: "+seq_length+" seq_type: "+seq_type);
+      // alert("blast_program: "+blast_program+" blast_db: "+blast_db);
+
+      //check input genes from BLAST output before sending form
+      if (!input_seq || seq_length < 5) {
+        $('#blast_form').submit(function() {
+          alert("Please provide a valid input sequence");
+          return false;
+        });
+      }
+      if (seq_type == "nt" && blast_program == "blastp") {
+        $('#blast_form').submit(function() {
+          alert("BLASTp can not be used for an input nucleotide sequence");
+          return false;
+        });
+      }
+      if (seq_type == "prot" && blast_program != "blastp") {
+        $('#blast_form').submit(function() {
+          alert("Input protein sequences can only be used with BLASTp");
+          return false;
+        });
+      }
+      if (blast_program == "blastn" && blast_db.match("proteins")) {
+        $('#blast_form').submit(function() {
+          alert("BLASTn can not be used for a protein database");
+          return false;
+        });
+      }
+      if ((blast_program == "blastp" || blast_program == "blastx") && !blast_db.match("proteins")) {
+        $('#blast_form').submit(function() {
+          alert("BLASTp and BLASTx can only be used for a protein database");
+          return false;
+        });
+      }
+
+      return true;
+    });
+
+  });
+</script>

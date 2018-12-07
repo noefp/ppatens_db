@@ -318,13 +318,15 @@
         // clicking on gene names
         subject_text.on('mousedown', function() {
           var gene_name = this.text();
-          document.getElementById(gene_name).click();
+          // document.getElementById(gene_name).click();
+          window.open("/ppatens_db/pp_annot.php?name="+gene_name,'_blank');
         });
 
         // clicking on hit boxes
         blastHit.on('mousedown', function() {
           var hit_id = this.id();
-          document.getElementById(hit_id).click();
+          // document.getElementById(hit_id).click();
+          window.open("/ppatens_db/pp_annot.php?name="+hit_id,'_blank');
         });
 
 

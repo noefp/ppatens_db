@@ -65,7 +65,7 @@
 
   $blast_res = shell_exec('printf '.$blast_cmd);
 
-  echo "<div style=\"margin:20px\">$blast_res</div>";
+  echo "<div style=\"margin:20px;min-width:1020px\">$blast_res</div>";
 
 
   function _check_coordinates($tmp_start,$tmp_end) {
@@ -151,7 +151,7 @@
           $sstart = $coordinates_checked[0];
           $send = $coordinates_checked[1];
 
-          array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"\#$subject\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
+          array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
 
           if (strlen($desc) > 150) {
             $desc = substr($desc,0,150)." ...";
@@ -199,7 +199,7 @@
            $sstart = $coordinates_checked[0];
            $send = $coordinates_checked[1];
 // echo "<br><br>in2: hello<br><br>";
-           array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"\#$subject\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
+           array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
 
            if (strlen($desc) > 150) {
              $desc = substr($desc,0,150)." ...";
@@ -282,7 +282,7 @@
   $sstart = $coordinates_checked[0];
   $send = $coordinates_checked[1];
   // echo "<br><br>in2: hello<br><br>";
-  array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"\#$subject\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
+  array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
 
   if (strlen($desc) > 150) {
     $desc = substr($desc,0,150)." ...";
@@ -324,9 +324,12 @@
 
 <style>
 .blast_canvas_frame {
+  min-width: 1020px;
   background-color: #fff;
   padding-top:20px;
   padding-bottom:20px;
+  padding-left:10px;
+  padding-right:10px;
   margin-left:20px;
   margin-right:20px;
   border-radius: 5px;

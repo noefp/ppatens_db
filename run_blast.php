@@ -303,6 +303,9 @@
   // echo "<br><br>blast_table: $blast_table <br><br>";
 }
 ?>
+<div style="height:100px"></div>
+
+<?php include_once 'ppdb_footer.php';?>
 
 <script>
   var num_input_seqs = '<?php echo $num_input_seqs ?>';

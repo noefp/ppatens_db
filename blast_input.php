@@ -45,7 +45,6 @@ CTGGTGCCTGTAGACGCGGTGGGATTGG
     <hr>
     <a data-toggle="collapse" data-target="#adv_opt" class="btn btn-default">BLAST options</a>
     <br>
-    <br>
     <div id="adv_opt" class="collapse">
 
       <div class="row text-left">
@@ -97,15 +96,15 @@ CTGGTGCCTGTAGACGCGGTGGGATTGG
 
     </div>
     <hr>
-    <br>
-    <br>
     <div class="text-center">
       <button type="submit" id="blast_button" class="btn btn-primary">BLAST</button>
     </div>
   </form>
-  <br>
-  <br>
 </div>
+
+<div style="height:100px"></div>
+
+<?php include_once 'ppdb_footer.php';?>
 
 <style>
   .margin-20 {

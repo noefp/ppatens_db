@@ -1,5 +1,5 @@
 
-    <div id="imoss_footer" align="center">
+    <div id="peat_footer" align="center">
       <br>
       <p>
         All data and services offered on this site are &copy; copyrighted. Distribution via internet or other media is prohibited.
@@ -16,7 +16,7 @@
       </div>
 
       <p>
-        Last update: 2018-06-14
+        Last update: 2018-12-07
       </p>
     </div>
 
@@ -26,14 +26,15 @@
 
 <style>
 
-  #imoss_footer {
+  #peat_footer {
+    height:100px;
+    margin-top:20px;
     border-top-style: solid;
     border-top-width: 2px;
     border-top-color: #fff;
     background-color: #e8e8e8;
     font-size: 12px;
     width: 100%;
-    height:100px;
     position: absolute;
     bottom:0;
     left:0;

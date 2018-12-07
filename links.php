@@ -11,12 +11,15 @@ include_once 'ppdb_header.php';
 <ul class="well pp_list">
   <li>
     <b><a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input" target="_blank">PEATmoss</a></b>
+    - The Physcomitrella Expression Atlas Tool.
   </li>
   <li>
-      <b><a href="https://plantco.de/tapscan" target="_blank">TAPscan</a></b>
+      <b><a href="https://plantcode.online.uni-marburg.de/tapscan/TAPs_for_species.php?species=Physcomitrella%20patens&id=98" target="_blank">TAPscan</a></b>
+      - Transcription Associated Proteins of <i>P. patens</i>.
   </li>
   <li>
-    <b><a href="https://plantcode.online.uni-marburg.de/plantco/predloc/">GTP and ATP2</a></b>
+    <b><a href="https://plantcode.online.uni-marburg.de/plantco/predloc/" target="_blank">GTP and ATP2</a></b>
+    - Targeting Prediction Tools.
   </li>
   <li>
     <b><a href="https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Ppatens" target="_blank"><i>P. patens</i> in Phytozome</a></b>
@@ -43,12 +46,14 @@ include_once 'ppdb_header.php';
       <b><a href="http://moss.nibb.ac.jp/" target="_blank">Physcobase</a></b>
   </li>
   <li>
-      <b><a href="https://genome.jgi-psf.org//Phypa1_1/Phypa1_1.home.html" target="_blank">The <em>P. patens</em> genome at JGI</a></b>
+      <b><a href="https://genome.jgi-psf.org//Phypa1_1/Phypa1_1.home.html" target="_blank"><em>P. patens</em> genome at JGI</a></b>
   </li>
   <li>
-      <b><a href="https://www.ncbi.nlm.nih.gov/sites/entrez?db=genomeprj&amp;cmd=Retrieve&amp;dopt=Overview&amp;list_uids=12940" target="_blank">The <em>P. patens</em> genome at NCBI</a></b>
+      <b><a href="https://www.ncbi.nlm.nih.gov/sites/entrez?db=genomeprj&amp;cmd=Retrieve&amp;dopt=Overview&amp;list_uids=12940" target="_blank"><em>P. patens</em> genome at NCBI</a></b>
   </li>
 
 </ul>
 
 </div>
+
+<?php include_once 'ppdb_footer.php';?>

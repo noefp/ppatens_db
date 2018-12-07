@@ -13,4 +13,5 @@ include_once 'ppdb_header.php';
 include_once 'download_files.php';
 ?>
 
+<?php include_once 'ppdb_footer.php';?>
 </div>

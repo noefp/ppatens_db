@@ -90,7 +90,7 @@ foreach($versions as $versionItem)
 							. "</td>";},$annotTypes));
 
 		}
-		echo "<tr><td>{$row["input"]}</td>{$geneStr}{$annotStr}</tr>";
+		echo "<tr><td><a href=\"/ppatens_db/pp_annot.php?name={$row["input"]}\" target=\"_blank\">{$row["input"]}</a></td>{$geneStr}{$annotStr}</tr>";
 	}
 	echo "</tbody></table>\n";
 	// Freeing result and closing connection.

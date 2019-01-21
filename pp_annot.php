@@ -48,7 +48,7 @@ if ($ori_gene_version != $current_version) {
   // $gene_gene_row = pg_fetch_array($res2,0,PGSQL_ASSOC);
 
   echo "<p class=\"yellow_col\"> Annotation is only available for the most recent gene version (v$current_version). Please, click on the Current Gene link below to access the annotations from the most similar gene.</p><br>\n";
-  echo "<table class=\"table annot_table\">\n<tr><th>Current Gene</th><th>Gene Found</th><th>Gene Version</th></tr>\n";
+  echo "<table class=\"table annot_table yellow_col\">\n<tr><th>Current Gene</th><th>Gene Found</th><th>Gene Version</th></tr>\n";
 
   while ($gene_gene_row = pg_fetch_array($res2, null, PGSQL_ASSOC)) {
 

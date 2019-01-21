@@ -45,7 +45,7 @@ else
 	right join unnest(array[{$gNameValues}]) WITH ORDINALITY AS searchValues(search_name,ord) on search_name=g2.gene_name
 		{$versionWhere}
 	group by searchValues.search_name, searchValues.ord
-	order by searchValues.ord desc";
+	order by searchValues.ord asc";
 	$dbRes=pg_query($query) or die('Query failed: ' . pg_last_error());
 	//echo $query;
 	echo "<table class=\"table\" id=\"tblResults\"><thead><tr><th>input</th>";

@@ -47,7 +47,6 @@ else
 	group by searchValues.search_name, searchValues.ord
 	order by searchValues.ord asc";
 	$dbRes=pg_query($query) or die('Query failed: ' . pg_last_error());
-	//echo $query;
 	echo "<table class=\"table\" id=\"tblResults\"><thead><tr><th>input</th>";
 foreach($versions as $versionItem)
 {
@@ -77,7 +76,10 @@ foreach($versions as $versionItem)
 		if(isset($_GET["chkShowAnnot"]))
 		{
 			// Interpreting array returned by database - removing 3 characters in the end and at the beginning.
-			$annotEntries=array_map(function($annotRow) { return explode(",",$annotRow);},explode(")\",\"(",substr($row["annot"],3,-3)));
+			$annotEntries=array_map(function($annotRow) { 
+			preg_match("/(.*),([^,]*)/",$annotRow,$matches);
+return array(0=>$matches[1],1=>$matches[2]);
+			},explode(")\",\"(",substr($row["annot"],3,-3)));
 			// Removing \" enclosing the the multi word annotation types.
 			array_walk($annotEntries,function(&$entry){$entry[1]=str_replace("\\\"","",$entry[1]);});
 			// Creating columns for each annotation filled with content if a matching annotation was found in the array.

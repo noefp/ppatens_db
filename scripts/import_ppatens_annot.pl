@@ -29,7 +29,7 @@ sub insert_gene {
 	my @gene_id = $sth->fetchrow_array();
 
 	if (@gene_id) {
-	  print "\n $gene_name already exists in gene table: ".$gene_id[0]."\n";
+	  #print "\n $gene_name already exists in gene table: ".$gene_id[0]."\n";
 		$my_gene_id = $gene_id[0];
 	} else {
 		# print "$gene_name\tV$gene_version\n";
@@ -61,7 +61,7 @@ sub insert_gene_gene {
 	my ($gene_gene_id) = $sth->fetchrow_array();
 
 	if ($gene_gene_id) {
-	  print "\n $gene_id1-$gene_id2 already exists in gene_gene table: $gene_gene_id\n";
+	 # print "\n $gene_id1-$gene_id2 already exists in gene_gene table: $gene_gene_id\n";
 	} else {
 	  $sth = $dbh->prepare("INSERT INTO gene_gene (gene_id1,gene_id2) VALUES ('".$gene_id1."','".$gene_id2."')");
 	  $sth->execute() or die $sth->errstr;
@@ -107,7 +107,7 @@ sub insert_go {
 		my @annot_id = $sth->fetchrow_array();
 
 		if (@annot_id) {
-			print "\n $go_term already exists in gene table: ".$annot_id[0]."\n";
+			#print "\n $go_term already exists in gene table: ".$annot_id[0]."\n";
 			$my_annot_id = $annot_id[0];
 		} else {
 			# print "$go_term\t$go_desc\n";
@@ -131,7 +131,7 @@ sub insert_go {
 		my ($gene_annotation_id) = $sth->fetchrow_array();
 
 		if ($gene_annotation_id) {
-			print "\n $gene_id-$my_annot_id already exists in gene_annotation table: gene_annotation_id\n";
+			#print "\n $gene_id-$my_annot_id already exists in gene_annotation table: gene_annotation_id\n";
 		} else {
 			$sth = $dbh->prepare("INSERT INTO gene_annotation (gene_id,annotation_id) VALUES ('".$gene_id."','".$my_annot_id."')");
 			$sth->execute() or die $sth->errstr;
@@ -173,7 +173,7 @@ sub insert_annot {
 	my @annot_id = $sth->fetchrow_array();
 
 	if (@annot_id) {
-		print "\n $go_term already exists in gene table: ".$annot_id[0]."\n";
+		#print "\n $go_term already exists in gene table: ".$annot_id[0]."\n";
 		$my_annot_id = $annot_id[0];
 	} else {
 		# print "$go_term\t$go_desc\n";
@@ -197,7 +197,7 @@ sub insert_annot {
 	my ($gene_annotation_id) = $sth->fetchrow_array();
 
 	if ($gene_annotation_id) {
-		print "\n $gene_id-$my_annot_id already exists in gene_annotation table: gene_annotation_id\n";
+		#print "\n $gene_id-$my_annot_id already exists in gene_annotation table: gene_annotation_id\n";
 	} else {
 		$sth = $dbh->prepare("INSERT INTO gene_annotation (gene_id,annotation_id) VALUES ('".$gene_id."','".$my_annot_id."')");
 		$sth->execute() or die $sth->errstr;
@@ -209,7 +209,7 @@ sub insert_annot {
 
 
 
-my $dbname="pp_annot3";
+my $dbname="pp_annot6";
 my $host="localhost";
 my $username="postgres";
 
@@ -225,8 +225,10 @@ my $dbh = DBI->connect("dbi:Pg:dbname=$dbname;host=$host;", "$username", "$passw
 $dbh->begin_work;
 
 my @genes16;
+my @genes16m;
 my @genes12;
 my @genes11;
+my @genes11m;
 my @gobps;
 my @gomfs;
 my @goccs;
@@ -237,18 +239,26 @@ my @gocc_descs;
 open (my $fh2, $annot_file) || die ("\nERROR: the file $annot_file could not be found\n");
 while (my $line = <$fh2>) {
   chomp($line);
-  my ($id33,$id31,$id16,$id12,$id11,$gobp,$gomf,$gocc,$gobp_desc,$gomf_desc,$gocc_desc,$tair_id,$tair_desc,$sp_id,$sp_desc,$nr_id,$nr_desc) = split("\t",$line);
+  my ($id33,$id31,$id16,$id16m,$id12,$id11,$id11m,$id30,$gobp,$gomf,$gocc,$gobp_desc,$gomf_desc,$gocc_desc,$tair_id,$tair_desc,$sp_id,$sp_desc,$nr_id,$nr_desc) = split("\t",$line);
 
 	if ($id16) {
-	  @genes16 = split(":",$id16);
+	  @genes16 = split(";",$id16);
+	}
+
+	if ($id16m) {
+	  @genes16m = split(";",$id16m);
 	}
 
 	if ($id12) {
-	  @genes12 = split(":",$id12);
+	  @genes12 = split(";",$id12);
 	}
 
 	if ($id11) {
-	  @genes11 = split(":",$id11);
+	  @genes11 = split(";",$id11);
+	}
+
+	if ($id11m) {
+	  @genes11m = split(";",$id11m);
 	}
 
 
@@ -259,10 +269,20 @@ while (my $line = <$fh2>) {
 	# print "$id33\n";
 	my $gene_id33 = insert_gene($dbh,$id33,"3.3");
 	my $gene_id31;
+	my $gene_id30;
 	my $gene_id16;
+	my $gene_id16m;
 	my $gene_id12;
 	my $gene_id11;
+	my $gene_id11m;
 	# print "$gene_id33\n";
+
+	if ($id30) {
+		# print "$id33-$id30\n";
+
+		$gene_id30 = insert_gene($dbh,$id30,"3.0");
+		insert_gene_gene($dbh,$gene_id33,$gene_id30);
+	}
 
 	if ($id31) {
 		# print "$id33-$id31\n";
@@ -277,6 +297,15 @@ while (my $line = <$fh2>) {
 
 			$gene_id16 = insert_gene($dbh,$g,"1.6");
 			insert_gene_gene($dbh,$gene_id33,$gene_id16);
+		}
+	}
+
+	if ($id16m) {
+		foreach my $g (@genes16m) {
+			# print "$id33-$g\n";
+
+			$gene_id16m = insert_gene($dbh,$g,"1.6");
+			insert_gene_gene($dbh,$gene_id33,$gene_id16m);
 		}
 	}
 
@@ -295,6 +324,15 @@ while (my $line = <$fh2>) {
 
 			$gene_id11 = insert_gene($dbh,$g,"1.1");
 			insert_gene_gene($dbh,$gene_id33,$gene_id11);
+		}
+	}
+
+	if ($id11m) {
+		foreach my $g (@genes11m) {
+			# print "$id33-$g\n";
+
+			$gene_id11m = insert_gene($dbh,$g,"1.1");
+			insert_gene_gene($dbh,$gene_id33,$gene_id11m);
 		}
 	}
 

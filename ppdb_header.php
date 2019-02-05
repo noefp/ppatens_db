@@ -23,9 +23,6 @@
 	<script type="text/javascript" charset="utf8" src="js/DataTables/Select-1.2.6/js/dataTables.select.min.js"></script>
 	  </head>
 
-
-
-
     <body>
 
       <div class="container-fluid imoss-top">
@@ -40,6 +37,7 @@
       </div>
 
       <div id="wrapper">
+      <div id="navigation_block">
 
       <nav class="navbar navbar-default" data-spy="affix" data-offset-top="277">
         <div class="container-fluid">
@@ -61,6 +59,7 @@
         </div>
       </nav>
 
+    </div>
 
   <style>
 
@@ -70,8 +69,8 @@
       z-index:100;
     }
 
-    .affix + .pg_content {
-      padding-top: 72px;
+    #navigation_block {
+      min-height:50px;
     }
 
     .cover-img {

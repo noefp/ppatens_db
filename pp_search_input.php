@@ -9,6 +9,19 @@ include "pp_fasta_download.php";
 <br>
 <br>
 
+<p class="yellow_col">
+  The <b><i>P. patens</i> Gene Model Lookup Database</b> provide tools to convert between
+  <i>P. patens</i> gene model versions,
+  to extract CDS, cDNA and protein sequences from a gene or list of genes,
+  and to find genes by name or keywords from their annotations.
+  Genes are linked to genome browsers and annotations from multiple databases such as
+  NCBI, SwissProt, Ensembl, Phytozome, CoGe, PLAZA and TAIR.
+  Aditionally, sequence files and annotations can be downloaded for the whole genome
+  and the whole set of genes.
+</p>
+<br>
+<br>
+
 <form id="ppatens_search_form" action="/ppatens_db/pp_search_output.php" method="get">
   <div class="form-group">
     <label for="search_box" class="yellow_col">Insert a gene ID or annotation keywords</label>

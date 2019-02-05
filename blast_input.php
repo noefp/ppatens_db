@@ -115,6 +115,11 @@ CTGGTGCCTGTAGACGCGGTGGGATTGG
 <script>
   $(document).ready(function () {
 
+    // $('#blast_program').change(function () {
+    //   blast_program = $('#blast_program').val();
+    //   alert("blast_program: "+blast_program);
+    // });
+
     $('#blast_button').click(function () {
       var seq_type = "nt";
       var input_seq = $('#blast_sequence').val();
@@ -137,34 +142,26 @@ CTGGTGCCTGTAGACGCGGTGGGATTGG
 
       //check input genes from BLAST output before sending form
       if (!input_seq || seq_length < 5) {
-        $('#blast_form').submit(function() {
           alert("Please provide a valid input sequence");
           return false;
-        });
       }
       if (seq_type == "nt" && blast_program == "blastp") {
-        $('#blast_form').submit(function() {
           alert("BLASTp can not be used for an input nucleotide sequence");
           return false;
-        });
       }
       if (seq_type == "prot" && blast_program != "blastp") {
-        $('#blast_form').submit(function() {
           alert("Input protein sequences can only be used with BLASTp");
           return false;
-        });
       }
       if (blast_program == "blastn" && blast_db.match("proteins")) {
-        $('#blast_form').submit(function() {
           alert("BLASTn can not be used for a protein database");
           return false;
-        });
       }
       if ((blast_program == "blastp" || blast_program == "blastx") && !blast_db.match("proteins")) {
-        $('#blast_form').submit(function() {
+        // $('#blast_form').submit(function() {
           alert("BLASTp and BLASTx can only be used for a protein database");
           return false;
-        });
+        // });
       }
 
       return true;

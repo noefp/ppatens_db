@@ -1,4 +1,4 @@
-<div id="dlgDownload" class="modal fade" role="dialog" tabIndex=-1 aria-labelledby="Enter gene identifiers to download":" >
+<div id="dlgDownload" class="modal fade" role="dialog" tabIndex=-1 aria-labelledby="Enter gene identifiers to download":" >
   <div class="modal-dialog" role="document">
 	<div class="modal-content">
 		<div class="modal-header">

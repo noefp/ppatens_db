@@ -15,6 +15,7 @@ function get_dir_and_files($dir_name) {
       }
     }
 
+    rsort($file_array);
     return $file_array;
 }
 

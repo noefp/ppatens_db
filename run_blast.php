@@ -105,7 +105,7 @@
   $json_array = array();
 
   array_push($res_html, "<table id=\"blast_table\" class=\"table\">");
-  array_push($res_html, "<tr><th>SubjectId</th><th>id%</th><th>Aln</th><th>evalue</th><th>Score</th><th>Description</th></tr>");
+  array_push($res_html, "<tr><th>SubjectId</th><th>Qid%</th><th>Aln</th><th>evalue</th><th>Score</th><th>Description</th></tr>");
 
   $lines = explode("\n", $blast_res);
 

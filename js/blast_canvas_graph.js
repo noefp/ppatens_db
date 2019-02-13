@@ -183,7 +183,7 @@
     var id_text = new Kinetic.Text({
       x: img_width+25,
       y: 60,
-      text: "ID%",
+      text: "Qid%",
       fill: "black",
       fontSize: 16,
       fontFamily: 'Helvetica'

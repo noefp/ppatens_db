@@ -15,7 +15,6 @@ CREATE TABLE annotation (
     annot_term varchar(80),
     annot_desc text NOT NULL,
     annot_type varchar(80),
-    annot_src varchar(80)
 );
 
 CREATE TABLE gene_annotation (

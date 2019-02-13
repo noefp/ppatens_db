@@ -19,20 +19,25 @@ function getFastaFile($gids,$dbPath)
 	return implode("\n",$ret);
 
 }
-if(isset($_GET["gids"]))
-	if(isset($_GET["dbPath"]))
+if(isset($_POST["gids"]))
+	if(isset($_POST["dbPath"]))
 	{
 		header('Content-Type: application/octet-stream');
-		header("Content-Disposition: attachment;filename={$_GET["filename"]}");
-		echo getFastaFile($_GET["gids"],$_GET["dbPath"]);
+		$filename="Pp_GMLDB_{$_POST["dbPath"]}_" . date("Y-m-d.His") . ".fasta");
+		header("Content-Disposition: attachment;filename={$filename}");
+		$gids=$_POST["gids"].split("\n").map(function(row)
+    {
+      return row.trim();
+    })
+		echo getFastaFile($gids,$_POST["dbPath"]);
 	}
 	else
 	{
 		echo "<html><head><title>Download fasta file</title></head><body><h1>Select database to use</h1>";
 		$dbs=getPossibleDbs();
-	echo "<form action=\"pp_blastdbcmd.php\" method=\"get\">";
-	echo implode("\n",array_map(function($row) { return "<input type=\"hidden\" value=\"{$row}\" name=\"gids[]\"></input>";},$_GET["gids"]));
-	echo "<input type=\"hidden\" name=\"filename\" value=\"{$_GET["filename"]}\"></input>";
+	echo "<form action=\"pp_blastdbcmd.php\" method=\"post\">";
+	echo "<input type=\"hidden\" value=\"{$_POST["gids"]}\" name=\"gids\"></input>;
+	echo "<input type=\"hidden\" name=\"filename\" value=\"{$_POST["filename"]}\"></input>";
 	echo "<select name=\"dbPath\">";
 		echo implode('\n',array_map(function($path){$path=substr($path,0,-10);return "<option value=\"{$path}\">" .
 		str_replace("_", " ",$path)

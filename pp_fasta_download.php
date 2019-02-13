@@ -6,20 +6,22 @@
       <h4 class="modal-title" id="exampleModalLabel">Sequence downloading</h4>
 		</div>
 		<div class="modal-body" style="height:355px">
+		<div class="form">
+		<form action="pp_blastdbcmd.php" method="post">
       <label for="txtDownloadGenes">Paste a list of gene IDs</label>
-				<textarea class="form-control" id="txtDownloadGenes" rows="8">
+				<textarea class="form-control" id="txtDownloadGenes" rows="8" name="gids">
 Pp3c1_10000V3.1
 Pp3c2_3600V3.1
 Pp3c1_21730V3.1
         </textarea>
-        <br>
+		<br>
         <div class="form-group">
           <label for="dbPath">Select Dataset:</label>
 
 				<?php
 				include "pp_blastdbcmd.php";
 				$dbs=getPossibleDbs();
-	echo "<select id=\"dbPath\" class=\"form-control\">";
+	echo "<select id=\"dbPath\" class=\"form-control\"name="dbPath">";
 		echo implode('\n',array_map(function($path){$path=substr($path,0,-10);return "<option value=\"{$path}\">" .
 		str_replace("_", " ",$path)
 		."</option>";},$dbs));
@@ -28,22 +30,12 @@ Pp3c1_21730V3.1
 
       </div>
 
-				<button class="button btn btn-success pull-right" id="btnSend">Download</button>
+				<input class="button btn btn-success pull-right" id="btnSend" type="submit">Download</button>
+				</form>
+				</div>
+				
 		</div>
 	</div>
 </div>
 </div>
 
-<script type="text/javascript">
-  $("#btnSend").click(function(){
-    var paramStr=$("#txtDownloadGenes").val().split("\n").map(function(row)
-    {
-      return "gids[]=" + row.trim();
-    }).join("&");
-  paramStr+="&dbPath="+$("#dbPath").val();
-  paramStr+="&filename=Pp_GMLDB_"+$("#dbPath").val() +"_"+ new Date().toLocaleDateString()+".fasta";
-    window.open("pp_blastdbcmd.php?" + paramStr);
-
-    $("#dlgDownload").modal("hide");
-  })
-</script>

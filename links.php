@@ -40,9 +40,6 @@ include_once 'ppdb_header.php';
     <b><a href="https://bioinformatics.psb.ugent.be/plaza/versions/plaza_v4_dicots//organism/view/Physcomitrella+patens" target="_blank"><i>P. patens</i> in PLAZA</a></b>
   </li>
   <li>
-    <b><a href="http://www.cosmoss.org" target="_blank" style="align:right">CosMoss</a></b>
-  </li>
-  <li>
       <b><a href="http://moss.nibb.ac.jp/" target="_blank">Physcobase</a></b>
   </li>
   <li>

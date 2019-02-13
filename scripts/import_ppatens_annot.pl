@@ -322,7 +322,7 @@ while (my $line = <$fh2>) {
 		foreach my $g (@genes11) {
 			# print "$id33-$g\n";
 
-			$gene_id11 = insert_gene($dbh,$g,"1.1");
+			$gene_id11 = insert_gene($dbh,$g,"1.2_Phypa");
 			insert_gene_gene($dbh,$gene_id33,$gene_id11);
 		}
 	}
@@ -331,7 +331,7 @@ while (my $line = <$fh2>) {
 		foreach my $g (@genes11m) {
 			# print "$id33-$g\n";
 
-			$gene_id11m = insert_gene($dbh,$g,"1.1");
+			$gene_id11m = insert_gene($dbh,$g,"1.2_Phypa");
 			insert_gene_gene($dbh,$gene_id33,$gene_id11m);
 		}
 	}

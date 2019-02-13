@@ -7,7 +7,7 @@ include "pp_database_data.php";
 <div class="data_table_frame">
 
 <?php
-$gNamesArr=array_filter(explode("\n",trim($_GET["txtGenes"])),function($gName) {return ! empty($gName);});
+$gNamesArr=array_filter(explode("\n",trim($_POST["txtGenes"])),function($gName) {return ! empty($gName);});
 
 if(sizeof($gNamesArr)==0)
 {
@@ -18,12 +18,12 @@ else
 	// Connecting to db
 	$dbconn = pg_connect(getConnectionString());
 	$versionWhere="";
-	if(isset($_GET["chkVersionName"]) and  sizeof($_GET["chkVersionName"])>0)
+	if(isset($_POST["chkVersionName"]) and  sizeof($_POST["chkVersionName"])>0)
 	{
-		$versions=array_map(function($versionItem) {return trim($versionItem); },$_GET["chkVersionName"]);
+		$versions=array_map(function($versionItem) {return trim($versionItem); },$_POST["chkVersionName"]);
 	$versionWhere="where g.genome_version in(" . implode(",",
 	array_map( function($versionItem)
-		{return "'" . pg_escape_string($versionItem) . "'"; },$_GET["chkVersionName"])
+		{return "'" . pg_escape_string($versionItem) . "'"; },$_POST["chkVersionName"])
 	) . ") or g.gene_name=searchValues.search_name";
 	}
 	else
@@ -53,7 +53,7 @@ foreach($versions as $versionItem)
 	echo "<th>{$versionItem}</th>";
 }
 
-	if(isset($_GET["chkShowAnnot"])) echo implode("",array_map(function($type) {return "<th style=\"min-width:200px\">{$type}</th>";},$annotTypes));
+	if(isset($_POST["chkShowAnnot"])) echo implode("",array_map(function($type) {return "<th style=\"min-width:200px\">{$type}</th>";},$annotTypes));
 	echo "</tr></thead><tbody>";
 	while($row=pg_fetch_array($dbRes,null, PGSQL_ASSOC)) {
 
@@ -73,10 +73,10 @@ foreach($versions as $versionItem)
 
 		// Get all anotations for this row and creating the columns.
 		$annotStr="";
-		if(isset($_GET["chkShowAnnot"]))
+		if(isset($_POST["chkShowAnnot"]))
 		{
 			// Interpreting array returned by database - removing 3 characters in the end and at the beginning.
-			$annotEntries=array_map(function($annotRow) { 
+			$annotEntries=array_map(function($annotRow) {
 			preg_match("/(.*),([^,]*)/",$annotRow,$matches);
 return array(0=>$matches[1],1=>$matches[2]);
 			},explode(")\",\"(",substr($row["annot"],3,-3)));

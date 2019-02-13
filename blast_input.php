@@ -32,9 +32,9 @@ CTGGTGCCTGTAGACGCGGTGGGATTGG
       <div class="col-sm-6 col-md-6 col-lg-">
         <label for="blast_program" class="yellow_col">BLAST program</label>
         <select class="form-control" id="blast_program" name="blast_prog">
-          <option value='blastn' selected>BLASTn</option>
+          <option value='blastn'>BLASTn</option>
           <option value='blastp'>BLASTp</option>
-          <option value='blastx'>BLASTx</option>
+          <option value='blastx' selected>BLASTx</option>
           <!-- <option value='tblastn'>tBLASTn</option> -->
           <!-- <option value='tblastx'>tBLASTx</option> -->
         </select>

@@ -25,11 +25,12 @@ if(isset($_POST["gids"]))
 		header('Content-Type: application/octet-stream');
 		$filename="Pp_GMLDB_{$_POST["dbPath"]}_" . date("Y-m-d.His") . ".fasta";
 		header("Content-Disposition: attachment;filename={$filename}");
-		$gids=$_POST["gids"].split("\n").map(function($row)
-			{
+		$gids=array_map(function($row)
+		{
 			return trim($row);
-			}
-		);
+		}
+		,explode("\n",$_POST["gids"]));
+		
 		echo getFastaFile($gids,$_POST["dbPath"]);
 	}
 	else

@@ -21,7 +21,7 @@ Pp3c1_21730V3.1
 				<?php
 				include "pp_blastdbcmd.php";
 				$dbs=getPossibleDbs();
-	echo "<select id=\"dbPath\" class=\"form-control\"name="dbPath">";
+	echo "<select id=\"dbPath\" class=\"form-control\" name=\"dbPath\">";
 		echo implode('\n',array_map(function($path){$path=substr($path,0,-10);return "<option value=\"{$path}\">" .
 		str_replace("_", " ",$path)
 		."</option>";},$dbs));

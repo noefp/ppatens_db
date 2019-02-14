@@ -25,7 +25,7 @@ function get_dir_and_files($dir_name) {
 
 $files_found = get_dir_and_files("../downloads/"); // call the function
 
-
+$root_files = 0;
 foreach ($files_found as $file) {
 
     if ($file) {
@@ -53,13 +53,23 @@ foreach ($files_found as $file) {
           }
         }
         echo "</ul>";
-      }
-      else {
-        echo "<h3 class=\"yellow_col\">Other files</h3><ul class=\"well download_list\">";
-        echo "<li class=\"indent_li\"><a href=\"../downloads/$file\" download>$file</a></li>";
-        echo "</ul>";
+      } else {
+        $root_files = 1;
       }
     }
+}
+
+if ($root_files) {
+  echo "<h3 class=\"yellow_col\">Other files</h3><ul class=\"well download_list\">";
+
+  foreach ($files_found as $file) {
+    if ($file) {
+      if (!is_dir("../downloads/$file")) {
+        echo "<li class=\"indent_li\"><a href=\"../downloads/$file\" download>$file</a></li>";
+      }
+    }
+  }
+  echo "</ul>";
 }
 
 ?>

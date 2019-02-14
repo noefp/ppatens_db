@@ -18,7 +18,8 @@ echo "<table class=\"table annot_table\">\n<tr><th>Gene Name</th><th>Version</th
 while ($line = pg_fetch_array($gid_res, null, PGSQL_ASSOC)) {
     $old_gene_name = $line["gene_name"];
     $gene_version = $line["genome_version"];
-    echo "<tr><td><a href=\"pp_annot.php?name=$old_gene_name\" target=\"_blank\">$old_gene_name</a></td><td>V$gene_version</td></tr>\n";
+    $version_class = str_replace(".","_",$gene_version);
+    echo "<tr class=\"v$version_class\"><td><a href=\"pp_annot.php?name=$old_gene_name\" target=\"_blank\">$old_gene_name</a></td><td>v$gene_version</td></tr>\n";
 }
 
 echo "</table>\n\n";
@@ -29,3 +30,24 @@ pg_free_result($gid_res);
 
 <br>
 </div>
+
+<style>
+  .v3_3 {
+    background-color:#444
+  }
+  .v3_1 {
+    background-color:#666
+  }
+  .v3_0 {
+    background-color:#063
+  }
+  .v1_6 {
+    background-color:#066
+  }
+  .v1_2 {
+    background-color:#244
+  }
+  .v1_2_Phypa {
+    background-color:#355
+  }
+</style>

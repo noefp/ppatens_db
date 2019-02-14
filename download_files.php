@@ -43,13 +43,13 @@ foreach ($files_found as $file) {
 
             foreach ($files_found3 as $file3) {
               if ($file3) {
-                echo "<li class=\"indent_li\"><a href=\"../downloads/$file/$file2/$file3\" download> $file3</a></li>";
+                echo "<li class=\"indent_li50\"><a href=\"../downloads/$file/$file2/$file3\" download> $file3</a></li>";
               }
             }
 
           }
           else {
-            echo "<li class=\"indent_li\"><a href=\"../downloads/$file/$file2\" download> $file2</a></li>";
+            echo "<li class=\"indent_li30\"><a href=\"../downloads/$file/$file2\" download> $file2</a></li>";
           }
         }
         echo "</ul>";
@@ -65,7 +65,7 @@ if ($root_files) {
   foreach ($files_found as $file) {
     if ($file) {
       if (!is_dir("../downloads/$file")) {
-        echo "<li class=\"indent_li\"><a href=\"../downloads/$file\" download>$file</a></li>";
+        echo "<li class=\"indent_li30\"><a href=\"../downloads/$file\" download>$file</a></li>";
       }
     }
   }
@@ -93,7 +93,11 @@ if ($root_files) {
   font-weight: 550;
 }
 
-.indent_li {
+.indent_li50 {
   margin-left:50px;
+}
+
+.indent_li30 {
+  margin-left:30px;
 }
 </style>

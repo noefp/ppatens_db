@@ -5,6 +5,7 @@
 
 <div style="margin:20px">
   <a href="blast_input.php">Go back to input</a>
+  <a id="download_blast_table" class="pull-right" style="cursor:pointer"><span class="glyphicon glyphicon-file" style="line-height: 0;"></span>Download result in tabular format</a>
 </div>
 
 <div class="blast_canvas_frame">
@@ -51,14 +52,14 @@
   // echo "$blast_filter  It should be yes or no <br><br>";
 
   if ($blast_prog == "blastn") {
-    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -dust $blast_filter -evalue $evalue -num_descriptions $max_hits -num_alignments $max_hits -html";
+    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -dust $blast_filter -evalue $evalue -num_descriptions $max_hits -num_alignments $max_hits -html -max_hsps 3";
   }
   if ($blast_prog == "tblastn") {
-    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -seg $blast_filter -evalue $evalue -num_descriptions $max_hits -num_alignments $max_hits -html";
+    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -seg $blast_filter -evalue $evalue -num_descriptions $max_hits -num_alignments $max_hits -html -max_hsps 3";
   }
 
   if ($blast_prog == "blastp" || $blast_prog == "blastx" || $blast_prog == "tblastx") {
-    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -seg $blast_filter -evalue $evalue -matrix $blast_matrix -num_descriptions $max_hits -num_alignments $max_hits -html";
+    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -seg $blast_filter -evalue $evalue -matrix $blast_matrix -num_descriptions $max_hits -num_alignments $max_hits -html -max_hsps 3";
   }
 
   // echo "$blast_cmd<br><br>";
@@ -88,6 +89,10 @@
   $subject = "";
   $id = 0.0;
   $aln = 0;
+  $aln_total = 0;
+  $mismatch = 0;
+  $gaps = 0;
+  $gapopen = 0;
   $qstart = 0;
   $qend = 0;
   $sstart = 0;
@@ -102,10 +107,12 @@
   $query_length = 0;
 
   $res_html = array();
+  $res_tab_txt = array();
   $json_array = array();
 
   array_push($res_html, "<table id=\"blast_table\" class=\"table\">");
   array_push($res_html, "<tr><th>SubjectId</th><th>Qid%</th><th>Aln</th><th>evalue</th><th>Score</th><th>Description</th></tr>");
+  array_push($res_tab_txt, "QueryID\tSubjectId\tQid%\tAln\tmismatches\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tScore\tDescription");
 
   $lines = explode("\n", $blast_res);
 
@@ -151,7 +158,9 @@
           $sstart = $coordinates_checked[0];
           $send = $coordinates_checked[1];
 
+          $mm = $mismatch-$gaps;
           array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
+          array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_total\t$mm\t$gapopen\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
 
           if (strlen($desc) > 150) {
             $desc = substr($desc,0,150)." ...";
@@ -171,6 +180,9 @@
        $subject = "";
        $id = 0.0;
        $aln = 0;
+       $aln_total = 0;
+       $mismatch = 0;
+       $gapopen = 0;
        $qstart = 0;
        $qend = 0;
        $sstart = 0;
@@ -199,7 +211,10 @@
            $sstart = $coordinates_checked[0];
            $send = $coordinates_checked[1];
 // echo "<br><br>in2: hello<br><br>";
+
+           $mm = $mismatch-$gaps;
            array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
+           array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_total\t$mm\t$gapopen\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
 
            if (strlen($desc) > 150) {
              $desc = substr($desc,0,150)." ...";
@@ -218,6 +233,9 @@
 
            $id = 0.0;
            $aln = 0;
+           $aln_total = 0;
+           $mismatch = 0;
+           $gapopen = 0;
            $qstart = 0;
            $qend = 0;
            $sstart = 0;
@@ -245,16 +263,19 @@
         $aln_total = $match[2];
         $aln = "$aln_matched/$aln_total";
         $id = sprintf("%.2f", $aln_matched*100/$aln_total);
-
+        $mismatch = $aln_total - $aln_matched;
         // echo "<br><br>aln_matched: $aln_matched<br><br>";
         // echo "<br><br>aln_total: $aln_total<br><br>";
         // echo "<br><br>aln: $aln<br><br>";
      }
 
+     if (preg_match('/Gaps\s*=\s*(\d+)\/\d+/', $line, $match)) {
+        $gaps = $match[1];
+     }
+
       if ($qstart == 0) {
         if (preg_match('/^Query\s+(\d+)/', $line, $match)) {
           $qstart = $match[1];
-          // echo "<br><br>qstart: $qstart<br><br>";
         }
       }
 
@@ -267,12 +288,20 @@
       if (preg_match('/^Query/', $line, $match)) {
         if (preg_match('/(\d+)\s*$/', $line, $match)) {
           $qend = $match[1];
+
+          $gap_num = preg_match_all("/\-+/",$line);
+          $gapopen = $gapopen + $gap_num;
+          // echo "<p class=\"yellow_col\">gapopen3:$subject<br> $line<br>$gap_num $gapopen<br></p>";
         }
       }
 
       if (preg_match('/^Sbjct/', $line, $match)) {
         if (preg_match('/(\d+)\s*$/', $line, $match)) {
           $send = $match[1];
+
+          $gap_num = preg_match_all("/\-+/",$line);
+          $gapopen = $gapopen + $gap_num;
+          // echo "<p class=\"yellow_col\">gapopen4:$subject<br> $line<br>$gap_num $gapopen<br></p>";
         }
       }
 
@@ -282,7 +311,10 @@
   $sstart = $coordinates_checked[0];
   $send = $coordinates_checked[1];
   // echo "<br><br>in2: hello<br><br>";
+
+  $mm = $mismatch-$gaps;
   array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
+  array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_total\t$mm\t$gapopen\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
 
   if (strlen($desc) > 150) {
     $desc = substr($desc,0,150)." ...";
@@ -299,8 +331,8 @@
   array_push($json_array, $description_hash);
 
   $blast_table = join('', $res_html);
+  $blast_out_txt = join('\n', $res_tab_txt);
 
-  // echo "<br><br>blast_table: $blast_table <br><br>";
 }
 ?>
 <div style="height:100px"></div>
@@ -309,6 +341,7 @@
 
 <script>
   var num_input_seqs = '<?php echo $num_input_seqs ?>';
+  var blast_table_string = '<?php echo $blast_out_txt ?>';
   // alert("num_input_seqs: "+num_input_seqs);
 
   if (num_input_seqs == 1) {
@@ -323,6 +356,11 @@
     jQuery("#SGN_output").html(blast_table_html);
     draw_blast_graph(sgn_graph_array, seq_length);
   }
+
+  $("#download_blast_table").click(function() {
+    download(blast_table_string, "BLAST_tabular_result.txt", "text/plain");
+  });
+
 </script>
 
 <style>

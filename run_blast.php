@@ -89,9 +89,10 @@
   $subject = "";
   $id = 0.0;
   $aln = 0;
-  $aln_matched = 0;
+  $aln_total = 0;
   $mismatch = 0;
   $gaps = 0;
+  $gapopen = 0;
   $qstart = 0;
   $qend = 0;
   $sstart = 0;
@@ -111,7 +112,7 @@
 
   array_push($res_html, "<table id=\"blast_table\" class=\"table\">");
   array_push($res_html, "<tr><th>SubjectId</th><th>Qid%</th><th>Aln</th><th>evalue</th><th>Score</th><th>Description</th></tr>");
-  array_push($res_tab_txt, "QueryID\tSubjectId\tQid%\tAln\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tScore\tDescription");
+  array_push($res_tab_txt, "QueryID\tSubjectId\tQid%\tAln\tmismatches\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tScore\tDescription");
 
   $lines = explode("\n", $blast_res);
 
@@ -157,8 +158,9 @@
           $sstart = $coordinates_checked[0];
           $send = $coordinates_checked[1];
 
+          $mm = $mismatch-$gaps;
           array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
-          array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_matched\t$mismatch\t$gaps\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
+          array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_total\t$mm\t$gapopen\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
 
           if (strlen($desc) > 150) {
             $desc = substr($desc,0,150)." ...";
@@ -178,8 +180,9 @@
        $subject = "";
        $id = 0.0;
        $aln = 0;
-       $aln_matched = 0;
+       $aln_total = 0;
        $mismatch = 0;
+       $gapopen = 0;
        $qstart = 0;
        $qend = 0;
        $sstart = 0;
@@ -208,8 +211,10 @@
            $sstart = $coordinates_checked[0];
            $send = $coordinates_checked[1];
 // echo "<br><br>in2: hello<br><br>";
+
+           $mm = $mismatch-$gaps;
            array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
-           array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_matched\t$mismatch\t$gaps\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
+           array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_total\t$mm\t$gapopen\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
 
            if (strlen($desc) > 150) {
              $desc = substr($desc,0,150)." ...";
@@ -228,8 +233,9 @@
 
            $id = 0.0;
            $aln = 0;
-           $aln_matched = 0;
+           $aln_total = 0;
            $mismatch = 0;
+           $gapopen = 0;
            $qstart = 0;
            $qend = 0;
            $sstart = 0;
@@ -270,7 +276,6 @@
       if ($qstart == 0) {
         if (preg_match('/^Query\s+(\d+)/', $line, $match)) {
           $qstart = $match[1];
-          // echo "<br><br>qstart: $qstart<br><br>";
         }
       }
 
@@ -283,12 +288,20 @@
       if (preg_match('/^Query/', $line, $match)) {
         if (preg_match('/(\d+)\s*$/', $line, $match)) {
           $qend = $match[1];
+
+          $gap_num = preg_match_all("/\-+/",$line);
+          $gapopen = $gapopen + $gap_num;
+          // echo "<p class=\"yellow_col\">gapopen3:$subject<br> $line<br>$gap_num $gapopen<br></p>";
         }
       }
 
       if (preg_match('/^Sbjct/', $line, $match)) {
         if (preg_match('/(\d+)\s*$/', $line, $match)) {
           $send = $match[1];
+
+          $gap_num = preg_match_all("/\-+/",$line);
+          $gapopen = $gapopen + $gap_num;
+          // echo "<p class=\"yellow_col\">gapopen4:$subject<br> $line<br>$gap_num $gapopen<br></p>";
         }
       }
 
@@ -298,8 +311,10 @@
   $sstart = $coordinates_checked[0];
   $send = $coordinates_checked[1];
   // echo "<br><br>in2: hello<br><br>";
+
+  $mm = $mismatch-$gaps;
   array_push($res_html, "<tr><td><a id=\"$subject\" class=\"blast_match_ident\" href=\"/ppatens_db/pp_annot.php?name=$subject\" target=\"_blank\">$subject</a></td><td>$id</td><td>$aln</td><td>$evalue</td><td>$score</td><td>$desc</td></tr>");
-  array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_matched\t$mismatch\t$gaps\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
+  array_push($res_tab_txt, "$query\t$subject\t$id\t$aln_total\t$mm\t$gapopen\t$qstart\t$qend\t$sstart\t$send\t$evalue\t$score\t$desc");
 
   if (strlen($desc) > 150) {
     $desc = substr($desc,0,150)." ...";

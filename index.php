@@ -4,9 +4,9 @@
     <title>PEATmoss</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-  	<link rel="stylesheet" href="css/PEATmoss_style.css">
+    <link rel="shortcut icon" href="ppatens_db/favicon.ico">
+    <link rel="stylesheet" href="ppatens_db/css/bootstrap.min.css">
+  	<!-- <link rel="stylesheet" href="ppatens_db/css/PEATmoss_style.css"> -->
   	<!-- <link rel="stylesheet" href="css/jquery-ui.min.css"> -->
     <!-- <script src="js/jquery-3.1.1.min.js"></script> -->
   	<!-- <script src="js/jquery-ui.min.js"></script> -->
@@ -21,7 +21,7 @@
       <tr>
       <td>
         <a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">
-          <img src="img/PEATmoss_400.png" width="300px"/>
+          <img src="ppatens_db/img/PEATmoss_400.png" width="300px"/>
         </a>
       </td>
 
@@ -35,7 +35,7 @@
            <br>
            <br>
            <span style="font-size:28px">and the</span><br>
-           <a class="ppgmldb_text" href="pp_search_input.php">
+           <a class="ppgmldb_text" href="ppatens_db/pp_search_input.php">
              <i>P. patens</i> Gene Model lookup DB
            </a>
            <br>

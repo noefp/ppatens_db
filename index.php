@@ -4,15 +4,24 @@
     <title>PEATmoss</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="ppatens_db/favicon.ico">
-    <link rel="stylesheet" href="ppatens_db/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/ppatens_db/favicon.ico">
+    <link rel="stylesheet" href="/ppatens_db/css/bootstrap.min.css">
+
+    <script>
+        function contt() {
+            var addr = "moss" + '>' + "plantcode_mail.biologie.uni_marburg.de";
+            addr = addr.replace(/_/g, "-");
+            addr = addr.replace(">", "@");
+            // alert("addr: "+addr);
+            window.location.href='mailto:peat'+addr+'?subject=PEATmoss contact';
+        }
+    </script>
+
   </head>
 
 <body>
 
-  <a id="contact_link" href="ppatens_db/contact.php">
-    Contact Us
-  </a>
+<a id="contact_link" onclick="contt()">Contact Us</a>
 
   <div id="landing">
 
@@ -20,7 +29,7 @@
       <tr>
       <td>
         <a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">
-          <img src="ppatens_db/img/PEATmoss_400.png" width="300px"/>
+          <img src="/ppatens_db/img/PEATmoss_400.png" width="300px"/>
         </a>
       </td>
 
@@ -34,7 +43,7 @@
            <br>
            <br>
            <span style="font-size:28px">and the</span><br>
-           <a class="ppgmldb_text" href="ppatens_db/pp_search_input.php">
+           <a class="ppgmldb_text" href="/ppatens_db/pp_search_input.php">
              <i>P. patens</i> Gene Model lookup DB
            </a>
            <br>
@@ -55,11 +64,13 @@
   }
 
   #contact_link {
+    position:absolute;
     font-size:18px;
     color:#c9ebcd;
     font-family: Impact;
     text-decoration: none;
-
+    margin:10px;
+    cursor: pointer;
   }
 
   #landing {

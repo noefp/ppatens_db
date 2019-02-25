@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="ppatens_db/favicon.ico">
     <link rel="stylesheet" href="ppatens_db/css/bootstrap.min.css">
-  	<!-- <link rel="stylesheet" href="ppatens_db/css/PEATmoss_style.css"> -->
-  	<!-- <link rel="stylesheet" href="css/jquery-ui.min.css"> -->
-    <!-- <script src="js/jquery-3.1.1.min.js"></script> -->
-  	<!-- <script src="js/jquery-ui.min.js"></script> -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
   </head>
 
 <body>
+
+  <a id="contact_link" href="ppatens_db/contact.php">
+    Contact Us
+  </a>
 
   <div id="landing">
 
@@ -53,6 +52,14 @@
 
   body {
     background-color: #004600;
+  }
+
+  #contact_link {
+    font-size:18px;
+    color:#c9ebcd;
+    font-family: Impact;
+    text-decoration: none;
+
   }
 
   #landing {
@@ -99,4 +106,5 @@
   }
 
   </style>
+
 </html>

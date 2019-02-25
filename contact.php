@@ -26,7 +26,7 @@
       <tr>
       <td>
         <a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">
-          <img src="ppatens_db/img/PEATmoss_400.png" width="300px"/>
+          <img src="img/PEATmoss_400.png" width="300px"/>
         </a>
       </td>
 

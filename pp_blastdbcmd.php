@@ -37,7 +37,6 @@ if(isset($_POST["gids"]))
 	{
 		echo "<html><head><title>Download fasta file</title></head><body><h1>Select database to use</h1>";
 		$dbs=getPossibleDbs();
-    rsort($dbs);
 	echo "<form action=\"pp_blastdbcmd.php\" method=\"post\">";
 	echo "<input type=\"hidden\" value=\"{$_POST["gids"]}\" name=\"gids\"></input>";
 	echo "<input type=\"hidden\" name=\"filename\" value=\"{$_POST["filename"]}\"></input>";

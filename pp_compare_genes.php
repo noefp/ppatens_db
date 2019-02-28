@@ -21,7 +21,7 @@ Pp3c1_21730V3.1
 				include_once "pp_search_gene_version_input.php";
 				getCheckboxes("chkVersionName");
 				?>
-				<button type="submit" class="btn btn-success pull-right" form="gene_version_lookup" formaction="pp_compare_results_view.php" formmethod="post">search</button>
+				<button id="#gene_lookup_button" type="submit" class="btn btn-success pull-right" form="gene_version_lookup" formaction="pp_compare_results_view.php" formmethod="post">search</button>
 
 			</form>
 
@@ -29,3 +29,25 @@ Pp3c1_21730V3.1
 	</div>
 </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+
+    $('#gene_lookup_button').click(function () {
+      var gene_lookup_input = $('#txtGenes').val();
+      var gene_count = (gene_lookup_input.match(/\n/g)||[]).length
+
+
+      // alert("gene_count: "+gene_count);
+
+      //check input genes from gene lookup before sending form
+      if (gene_count > 100) {
+          alert("A maximum of 100 sequences can be provided as input, your input has: "+gene_count);
+          return false;
+      }
+
+      return true;
+    });
+
+  });
+</script>

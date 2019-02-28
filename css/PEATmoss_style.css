@@ -81,11 +81,11 @@ html,body {
 	color: #ffcc00;
 }
 
-
 .data_table_frame {
   background-color: #fff;
   padding:10px;
   overflow-x: scroll;
+  margin-bottom: 20px;
 }
 
 a {

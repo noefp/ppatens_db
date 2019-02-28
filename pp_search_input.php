@@ -2,6 +2,7 @@
 include_once 'ppdb_header.php';
 include "pp_compare_genes.php";
 include "pp_fasta_download.php";
+include "search_info_modal.php";
 ?>
 
 <div class="page_container">
@@ -9,7 +10,7 @@ include "pp_fasta_download.php";
 <br>
 <br>
 
-<p class="yellow_col">
+<p class="yellow_col" style="font-size:16px">
   The <b><i>P. patens</i> Gene Model Lookup Database</b> provide tools to convert between
   <i>P. patens</i> gene model versions,
   to extract CDS, cDNA and protein sequences from a gene or list of genes,
@@ -24,7 +25,7 @@ include "pp_fasta_download.php";
 
 <form id="ppatens_search_form" action="/ppatens_db/pp_search_output.php" method="get">
   <div class="form-group">
-    <label for="search_box" class="yellow_col">Insert a gene ID or annotation keywords</label>
+    <label for="search_box" class="yellow_col" style="font-size:16px">Insert a gene ID or annotation keywords</label> <button type="button" class="info_icon" data-toggle="modal" data-target="#search_help">i</button>
     <input type="search_box" class="form-control" id="search_box" name="search_keywords">
 
   	<!-- <div class="checkbox">
@@ -44,7 +45,7 @@ include "pp_fasta_download.php";
 
     <!-- <input type="text" readonly id="txtCompare" placeholder="Compare genes" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/> -->
     <div class="form-group">
-      <label for="search_box" class="yellow_col">Find other gene versions for a list of genes</label>
+      <label for="search_box" class="yellow_col" style="font-size:16px">Find other gene versions for a list of genes</label>
       <input type="text" id="txtCompare" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/>
     </div>
     
@@ -65,7 +66,7 @@ include "pp_fasta_download.php";
 
     <!-- <input type="text" readonly id="txtDownload" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgDownload" value="Download sequences"/> -->
     <div class="form-group">
-      <label for="search_box" class="yellow_col">Download sequences for a list of genes</label>
+      <label for="search_box" class="yellow_col" style="font-size:16px">Download sequences for a list of genes</label>
       <input type="text" id="txtDownload" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgDownload"/>
     </div>
   </div>

@@ -30,7 +30,8 @@ Pp3c1_21730V3.1
 
       </div>
 
-				<input class="button btn btn-success pull-right" id="btnSend" type="submit">Download</button>
+				<button class="button btn btn-success pull-right" id="btnSend" type="submit" form="download_fasta_form" formmethod="post">Download</button>
+        <!-- <input class="button btn btn-success pull-right" id="btnSend" type="submit">Download</button> -->
 				</form>
 				</div>
 				
@@ -55,6 +56,7 @@ Pp3c1_21730V3.1
       }
 
       return true;
+      $("#dlgDownload").modal("show");
     });
 
   });

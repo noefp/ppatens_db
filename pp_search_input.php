@@ -16,7 +16,7 @@ include "pp_fasta_download.php";
   and to find genes by name or keywords from their annotations.
   Genes are linked to genome browsers and annotations from multiple databases such as
   NCBI, SwissProt, Ensembl, Phytozome, CoGe, PLAZA and TAIR.
-  Aditionally, sequence files and annotations can be downloaded for the whole genome
+  Additionally, sequence files and annotations can be downloaded for the whole genome
   and the whole set of genes.
 </p>
 <br>
@@ -36,26 +36,41 @@ include "pp_fasta_download.php";
 </form>
 
 
+
+
 <div class="row">
 
   <div class="col-sm-6 col-md-6 col-lg-6">
+
     <!-- <input type="text" readonly id="txtCompare" placeholder="Compare genes" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/> -->
     <div class="form-group">
       <label for="search_box" class="yellow_col">Find other gene versions for a list of genes</label>
       <input type="text" id="txtCompare" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/>
     </div>
-</div>
-<div class="col-sm-6 col-md-6 col-lg-6">
+    
+    
+    <p class="yellow_col">
+      <a href="img/gene_models.png" target="_blank" class="pull-right"><img class="img-thumbnail" src="img/gene_models.png" width="80px"></a>
+      Multiple gene model versions has been developed over the last ten years for <em>P. patens</em>. 
+      Here we provide a tool to lookup gene versions automatically for multiple genes.
+      
+      Click on the picture on the right to visualize <em>P. patens</em> gene model nomenclature.
+      <br>
+      <br>
+    </p>
+    
+  </div>
+
+  <div class="col-sm-6 col-md-6 col-lg-6">
 
     <!-- <input type="text" readonly id="txtDownload" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgDownload" value="Download sequences"/> -->
     <div class="form-group">
       <label for="search_box" class="yellow_col">Download sequences for a list of genes</label>
       <input type="text" id="txtDownload" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgDownload"/>
     </div>
-</div>
+  </div>
 
-<br>
-<br>
+
 </div>
 
 <!--  no input gene modal -->

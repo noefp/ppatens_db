@@ -7,7 +7,7 @@
 		</div>
 		<div class="modal-body" style="height:355px">
 		<div class="form">
-		<form action="pp_blastdbcmd.php" method="post">
+		<form id="download_fasta_form" action="pp_blastdbcmd.php" method="post">
       <label for="txtDownloadGenes">Paste a list of gene IDs</label>
 				<textarea class="form-control" id="txtDownloadGenes" rows="8" name="gids">
 Pp3c1_10000V3.1
@@ -38,4 +38,25 @@ Pp3c1_21730V3.1
 	</div>
 </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+
+    $('#download_fasta_form').submit(function () {
+      var gene_lookup_input = $('#txtDownloadGenes').val();
+      var gene_count = (gene_lookup_input.match(/\n/g)||[]).length
+
+      // alert("gene_lookup_input: "+gene_lookup_input+", gene_count: "+gene_count);
+
+      //check input genes from gene lookup before sending form
+      if (gene_count > 500) {
+          alert("A maximum of 500 sequences can be provided as input, your input has: "+gene_count);
+          return false;
+      }
+
+      return true;
+    });
+
+  });
+</script>
 

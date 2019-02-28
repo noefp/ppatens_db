@@ -21,7 +21,7 @@ Pp3c1_21730V3.1
 				include_once "pp_search_gene_version_input.php";
 				getCheckboxes("chkVersionName");
 				?>
-				<button id="#gene_lookup_button" type="submit" class="btn btn-success pull-right" form="gene_version_lookup" formaction="pp_compare_results_view.php" formmethod="post">search</button>
+				<button type="submit" class="btn btn-success pull-right" form="gene_version_lookup" formaction="pp_compare_results_view.php" formmethod="post">search</button>
 
 			</form>
 
@@ -33,7 +33,7 @@ Pp3c1_21730V3.1
 <script>
   $(document).ready(function () {
 
-    $('#gene_lookup_button').click(function () {
+    $('#gene_version_lookup').submit(function () {
       var gene_lookup_input = $('#txtGenes').val();
       var gene_count = (gene_lookup_input.match(/\n/g)||[]).length
 

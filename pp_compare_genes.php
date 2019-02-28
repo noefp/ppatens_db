@@ -1,4 +1,4 @@
-<div id="dlgEnterMultiple" class="modal fade" role="dialog" tabIndex=-1 aria-labelledby="Enter gene identifiers to search":" >
+<div id="dlgEnterMultiple" class="modal fade" role="dialog" tabIndex=-1 aria-labelledby="Enter gene identifiers to search">
   <!-- <div class="modal-dialog" role="document"> -->
   <div class="modal-dialog">
 	<div class="modal-content">
@@ -16,7 +16,7 @@ Pp3c2_3600V3.1
 Pp3c1_21730V3.1
         </textarea>
 
-				<input type="checkbox" name="chkShowAnnot">Show annotations</input>
+				<input type="checkbox" name="chkShowAnnot"> Show annotations
 				<?php
 				include_once "pp_search_gene_version_input.php";
 				getCheckboxes("chkVersionName");

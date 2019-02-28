@@ -55,8 +55,8 @@ Pp3c1_21730V3.1
           return false;
       }
 
-      return true;
       $("#dlgDownload").modal("hide");
+      return true;
     });
 
   });

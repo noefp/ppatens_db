@@ -52,14 +52,14 @@
   // echo "$blast_filter  It should be yes or no <br><br>";
 
   if ($blast_prog == "blastn") {
-    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -dust $blast_filter -evalue $evalue -num_descriptions $max_hits -num_alignments $max_hits -html -max_hsps 3";
+    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -dust $blast_filter -evalue $evalue -num_descriptions $max_hits -num_alignments $max_hits -html";
   }
   if ($blast_prog == "tblastn") {
-    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -seg $blast_filter -evalue $evalue -num_descriptions $max_hits -num_alignments $max_hits -html -max_hsps 3";
+    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -seg $blast_filter -evalue $evalue -num_descriptions $max_hits -num_alignments $max_hits -html";
   }
 
   if ($blast_prog == "blastp" || $blast_prog == "blastx" || $blast_prog == "tblastx") {
-    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -seg $blast_filter -evalue $evalue -matrix $blast_matrix -num_descriptions $max_hits -num_alignments $max_hits -html -max_hsps 3";
+    $blast_cmd = "\"$query\" | $blast_prog -db $blast_db -seg $blast_filter -evalue $evalue -matrix $blast_matrix -num_descriptions $max_hits -num_alignments $max_hits -html";
   }
 
   // echo "$blast_cmd<br><br>";

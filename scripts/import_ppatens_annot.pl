@@ -8,7 +8,7 @@ use Term::ReadKey;
 
 # check arguments and print usage
 if (scalar(@ARGV) != 2) {
-	print "Usage: perl import_ppatens_annot.pl <annot_file> <phytozome_annot_trimmed>\n";
+	print "Usage: perl import_ppatens_annot.pl <annot_file> <phytozome_pacid_gene_defline>\n";
 	exit;
 }
 
@@ -209,7 +209,7 @@ sub insert_annot {
 
 
 
-my $dbname="pp_annot6";
+my $dbname="pp_annot7";
 my $host="localhost";
 my $username="postgres";
 

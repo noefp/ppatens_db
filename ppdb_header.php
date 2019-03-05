@@ -55,6 +55,7 @@
               <li><a href="blast_input.php">BLAST</a></li>
               <li><a href="downloads.php">Downloads</a></li>
               <li><a href="links.php">Links</a></li>
+              <li><a href="contact.php">About Us</a></li>
             </ul>
           </div>
         </div>

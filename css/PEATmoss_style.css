@@ -11,7 +11,7 @@ html,body {
 }
 
 .page_container {
-  min-width: 950px;
+  /* min-width: 950px; */
   max-width: 90%;
   margin:auto;
   padding-left: 20px;

@@ -4,7 +4,7 @@
     <title>PEATmoss</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="ppatens_db/favicon.ico">
+    <link rel="shortcut icon" href="/ppatens_db/favicon.ico">
 
     <script>
         function contt() {

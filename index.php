@@ -21,7 +21,8 @@
 
 <body>
 
-<a id="contact_link" onclick="contt()">Contact Us</a>
+<a id="contact_link" class="ppgmldb_text" onclick="contt()">Contact Us</a>
+<a id="about_link" class="pull-right ppgmldb_text" href="/ppatens_db/contact.php">About Us</a>
 
   <div id="landing">
 
@@ -43,7 +44,7 @@
            <br>
            <br>
            <span style="font-size:28px">and the</span><br>
-           <a class="ppgmldb_text" href="/ppatens_db/pp_search_input.php">
+           <a class="ppgmldb_text fs40" href="/ppatens_db/pp_search_input.php">
              <i>P. patens</i> Gene Model lookup DB
            </a>
            <br>
@@ -66,8 +67,17 @@
   #contact_link {
     position:absolute;
     font-size:18px;
-    color:#c9ebcd;
-    font-family: Impact;
+    /* color:#c9ebcd; */
+    /* font-family: Impact; */
+    text-decoration: none;
+    margin:10px;
+    cursor: pointer;
+  }
+
+  #about_link {
+    font-size:18px;
+    /* color:#c9ebcd; */
+    /* font-family: Impact; */
     text-decoration: none;
     margin:10px;
     cursor: pointer;
@@ -101,8 +111,11 @@
     /* font-weight: 800; */
   }
 
-  .ppgmldb_text {
+  .fs40 {
     font-size:40px;
+  }
+
+  .ppgmldb_text {
     color:#c9ebcd;
     font-family: Impact;
   }

@@ -14,7 +14,7 @@ $dbconn = pg_connect(getConnectionString())
     or die('Could not connect: ' . pg_last_error());
 
 $gene_name = test_input($_GET["name"]);
-$search_input = $gene_name;
+// $search_input = $gene_name;
 $gene_name_displayed = $gene_name;
 
 // echo "\n\n<br><br><h1>GENE NAME: $gene_name</h1><br><br>\n\n";
@@ -23,6 +23,12 @@ function test_input($data) {
   $data = stripslashes($data);
   $data = preg_replace('/[\<\>]+/','',$data);
   $data = htmlspecialchars($data);
+
+  $v3gene = preg_match('/^Pp3c\d+_\d+V3$/', $data, $match);
+
+  if ($v3gene) {
+    $data = preg_replace('/$/','.1',$data);
+  }
 
   return $data;
 }

@@ -59,6 +59,7 @@ $plaza_gene = preg_replace('/V3\.1/','',$gene_name_displayed);
 echo "<tr><td><a href=\"https://bioinformatics.psb.ugent.be/plaza/genes/redirect_gene/3218/$plaza_gene\" target=\"_blank\">$gene_name_displayed</a></td><td>PLAZA gene view</td><td>PLAZA</td></tr>\n";
 echo "<tr><td><a href=\"https://plants.ensembl.org/Physcomitrella_patens/Gene/Summary?g=$gene_name_displayed\" target=\"_blank\">$gene_name_displayed</a></td><td>Ensembl gene view</td><td>Ensembl</td></tr>\n";
 echo "<tr><td><a href=\"http://plants.ensembl.org/Physcomitrella_patens/Location/View?db=core;g=$gene_name_displayed\" target=\"_blank\">$gene_name_displayed</a></td><td>Ensembl Genome browser</td><td>Ensembl</td></tr>\n";
+echo "<tr><td><a href=\"https://plantcode.online.uni-marburg.de/tapscan/tap_gene.php?gene_name=$gene_name_displayed\" target=\"_blank\">$gene_name_displayed</a></td><td>Transcription factors and regulators</td><td>TAPscan</td></tr>\n";
 echo "<tr><td><a href=\"https://peatmoss.online.uni-marburg.de/expression_viewer/input?input_gene=$gene_name_displayed\" target=\"_blank\">$gene_name_displayed</a></td><td>Expression data</td><td>PEATmoss</td></tr>\n";
 echo "</table>\n\n";
 

@@ -6,17 +6,17 @@
       </p>
 
       <div style="font-size: 12px;">
-        <a href="http://imoss.org/Datenschutz.html">
-          Datenschutzerklärung / Data policy
+        <a href="https://www.plantco.de/Datenschutz.php">
+          Datenschutzerkl&auml;rung / Data policy
         </a>
         &nbsp;&bull;&nbsp;
-        <a href="http://imoss.org/impressum.html">
+        <a href="https://www.plantco.de/impressum.php">
           Impressum / Imprint
         </a>
       </div>
 
       <p>
-        Last update: 2018-12-07
+        Last update: 2019-03-22
       </p>
     </div>
 

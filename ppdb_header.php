@@ -56,6 +56,7 @@
               <li><a href="downloads.php">Downloads</a></li>
               <li><a href="links.php">Links</a></li>
               <li><a href="contact.php">About Us</a></li>
+              <li><a class="pmoss_menu_tab" href="https://www.plantco.de/" target="_blank"><span class="plant">plant</span><span class="plantco">co</span><span class="plantco-dot">.</span><span class="plantco">de</span></a></li>
             </ul>
           </div>
         </div>
@@ -100,6 +101,22 @@
       width: 100%;
       height: 277px;
       padding:0px
+    }
+
+    .plant {
+    	color: #C7FF97;
+    	font-family: "Courier New", Courier, monospace;
+    	font-weight: bold;
+    }
+    .plantco {
+    	color: #C8FFC8;
+    	font-family: "Courier New", Courier, monospace;
+    	font-weight: bold;
+    }
+    .plantco-dot {
+    	color: #378436;
+    	/*font-family: "Courier New", Courier, monospace;*/
+    	font-weight: bold;
     }
 
 

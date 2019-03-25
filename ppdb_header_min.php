@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/ppatens_db/favicon.ico">
     <link rel="stylesheet" href="/ppatens_db/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/PEATmoss_style.css">
+    <link rel="stylesheet" href="/ppatens_db/css/PEATmoss_style.css">
   </head>
 
   <body style="background-color:#004600">

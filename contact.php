@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>PEATmoss</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="/ppatens_db/favicon.ico">
+<?php include_once 'ppdb_header_min.php';?>
 
-    <script>
-        function contt() {
-            var addr = "moss" + '>' + "plantcode_mail.biologie.uni_marburg.de";
-            addr = addr.replace(/_/g, "-");
-            addr = addr.replace(">", "@");
-            // alert("addr: "+addr);
-            window.location.href='mailto:peat'+addr+'?subject=PEATmoss contact';
-        }
-    </script>
-
-  </head>
 
 <body>
 
+  <div id="wrapper">
   <div id="landing">
-
     <table>
       <tr>
       <td style="vertical-align:top">
@@ -55,6 +38,8 @@
     <tr>
   </table>
 
+  <br>
+
    <p class="font22" style="font-family: Impact;color:#c9ebcd;">
      Please cite PEATmoss and the PpGML DB as:
    </p>
@@ -66,12 +51,27 @@
      In preparation.
    </p>
    <br>
+   <a href="/ppatens_db/video_gallery.php" target="_blank">
+     <img class="img-thumbnail" src="img/video1_min.png" width="200px" style="margin-right:20px">
+     Please, check out our videos to know more about these tools
+   </a>
+
+   <?php include_once 'ppdb_footer_min.php';?>
 
   </div>
-
+</div>
 
 </body>
 
+<script>
+  function contt() {
+      var addr = "moss" + '>' + "plantcode_mail.biologie.uni_marburg.de";
+      addr = addr.replace(/_/g, "-");
+      addr = addr.replace(">", "@");
+      // alert("addr: "+addr);
+      window.location.href='mailto:peat'+addr+'?subject=PEATmoss contact';
+  }
+</script>
 
 
   <style>
@@ -81,8 +81,7 @@
   }
 
   #landing {
-    padding-top:100px;
-    padding-left:60px;
+    padding:60px;
   }
 
   #landing_text {

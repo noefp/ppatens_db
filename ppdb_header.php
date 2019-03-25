@@ -103,21 +103,4 @@
       padding:0px
     }
 
-    .plant {
-    	color: #C7FF97;
-    	font-family: "Courier New", Courier, monospace;
-    	font-weight: bold;
-    }
-    .plantco {
-    	color: #C8FFC8;
-    	font-family: "Courier New", Courier, monospace;
-    	font-weight: bold;
-    }
-    .plantco-dot {
-    	color: #378436;
-    	/*font-family: "Courier New", Courier, monospace;*/
-    	font-weight: bold;
-    }
-
-
   </style>

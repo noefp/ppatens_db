@@ -2,7 +2,9 @@
 
 <div class="page_container">
 
-<h4 class="well" id="query_gene" style="display:none"></h4>
+<h4 class="yellow_col">Gene ID</h4>
+<h4 class="well" id="query_gene" style="display:none; padding:15px"></h4>
+
 
 <?php
 
@@ -74,7 +76,8 @@ if ($ori_gene_version != $current_version) {
   // echo "\n\n<br><br><h1>GENE NAME2: $gene_id</h1><br><br>\n\n";
 }
 else {
-  echo "\n<br>\n";
+  // echo "\n<br>\n";
+  include_once 'ppdb_search_input_form.php';
   include_once 'pp_annot_desc.php';
 }
 

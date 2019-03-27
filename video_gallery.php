@@ -5,7 +5,7 @@
   <div id="wrapper">
   <div id="video_div">
     <br>
-    <video controls width="850" height="478" style="background-color:#000" id="video_tv">
+    <video controls width="850" height="478" style="background-color:#000;border: 2px solid #000;" id="video_tv">
       <source id="video_screen" src="/ppatens_db/img/PEATmoss_welcome2.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>

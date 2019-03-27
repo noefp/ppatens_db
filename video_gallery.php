@@ -50,7 +50,7 @@
       
       $('#video_screen').attr("src", "/ppatens_db/img/"+video_name+".mp4");
       
-      $('#video_div').load();
+      $('#video_div').trigger('load');
     });
     
   });

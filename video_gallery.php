@@ -13,9 +13,9 @@
     <br>
     <table>
       <tr>
-        <td><a class="video_min" style="margin-right:12px" value="/ppatens_db/img/PEATmoss_welcome2.mp4"><img class="img-thumbnail" src="img/video1_min.png" width="200px"></a></td>
+        <td><a class="video_min pointer_cursor" style="margin-right:12px" value="/ppatens_db/img/PEATmoss_welcome2.mp4"><img class="img-thumbnail" src="img/video1_min.png" width="200px"></a></td>
         <td><a href="#" style="margin-right:12px"><img class="img-thumbnail" src="img/video2_min.png" width="200px"></a></td>
-        <td><a class="video_min" style="margin-right:12px" value="/ppatens_db/img/PpGMLDB_features.mp4"><img class="img-thumbnail" src="img/video3_min.png" width="200px"></a></td>
+        <td><a class="video_min pointer_cursor" style="margin-right:12px" value="/ppatens_db/img/PpGMLDB_features.mp4"><img class="img-thumbnail" src="img/video3_min.png" width="200px"></a></td>
         <td><a href="#"><img class="img-thumbnail" src="img/video4_min.png" width="200px"></a></td>
       </tr>
       <tr>
@@ -46,7 +46,9 @@
     $('.video_min').click(function() {
       var video_name = $(this).val();
       
-      $('#video_screen').prop('src', video_name);
+      // alert("video name: "+video_name);
+      
+      $('#video_screen').attr('src', video_name);
     });
     
   });

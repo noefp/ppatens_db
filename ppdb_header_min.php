@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="/ppatens_db/favicon.ico">
     <link rel="stylesheet" href="/ppatens_db/css/bootstrap.min.css">
     <link rel="stylesheet" href="/ppatens_db/css/PEATmoss_style.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
   </head>
 
   <body style="background-color:#004600">

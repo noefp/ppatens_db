@@ -49,6 +49,8 @@
       alert("video name: "+video_name);
       
       $('#video_screen').attr("src", "/ppatens_db/img/"+video_name+".mp4");
+      
+      $('#video_screen').load();
     });
     
   });

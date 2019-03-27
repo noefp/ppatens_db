@@ -13,9 +13,9 @@
     <br>
     <table>
       <tr>
-        <td><a class="video_min pointer_cursor" style="margin-right:12px" ><img class="img-thumbnail video_min" src="img/video1_min.png" value="/ppatens_db/img/PEATmoss_welcome2.mp4" width="200px"></a></td>
+        <td><a class="video_min pointer_cursor" name="PEATmoss_welcome2" style="margin-right:12px" ><img class="img-thumbnail" src="img/video1_min.png" width="200px"></a></td>
         <td><a href="#" style="margin-right:12px"><img class="img-thumbnail" src="img/video2_min.png" width="200px"></a></td>
-        <td><a class="video_min pointer_cursor" style="margin-right:12px" ><img class="img-thumbnail video_min" src="img/video3_min.png" value="/ppatens_db/img/PpGMLDB_features.mp4" width="200px"></a></td>
+        <td><a class="video_min pointer_cursor" name="PpGMLDB_features" style="margin-right:12px" ><img class="img-thumbnail" src="img/video3_min.png" width="200px"></a></td>
         <td><a href="#"><img class="img-thumbnail" src="img/video4_min.png" width="200px"></a></td>
       </tr>
       <tr>
@@ -44,11 +44,11 @@
   
     //check input gene before sending form
     $('.video_min').click(function() {
-      var video_name = $(this).val();
+      var video_name = $(this).attr("name");
       
       alert("video name: "+video_name);
       
-      $('#video_screen').attr('src', video_name);
+      $('#video_screen').attr("src", "/ppatens_db/img/"+video_name+".mp4");
     });
     
   });

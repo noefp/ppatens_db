@@ -46,7 +46,7 @@
     $('.video_min').click(function() {
       var video_name = $(this).val();
       
-      // alert("video name: "+video_name);
+      alert("video name: "+video_name);
       
       $('#video_screen').attr('src', video_name);
     });

@@ -5,7 +5,7 @@
   <div id="wrapper">
   <div id="video_div">
     <br>
-    <video id="video_div" width="850" height="478" style="background-color:#000" controls>
+    <video controls width="850" height="478" style="background-color:#000" id="video_tv">
       <source id="video_screen" src="/ppatens_db/img/PEATmoss_welcome2.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>
@@ -50,7 +50,7 @@
       
       $('#video_screen').attr("src", "/ppatens_db/img/"+video_name+".mp4");
       
-      $('#video_div').trigger('load');
+      $('#video_tv').trigger('load');
     });
     
   });
@@ -62,6 +62,7 @@
   margin:auto;
   width: 850px;
   padding-bottom:50px;
+  
 }
 
 .video_title {

@@ -6,16 +6,16 @@
   <div id="video_div">
     <br>
     <video width="850" height="478" style="background-color:#000" controls>
-      <source src="/ppatens_db/img/PEATmoss_welcome2.mp4" type="video/mp4">
+      <source id="video_screen" src="/ppatens_db/img/PEATmoss_welcome2.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>
     <br>
     <br>
     <table>
       <tr>
-        <td><a href="#" style="margin-right:12px"><img class="img-thumbnail" src="img/video1_min.png" width="200px"></a></td>
+        <td><a class="video_min" style="margin-right:12px" value="/ppatens_db/img/PEATmoss_welcome2.mp4"><img class="img-thumbnail" src="img/video1_min.png" width="200px"></a></td>
         <td><a href="#" style="margin-right:12px"><img class="img-thumbnail" src="img/video2_min.png" width="200px"></a></td>
-        <td><a href="#" style="margin-right:12px"><img class="img-thumbnail" src="img/video3_min.png" width="200px"></a></td>
+        <td><a class="video_min" style="margin-right:12px" value="/ppatens_db/img/PpGMLDB_features.mp4"><img class="img-thumbnail" src="img/video3_min.png" width="200px"></a></td>
         <td><a href="#"><img class="img-thumbnail" src="img/video4_min.png" width="200px"></a></td>
       </tr>
       <tr>
@@ -38,6 +38,19 @@
 
 </body>
 </html>
+
+<script>
+  $(document).ready(function () {
+  
+    //check input gene before sending form
+    $('.video_min').click(function() {
+      var video_name = $(this).val();
+      
+      $('#video_screen').prop('src', video_name);
+    });
+    
+  });
+</script>
 
 <style>
 

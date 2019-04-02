@@ -21,7 +21,7 @@ else
 	if(isset($_POST["chkVersionName"]) and  sizeof($_POST["chkVersionName"])>0)
 	{
 		$versions=array_map(function($versionItem) {return trim($versionItem); },$_POST["chkVersionName"]);
-	$versionWhere="where gout.genome_version in(" . implode(",",
+	$versionWhere="where gout.genome_version IS NULL OR gout.genome_version in(" . implode(",",
 	array_map( function($versionItem)
 		{return "'" . pg_escape_string($versionItem) . "'"; },$_POST["chkVersionName"])
 	) . ") or gout.gene_name=searchValues.search_name";

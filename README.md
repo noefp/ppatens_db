@@ -15,7 +15,7 @@ function getBlastdbBaseLocation() { return "/tmp/dbTemp/";}
 
 # Database
 To create the database structure execute create_annot_schema.sql.
-If you wan't to import a large amount of data afterwards, don't create the index before all data have been inserted. This will be much faster if executed after insertion of all data.
+If you wan't to import a large amount of data afterwards, don't create the indexes before all data have been inserted. This will be much faster if executed after insertion of all data.
  Create a file "pp_database_access.php" this should define one function "getConnectionString()" which returns the connection string to the database.
  
  # Requirements

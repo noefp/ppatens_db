@@ -36,7 +36,7 @@ else
 	$query="SELECT distinct annot_type from annotation where annot_type not like 'GO %' order by annot_type desc";
 	$res=pg_query($query) or die("Couldn't query database.");
 	$annotTypes=pg_fetch_all_columns($res);
-	$gNameValues=implode(",",array_map(function($input) {if(empty(trim($input))) return ""; else  return "'" . trim(pg_escape_string($input))."'" ;},$gNamesArr));
+	$gNameValues=implode(",",array_map(function($input) {if(empty(trim($input))) return ""; else  return "lower('" . trim(pg_escape_string($input))."')" ;},$gNamesArr));
 	 $query="SELECT 
 		searchValues.search_name as \"input\", 
 		array_agg( distinct (gout.gene_name, gout.genome_version)) as \"genes\", 
@@ -48,7 +48,7 @@ else
 						(gene_gene gg RIGHT JOIN
 							(gene ginn
 							RIGHT JOIN unnest(array[{$gNameValues}]) WITH ORDINALITY AS      
-							searchValues(search_name,ord) on search_name=ginn.gene_name
+							searchValues(search_name,ord) on search_name=lower(ginn.gene_name)
 						) ON ginn.gene_id=gene_id1 or ginn.gene_id=gene_id2
 					) ON ggout.gene_id1=gg.gene_id2 or ggout.gene_id1=gg.gene_id1
 				) ON gout.gene_id=ggout.gene_id1 OR gout.gene_id=ggout.gene_id2

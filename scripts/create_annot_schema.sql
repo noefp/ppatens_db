@@ -36,3 +36,4 @@ GRANT ALL PRIVILEGES ON gene_annotation TO web_usr;
 -- Index
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
 CREATE INDEX annotation_idx ON annotation USING gin(annot_desc gin_trgm_ops);
+CREATE INDEX idx_lower_gname ON gene (lower(gene_name))

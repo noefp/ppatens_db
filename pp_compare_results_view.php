@@ -21,10 +21,10 @@ else
 	if(isset($_POST["chkVersionName"]) and  sizeof($_POST["chkVersionName"])>0)
 	{
 		$versions=array_map(function($versionItem) {return trim($versionItem); },$_POST["chkVersionName"]);
-	$versionWhere="where g.genome_version in(" . implode(",",
+	$versionWhere="where gout.genome_version in(" . implode(",",
 	array_map( function($versionItem)
 		{return "'" . pg_escape_string($versionItem) . "'"; },$_POST["chkVersionName"])
-	) . ") or g.gene_name=searchValues.search_name";
+	) . ") or gout.gene_name=searchValues.search_name";
 	}
 	else
 	{
@@ -37,15 +37,26 @@ else
 	$res=pg_query($query) or die("Couldn't query database.");
 	$annotTypes=pg_fetch_all_columns($res);
 	$gNameValues=implode(",",array_map(function($input) {if(empty(trim($input))) return ""; else  return "'" . trim(pg_escape_string($input))."'" ;},$gNamesArr));
-	 $query="SELECT searchValues.search_name as \"input\", array_agg( distinct (g.gene_name, g.genome_version)) as \"genes\", array_agg(distinct (annotation.annot_desc, annotation.annot_type)) \"annot\"
-	FROM
-	gene g inner join gene_gene on gene_id1=g.gene_id or gene_id2=g.gene_id
-	inner join (gene g2 inner join gene_annotation on gene_annotation.gene_id=g2.gene_id) on g2.gene_id=gene_id1 or g2.gene_id=gene_id2
-	inner join annotation on annotation.annotation_id=gene_annotation.annotation_id
-	right join unnest(array[{$gNameValues}]) WITH ORDINALITY AS searchValues(search_name,ord) on search_name=g2.gene_name
+	 $query="SELECT 
+		searchValues.search_name as \"input\", 
+		array_agg( distinct (gout.gene_name, gout.genome_version)) as \"genes\", 
+		array_agg(distinct (annotation.annot_desc, annotation.annot_type)) \"annot\" 
+		FROM annotation RIGHT JOIN
+			(gene_annotation RIGHT JOIN
+				(gene gout RIGHT JOIN
+					(gene_gene ggout RIGHT JOIN
+						(gene_gene gg RIGHT JOIN
+							(gene ginn
+							RIGHT JOIN unnest(array[{$gNameValues}]) WITH ORDINALITY AS      
+							searchValues(search_name,ord) on search_name=ginn.gene_name
+						) ON ginn.gene_id=gene_id1 or ginn.gene_id=gene_id2
+					) ON ggout.gene_id1=gg.gene_id2 or ggout.gene_id1=gg.gene_id1
+				) ON gout.gene_id=ggout.gene_id1 OR gout.gene_id=ggout.gene_id2
+			) ON gout.gene_id=gene_annotation.gene_id
+		) ON annotation.annotation_id=gene_annotation.annotation_id
 		{$versionWhere}
-	group by searchValues.search_name, searchValues.ord
-	order by searchValues.ord asc";
+		group by searchValues.search_name, ginn.gene_id, searchValues.ord
+		ORDER BY searchValues.ord ASC";
 	$dbRes=pg_query($query) or die('Query failed: ' . pg_last_error());
 	echo "<table class=\"table\" id=\"tblResults\"><thead><tr><th>input</th>";
 foreach($versions as $versionItem)

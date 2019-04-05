@@ -27,7 +27,11 @@
     </table>
     <br>
     <p class="yellow_col">
-      NOTE: Only the introduction video is ready. New videos will be available in the next weeks.
+      NOTE: The "Introduction" and "The PpGML DB" videos are ready.
+      The "PEATmoss" and "Lookup integration in PEATmoss" videos will be available in the next weeks.
+      <br>
+      <br>
+      Acknowledgements: These videos are narrated by Tarryn Miller.
     </p>
 
     <?php include_once 'ppdb_footer_min.php';?>
@@ -41,18 +45,18 @@
 
 <script>
   $(document).ready(function () {
-  
+
     //check input gene before sending form
     $('.video_min').click(function() {
       var video_name = $(this).attr("name");
-      
+
       // alert("video name: "+video_name);
-      
+
       $('#video_screen').attr("src", "/ppatens_db/img/"+video_name+".mp4");
-      
+
       $('#video_tv').trigger('load');
     });
-    
+
   });
 </script>
 
@@ -62,7 +66,7 @@
   margin:auto;
   width: 850px;
   padding-bottom:50px;
-  
+
 }
 
 .video_title {

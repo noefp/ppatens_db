@@ -27,8 +27,7 @@
     </table>
     <br>
     <p class="yellow_col">
-      NOTE: The "Introduction" and "The PpGML DB" videos are ready.
-      The "PEATmoss" and "Lookup integration in PEATmoss" videos will be available in the next weeks.
+      NOTE: The "PEATmoss" video is under development. It will be available in the next weeks.
       <br>
       <br>
       Acknowledgements: These videos are narrated by Tarryn Miller.
@@ -77,6 +76,13 @@
 .video_td_text {
   color: #fff;
   text-align:center;
+}
+
+*:focus {
+    outline: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 </style>

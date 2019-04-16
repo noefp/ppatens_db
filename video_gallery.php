@@ -27,9 +27,6 @@
     </table>
     <br>
     <p class="yellow_col">
-      NOTE: The "PEATmoss" video is under development. It will be available in the next weeks.
-      <br>
-      <br>
       Acknowledgements: These videos are narrated by Tarryn Miller.
     </p>
 

@@ -14,7 +14,7 @@
     <table>
       <tr>
         <td><a class="video_min pointer_cursor" name="PEATmoss_welcome2" style="margin-right:12px" ><img class="img-thumbnail" src="img/video1_min.png" width="200px"></a></td>
-        <td><a href="#" style="margin-right:12px"><img class="img-thumbnail" src="img/video2_min.png" width="200px"></a></td>
+        <td><a class="video_min pointer_cursor" name="PEATmoss_features" style="margin-right:12px"><img class="img-thumbnail" src="img/video2_min.png" width="200px"></a></td>
         <td><a class="video_min pointer_cursor" name="PpGMLDB_features" style="margin-right:12px" ><img class="img-thumbnail" src="img/video3_min.png" width="200px"></a></td>
         <td><a class="video_min pointer_cursor" name="PEATmoss_lookup" style="margin-right:12px"><img class="img-thumbnail" src="img/video4_min.png" width="200px"></a></td>
       </tr>

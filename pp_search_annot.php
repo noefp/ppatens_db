@@ -25,8 +25,7 @@ if ( preg_match('/\s+/',$desc_input) ) {
 
 // $query = "SELECT * FROM annotation WHERE annot_desc ILIKE '%$search_input%' OR annot_term ILIKE '%$search_input%'";
 $res = pg_query($query) or die('Query failed: ' . pg_last_error());
-
-if (pg_fetch_assoc($res)) {
+if (pg_result_status($res) == PGSQL_TUPLES_OK && pg_num_rows($res)>0) {
   // Printing results in HTML
   echo "<table class=\"table annot_table\" id=\"tblAnnotations\">\n<thead><tr><th>Gene</th><th>Term</th><th>Description</th><th>Source</th></tr></thead>\n";
   echo "<tbody>\n";

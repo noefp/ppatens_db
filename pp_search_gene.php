@@ -26,11 +26,7 @@ else
 $current_version = max($versions);
 $query = getGenesForSearchAndVersion($search_input, $versions);
 $res = pg_query($query) or die('Query failed: ' . pg_last_error());
-
-if (pg_fetch_assoc($res)) {
-
-  $res = pg_query($query) or die('Query failed: ' . pg_last_error());
-
+if (pg_result_status($res)==PGSQL_TUPLES_OK && pg_num_rows($res)>0) {
   // Printing results in HTML
   echo "<table class=\"table annot_table\" id=\"genesTable\">\n<thead><tr>";
 foreach ($versions as $versionItem)

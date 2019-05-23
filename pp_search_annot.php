@@ -19,7 +19,7 @@ if ( preg_match('/\s+/',$desc_input) ) {
 // }
 // else
 // {
- $query="SELECT * FROM annotation JOIN gene_annotation USING(annotation_id) JOIN gene USING(gene_id) WHERE " . getGinWhere("annot_desc", $desc_input) . " OR annot_term ILIKE '%" . pg_escape_string($search_input) . "%'";
+ $query="SELECT * FROM annotation JOIN gene_annotation USING(annotation_id) JOIN gene USING(gene_id) WHERE " . getGinWhere("annot_desc", pg_escape_string($desc_input)) . " OR annot_term ILIKE '%" . pg_escape_string($search_input) . "%'";
  // $query="SELECT * FROM annotation JOIN gene_annotation USING(annotation_id) JOIN gene USING(gene_id) WHERE annot_desc %> '%$desc_input%' OR annot_term ILIKE '%$search_input%'";
 // }
 

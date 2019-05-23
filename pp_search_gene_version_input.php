@@ -19,6 +19,7 @@
 				if($disableLatest==True && $version==$latest)
 				{
 					echo "<label class='checkbox-inline'><input type='checkbox' checked disabled name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>" . $version . "</label>";
+					echo "<input type='checkbox' checked hidden name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>"; 
 				}
 				else
 				{

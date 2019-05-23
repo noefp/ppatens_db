@@ -7,6 +7,7 @@ include "pp_database_data.php";
 <div class="data_table_frame">
 
 <?php
+$latest=getMaxVersion();
 $gNamesArr=array_filter(explode("\n",trim($_POST["txtGenes"])),function($gName) {return ! empty($gName);});
 
 if(sizeof($gNamesArr)==0)
@@ -75,9 +76,14 @@ foreach($versions as $versionItem)
 		// Removing \" enclosing the the multi word gene names.
 		array_walk($geneEntries,function(&$entry) {$entry[1]=str_replace("\\\"","",$entry[1]);});
 		// Creating columns for each version filled with content if a matching gene was found in the array.
-		$geneStr=implode(array_map(function($geneVersion) use($geneEntries) {return "<td>" .
+		$geneStr=implode(array_map(function($geneVersion) use($geneEntries,$latest) {return "<td>" .
 		implode(
-		array_map(function($currGene){return $currGene[0];},
+		array_map(function($currGene) use($geneVersion,$latest){
+			if($geneVersion==$latest)
+				return "<a href=\"./pp_annot.php?name={$currGene[0]}\" target=\"_blank\">{$currGene[0]}</a>";
+			else
+				return $currGene[0];
+			},
 		array_filter($geneEntries,function($item) use($geneVersion) { return $item[1] == $geneVersion;})),
 		";")
 		. "</td>";},$versions));
@@ -103,7 +109,7 @@ return array(0=>$matches[1],1=>$matches[2]);
 							. "</td>";},$annotTypes));
 
 		}
-		echo "<tr><td><a href=\"/ppatens_db/pp_annot.php?name={$row["input"]}\" target=\"_blank\">{$row["input"]}</a></td>{$geneStr}{$annotStr}</tr>";
+		echo "<tr><td>{$row["input"]}</td>{$geneStr}{$annotStr}</tr>";
 	}
 	echo "</tbody></table>\n";
 	// Freeing result and closing connection.

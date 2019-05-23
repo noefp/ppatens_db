@@ -52,7 +52,7 @@ else
 							searchValues(search_name,ord) on search_name ilike ginn.gene_name
 						) ON ginn.gene_id=gene_id1 or ginn.gene_id=gene_id2
 					) ON ggout.gene_id1=gg.gene_id2 or ggout.gene_id1=gg.gene_id1
-				) ON gout.gene_id=ggout.gene_id1 OR gout.gene_id=ggout.gene_id2
+				) ON gout.gene_id=ggout.gene_id1 OR gout.gene_id=ggout.gene_id2 or ginn.gene_id=gout.gene_id
 			) ON gout.gene_id=gene_annotation.gene_id
 		) ON annotation.annotation_id=gene_annotation.annotation_id
 		{$versionWhere}

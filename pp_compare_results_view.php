@@ -33,7 +33,7 @@ else
 	}
 
 	// Getting all annotation types.
-	$query="SELECT distinct annot_type from annotation where annot_type not like 'GO %' order by annot_type desc";
+	$query="SELECT distinct annot_type from annotation where annot_type not like 'GO %' order by annot_type asc";
 	$res=pg_query($query) or die("Couldn't query database.");
 	$annotTypes=pg_fetch_all_columns($res);
 	$gNameValues=implode(",",array_map(function($input) {if(empty(trim($input))) return ""; else  return "'" . trim(pg_escape_string($input))."'" ;},$gNamesArr));

@@ -37,8 +37,9 @@ function test_input($data) {
 
 
 // Performing SQL query
-$query = "SELECT gene_id,genome_version FROM gene WHERE gene_name='$gene_name'";
+$query = "SELECT gene_id,genome_version FROM gene WHERE gene_name=" . pg_escape_literal($dbconn,$gene_name);
 $res = pg_query($query) or die("The gene $gene_name was not found in the database. Most probably this gene was not associated to a gene from the current version.");
+if(pg_num_rows($res)!=1) die("The gene $gene_name was not found in the database. Most probably this gene was not associated to a gene from the current version.");
 // $res = pg_query($query) or die('Query failed: ' . pg_last_error());
 $gene_row = pg_fetch_array($res,0,PGSQL_ASSOC);
 $ori_gene_version = $gene_row["genome_version"];
@@ -67,8 +68,9 @@ if ($ori_gene_version != $current_version) {
 
   echo "<tr><td><a href=\"pp_annot.php?name=$new_gene_name\" target=\"_blank\">$new_gene_name</a></td><td>$gene_name</td><td>$gene_version</td></tr>\n";
   // echo "<tr><td><a href=\"pp_annot.php?name=$new_gene_name\" target=\"_blank\">$new_gene_name</a></td><td><a href=\"pp_annot.php?name=$gene_name\" target=\"_blank\">$gene_name</a></td><td>$gene_version</td></tr>\n";
-  pg_free_result($res2);
   }
+  pg_free_result($res2);
+  
   echo "</table>\n\n";
 
   // echo "\n<br>\n";

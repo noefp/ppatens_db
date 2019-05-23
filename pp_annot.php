@@ -7,8 +7,8 @@
 
 
 <?php
-
-$current_version = "3.3";
+include "pp_database_data.php";
+$current_version = getMaxVersion();
 
 // Connecting, selecting database
 include_once 'pp_database_data.php';

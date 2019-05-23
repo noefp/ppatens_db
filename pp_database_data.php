@@ -22,6 +22,12 @@ function getVersionsQuery()
 {
 	return 'select distinct genome_version from "public"."gene" order by genome_version desc;';
 }
+function getMaxVersion()
+{
+	$dbcon=pg_connect(getConnectionString()) or die("Error connecting to database");
+	$res=pg_query($dbcon,"select max(genome_version) from gene;") or die("Error executing query to get latex version");
+	return pg_fetch_result($res,0,0);
+}
 // Use this for postgres 10 and above
 function getGinWhere($field, $searchString)
 {

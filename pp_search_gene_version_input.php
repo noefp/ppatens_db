@@ -1,5 +1,5 @@
 <?php
-	function getCheckboxes($chkName)
+	function getCheckboxes($chkName,$disableLatest)
 	{
 		// Connecting to database and retrival of all Versions.
 		include_once 'pp_database_data.php';
@@ -13,9 +13,17 @@
 	<div class="form-check-inline">
 		<?php
 			$versions=pg_fetch_all_columns($versions_res) or die("Invalid result after version-request:".pg_last_error());
+			$latest=getMaxVersion();
 			foreach($versions as $version)
 			{
-				echo "<label class='checkbox-inline'><input type='checkbox' checked name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>" . $version . "</label>";
+				if($disableLatest==True && $version==$latest)
+				{
+					echo "<label class='checkbox-inline'><input type='checkbox' checked disabled name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>" . $version . "</label>";
+				}
+				else
+				{
+					echo "<label class='checkbox-inline'><input type='checkbox' checked name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>" . $version . "</label>";
+				}
 				// echo "<input type='checkbox' checked name='{$chkName}[]' value='{$version}' class='form-check-input checkbox'>" . $version . "</input>";
 			}
 		?>

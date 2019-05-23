@@ -19,7 +19,7 @@ Pp3c1_21730V3.1
 				<input type="checkbox" name="chkShowAnnot"> Show annotations
 				<?php
 				include_once "pp_search_gene_version_input.php";
-				getCheckboxes("chkVersionName");
+				getCheckboxes("chkVersionName",True);
 				?>
 				<button type="submit" class="btn btn-success pull-right" form="gene_version_lookup" formaction="pp_compare_results_view.php" formmethod="post">search</button>
 

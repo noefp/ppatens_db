@@ -43,7 +43,7 @@ include "pp_fasta_download.php";
 
     <!-- <input type="text" readonly id="txtCompare" placeholder="Compare genes" class="textbox textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/> -->
     <div class="form-group">
-      <label for="search_box" class="yellow_col" style="font-size:16px">Find other gene versions for a list of genes</label>
+      <label for="search_box" class="yellow_col" style="font-size:16px">Find gene versions and annotations for a list of genes</label>
       <input type="text" id="txtCompare" placeholder="Click here" class="form-control textbox-modal" data-toggle="modal" data-target="#dlgEnterMultiple"/>
     </div>
 

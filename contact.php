@@ -44,7 +44,7 @@
      Please cite PEATmoss and the PpGML DB as:
    </p>
    <p class="cite">
-     Fernandez-Pozo N, Haas FB, Meyberg R, Ullrich KK, Hiss M, Perroud P, Hanke S, Kratz V, Powell A, Vesty EF, Coates JC, Mueller LA, Rensing, SA.
+     Fernandez-Pozo N, Haas FB, Meyberg R, Ullrich KK, Hiss M, Perroud PF, Hanke S, Kratz V, Powell A, Vesty EF, Coates JC, Mueller LA, Rensing, SA.
      <br>
      <b>PEATmoss (Physcomitrella Expression Atlas Tool): a unified gene expression atlas for the model plant <i>Physcomitrella patens</i>.</b>
      <br>

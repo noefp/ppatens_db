@@ -58,38 +58,74 @@ include_once 'ppdb_header.php';
 <br>
 <ul class="well pp_list">
   <li class="pubtext">
-    <span class="small">Perroud P.F., Haas F.B., Hiss M., Ullrich K.K., Alboresi A., Amirebrahimi M., Barry K.,
-      Bassi R., Bonhomme S., Chen H., Coates J., Fujita T., ..., Szövényi P., Sreedasyam A., Grimwood J., Stacey G.,
-      Schmutz J., <b>Rensing S.A.</b></span> (2018)
+    <span class="small">Fernandez-Pozo N, Haas FB, Meyberg R, Ullrich KK,
+      Hiss M, Perroud PF, Hanke S, Kratz V, Powell A, Vesty EF, Coates JC, Mueller LA, Rensing, SA.</span> (2019)<br>
+      PEATmoss (Physcomitrella Expression Atlas Tool): a unified gene expression atlas for the model plant <i>Physcomitrella patens</i>.<br>
+      <a href="https://doi.org/10.1111/tpj.14607" target="_blank">The Plant Journal. https://doi.org/10.1111/tpj.14607</a>
+  </li>
+  <li class="pubtext">
+    <span class="small">Perroud PF, Haas FB, Hiss M, Ullrich KK, Alboresi A, Amirebrahimi M, Barry K,
+      Bassi R, Bonhomme S, Chen H, Coates J, Fujita T, ..., Szövényi P, Sreedasyam A, Grimwood J, Stacey G,
+      Schmutz J, Rensing SA</span> (2018)
     <br>
     <b>The <i>Physcomitrella patens</i> gene atlas project: large scale RNA-seq based expression data.</b>
     <br>
     <a href="http://dx.doi.org/10.1111/tpj.13940" target="_blank">Plant J. 95(1):168</a>
   </li>
   <li class="pubtext">
-    <span class="small">Lang, D., Ullrich, K. K., Murat, F., Fuchs, J., Jenkins, J., Haas, F. B., Piednoel, M., Gundlach, H.,
-    Van Bel, M., Meyberg, R., ..., Reski, R., Cuming, A. C., Tuskan, J., Maumus, F., Salse, J., Schmutz, J. and <b>Rensing, S. A.</b></span> (2017)
+    <span class="small">Lang D, Ullrich KK, Murat F, Fuchs J, Jenkins J, Haas FB, Piednoel M, Gundlach H,
+    Van Bel M, Meyberg R, ..., Reski R, Cuming AC, Tuskan J, Maumus F, Salse J, Schmutz J and Rensing SA</span> (2017)
     <br>
     <b>The <i>Physcomitrella patens</i> chromosome‐scale assembly reveals moss genome structure and evolution</b>
     <br>
     <a href="http://onlinelibrary.wiley.com/doi/10.1111/tpj.13801/abstract;jsessionid=1A15EE810F653553A3CD113A0D61162C.f02t03" target="_blank">Plant J. 93(3):515</a>
   </li>
   <li class="pubtext">
-     <span class="small">Zimmer A.D., Lang D., Buchta K., Rombauts S., Nishiyama T., Hasebe M., Van de Peer Y., <b> Rensing S.A. </b>, Reski R.</span> (2013)
-     <br>
-     <b>Reannotation and extended community resources for the genome of the non-seed plant <em> Physcomitrella patens </em> provide insights into the evolution of plant gene structures and functions</b>.
-     <br>
+     <span class="small">Hiss M, Meyberg R, Westermann J, Haas FB, Schneider L, Schallenberg-Rüdinger M,
+       Ullrich KK, Rensing SA</span> (2017)<br>
+       Sexual reproduction, sporophyte development and molecular variation in the model moss Physcomitrella patens: introducing the ecotype Reute.<br>
+       <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.13501" target="_blank">Plant J. 90:606</a>
+  </li>
+  <li class="pubtext">
+     <span class="small">Possart A, Xu T, Paik I, Hanke S, Keim S, Hermann HM, Wolf L, Hiß M, Becker C, Huq E, Rensing SA, Hiltbrunner A</span> (2017)<br>
+       Characterization of Phytochrome Interacting Factors from the Moss <i>Physcomitrella patens</i> Illustrates Conservation of Phytochrome Signaling Modules in Land Plants.<br>
+       <a href="http://www.plantcell.org/content/29/2/310.long" target="_blank">Plant Cell. 29(2):310-330.</a>
+  </li>
+  <li class="pubtext">
+     <span class="small">Ortiz-Ramirez C, Hernandez-Coronado M, Thamm A, Catarino B, Wang M, Dolan L, Feijo JA, Becker JD</span> (2016)<br>
+       A Transcriptome Atlas of <i>Physcomitrella patens</i> Provides Insights into the Evolution and Development of Land Plants.<br>
+       <a href="https://www.cell.com/molecular-plant/fulltext/S1674-2052(15)00455-4" target="_blank">Molecular Plant 9(2):205-220</a>
+  </li>
+  <li class="pubtext">
+     <span class="small">Beike AK, Lang D, Zimmer AD, Wüst F, Trautmann D, Wiedemann G, Beyer P, Decker EL, Reski R.</span> (2015)<br>
+       Insights from the cold transcriptome of <i>Physcomitrella patens</i>: global specialization pattern of conserved transcriptional regulators and identification of orphan genes involved in cold acclimation.<br>
+       <a href="https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13004" target="_blank">New Phytologist. 205(2):869-881</a>
+  </li>
+  <li class="pubtext">
+     <span class="small">Hiss M, Laule O, Meskauskiene RM, Arif MA, Decker EL, Erxleben A, Frank W,
+       Hanke ST, Lang D, Martin A, Neu C, Reski R, Richardt S, Schallenberg-Rüdinger M, Szövényi P,
+       Tiko T, Wiedemann G, Wolf L, Zimmermann P, Rensing SA</span> (2014)<br>
+       Large-scale gene expression profiling data for the model moss <i>Physcomitrella patens</i> aid understanding of developmental progression, culture and stress conditions.<br>
+       <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.12572" target="_blank">Plant J. 79:530</a>
+  </li>
+  <li class="pubtext">
+     <span class="small">Zimmer AD, Lang D, Buchta K, Rombauts S, Nishiyama T, Hasebe M, Van de Peer Y, Rensing SA, Reski R</span> (2013)<br>
+     <b>Reannotation and extended community resources for the genome of the non-seed plant <i>Physcomitrella patens </i> provide insights into the evolution of plant gene structures and functions</b>.<br>
      <a href="http://www.biomedcentral.com/1471-2164/14/498" target="_blank">BMC Genomics 14:498</a>
   </li>
-  <li>
-    <span class="small"><b>Rensing S.A.</b>, Lang D., Zimmer A.D., Terry A.,  Salamov A., Shapiro H., Nishiyama T.,
-      Perroud P.-F., Lindquist E.,  Kamisugi Y., Tanahashi T., Sakakibara K., Fujita T., ..., Reski R., Grigoriev  I.V.,
-      Quatrano R.S., Boore J.L. </span>(2008) <br>
-      <b>The genome of the moss <em>Physcomitrella patens</em> reveals evolutionary insights into the conquest of land by plants.</b>
+  <li class="pubtext">
+    <span class="small">Rensing SA, Lang D, Zimmer AD, Terry A,  Salamov A, Shapiro H, Nishiyama T,
+      Perroud PF, Lindquist E,  Kamisugi Y, Tanahashi T, Sakakibara K, Fujita T, ..., Reski R, Grigoriev  IV,
+      Quatrano RS, Boore JL </span>(2008) <br>
+      <b>The genome of the moss <i>Physcomitrella patens</i> reveals evolutionary insights into the conquest of land by plants.</b>
       <br>
     <a href="http://www.sciencemag.org/cgi/content/abstract/1150646" target="_blank">Science 319:64-69</a>
  </li>
-
+  <li class="pubtext">
+    <span class="small">Busch H, Boerries M, Bao J, Hanke ST, Tiko T, Hiss M, Rensing SA</span> (2013)<br>
+    Network Theory Inspired Analysis of Time-Resolved Expression Data Reveals Key Players Guiding P. patens Stem Cell Development.<br>
+    <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0060494" target="_blank">PLoS ONE 8(4):e60494</a>
+  </li>
 </ul>
 </div>
 

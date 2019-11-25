@@ -83,7 +83,7 @@ include_once 'ppdb_header.php';
   <li class="pubtext">
      <span class="small">Hiss M, Meyberg R, Westermann J, Haas FB, Schneider L, Schallenberg-Rüdinger M,
        Ullrich KK, Rensing SA</span> (2017)<br>
-       <b>Sexual reproduction, sporophyte development and molecular variation in the model moss Physcomitrella patens: introducing the ecotype Reute.</b><br>
+       <b>Sexual reproduction, sporophyte development and molecular variation in the model moss <i>Physcomitrella patens</i>: introducing the ecotype Reute.</b><br>
        <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.13501" target="_blank">Plant J. 90:606</a>
   </li>
   <li class="pubtext">

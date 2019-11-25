@@ -43,10 +43,13 @@ include_once 'ppdb_header.php';
       <b><a href="http://moss.nibb.ac.jp/" target="_blank">Physcobase</a></b>
   </li>
   <li>
-      <b><a href="https://genome.jgi-psf.org//Phypa1_1/Phypa1_1.home.html" target="_blank"><em>P. patens</em> genome at JGI</a></b>
+      <b><a href="https://genome.jgi-psf.org//Phypa1_1/Phypa1_1.home.html" target="_blank"><i>P. patens</i> genome at JGI</a></b>
   </li>
   <li>
       <b><a href="https://www.ncbi.nlm.nih.gov/sites/entrez?db=genomeprj&amp;cmd=Retrieve&amp;dopt=Overview&amp;list_uids=12940" target="_blank"><em>P. patens</em> genome at NCBI</a></b>
+  </li>
+  <li>
+      <b><a href="https://biit.cs.ut.ee/gprofiler/gost" target="_blank">g:Profiler</a></b> - GO enrichmenta and other tools for <i>P. patens</i> and many other species.
   </li>
 
 </ul>

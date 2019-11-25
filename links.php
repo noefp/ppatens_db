@@ -60,7 +60,7 @@ include_once 'ppdb_header.php';
   <li class="pubtext">
     <span class="small">Fernandez-Pozo N, Haas FB, Meyberg R, Ullrich KK,
       Hiss M, Perroud PF, Hanke S, Kratz V, Powell A, Vesty EF, Coates JC, Mueller LA, Rensing, SA.</span> (2019)<br>
-      PEATmoss (Physcomitrella Expression Atlas Tool): a unified gene expression atlas for the model plant <i>Physcomitrella patens</i>.<br>
+      <b>PEATmoss (Physcomitrella Expression Atlas Tool): a unified gene expression atlas for the model plant <i>Physcomitrella patens</i>.</b><br>
       <a href="https://doi.org/10.1111/tpj.14607" target="_blank">The Plant Journal. https://doi.org/10.1111/tpj.14607</a>
   </li>
   <li class="pubtext">
@@ -83,29 +83,29 @@ include_once 'ppdb_header.php';
   <li class="pubtext">
      <span class="small">Hiss M, Meyberg R, Westermann J, Haas FB, Schneider L, Schallenberg-Rüdinger M,
        Ullrich KK, Rensing SA</span> (2017)<br>
-       Sexual reproduction, sporophyte development and molecular variation in the model moss Physcomitrella patens: introducing the ecotype Reute.<br>
+       <b>Sexual reproduction, sporophyte development and molecular variation in the model moss Physcomitrella patens: introducing the ecotype Reute.</b><br>
        <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.13501" target="_blank">Plant J. 90:606</a>
   </li>
   <li class="pubtext">
      <span class="small">Possart A, Xu T, Paik I, Hanke S, Keim S, Hermann HM, Wolf L, Hiß M, Becker C, Huq E, Rensing SA, Hiltbrunner A</span> (2017)<br>
-       Characterization of Phytochrome Interacting Factors from the Moss <i>Physcomitrella patens</i> Illustrates Conservation of Phytochrome Signaling Modules in Land Plants.<br>
+       <b>Characterization of Phytochrome Interacting Factors from the Moss <i>Physcomitrella patens</i> Illustrates Conservation of Phytochrome Signaling Modules in Land Plants.</b><br>
        <a href="http://www.plantcell.org/content/29/2/310.long" target="_blank">Plant Cell. 29(2):310-330.</a>
   </li>
   <li class="pubtext">
      <span class="small">Ortiz-Ramirez C, Hernandez-Coronado M, Thamm A, Catarino B, Wang M, Dolan L, Feijo JA, Becker JD</span> (2016)<br>
-       A Transcriptome Atlas of <i>Physcomitrella patens</i> Provides Insights into the Evolution and Development of Land Plants.<br>
+      <b>A Transcriptome Atlas of <i>Physcomitrella patens</i> Provides Insights into the Evolution and Development of Land Plants.</b><br>
        <a href="https://www.cell.com/molecular-plant/fulltext/S1674-2052(15)00455-4" target="_blank">Molecular Plant 9(2):205-220</a>
   </li>
   <li class="pubtext">
      <span class="small">Beike AK, Lang D, Zimmer AD, Wüst F, Trautmann D, Wiedemann G, Beyer P, Decker EL, Reski R.</span> (2015)<br>
-       Insights from the cold transcriptome of <i>Physcomitrella patens</i>: global specialization pattern of conserved transcriptional regulators and identification of orphan genes involved in cold acclimation.<br>
-       <a href="https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13004" target="_blank">New Phytologist. 205(2):869-881</a>
+     <b>Insights from the cold transcriptome of <i>Physcomitrella patens</i>: global specialization pattern of conserved transcriptional regulators and identification of orphan genes involved in cold acclimation.</b><br>
+     <a href="https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13004" target="_blank">New Phytologist. 205(2):869-881</a>
   </li>
   <li class="pubtext">
      <span class="small">Hiss M, Laule O, Meskauskiene RM, Arif MA, Decker EL, Erxleben A, Frank W,
        Hanke ST, Lang D, Martin A, Neu C, Reski R, Richardt S, Schallenberg-Rüdinger M, Szövényi P,
        Tiko T, Wiedemann G, Wolf L, Zimmermann P, Rensing SA</span> (2014)<br>
-       Large-scale gene expression profiling data for the model moss <i>Physcomitrella patens</i> aid understanding of developmental progression, culture and stress conditions.<br>
+       <b>Large-scale gene expression profiling data for the model moss <i>Physcomitrella patens</i> aid understanding of developmental progression, culture and stress conditions.</b><br>
        <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/tpj.12572" target="_blank">Plant J. 79:530</a>
   </li>
   <li class="pubtext">
@@ -123,7 +123,7 @@ include_once 'ppdb_header.php';
  </li>
   <li class="pubtext">
     <span class="small">Busch H, Boerries M, Bao J, Hanke ST, Tiko T, Hiss M, Rensing SA</span> (2013)<br>
-    Network Theory Inspired Analysis of Time-Resolved Expression Data Reveals Key Players Guiding P. patens Stem Cell Development.<br>
+    <b>Network Theory Inspired Analysis of Time-Resolved Expression Data Reveals Key Players Guiding P. patens Stem Cell Development.</b><br>
     <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0060494" target="_blank">PLoS ONE 8(4):e60494</a>
   </li>
 </ul>

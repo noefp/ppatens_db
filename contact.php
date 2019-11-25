@@ -46,9 +46,9 @@
    <p class="cite">
      Fernandez-Pozo N, Haas FB, Meyberg R, Ullrich KK, Hiss M, Perroud PF, Hanke S, Kratz V, Powell A, Vesty EF, Coates JC, Mueller LA, Rensing, SA.
      <br>
-     <b>PEATmoss (Physcomitrella Expression Atlas Tool): a unified gene expression atlas for the model plant <i>Physcomitrella patens</i>.</b>
+     <b><a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.14607" target="_blank">PEATmoss (Physcomitrella Expression Atlas Tool): a unified gene expression atlas for the model plant <i>Physcomitrella patens</i>.</a></b>
      <br>
-     In preparation.
+     The Plant Journal. <a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.14607" target="_blank">https://doi.org/10.1111/tpj.14607</a>
    </p>
    <br>
    <a href="/ppatens_db/video_gallery.php" target="_blank">

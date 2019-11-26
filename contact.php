@@ -19,9 +19,9 @@
            <div style="height:0px;margin:0px;padding:0px"></div>
              <a class="peatmoss_text" href="https://peatmoss.online.uni-marburg.de/expression_viewer/input" target="_blank"><span id="peat">PEAT</span>moss</a>
 
-           and the <a class="peatmoss_text" href="https://peatmoss.online.uni-marburg.de/ppatens_db/pp_search_input.php" target="_blank">PpGML DB</a>
+           and the <a class="peatmoss_text" href="https://peatmoss.online.uni-marburg.de/ppatens_db/pp_search_input.php" target="_blank"><span style="white-space: nowrap;">PpGML DB</span></a>
 
-           <p class="font22 w700">
+           <p class="font22 w450">
              PEATmoss is an expression atlas for <i>Physcomitrella patens</i> gene expression data from RNA-seq and expression microarrays.
              The <i>Physcomitrella patens</i> Gene Model Lookup Database (PpGML DB), contains tools,
              sequences and annotations to lookup between the different gene model version of <i>P. patens</i>.
@@ -110,8 +110,9 @@
     font-size: 22px;
   }
 
-  .w700 {
-    width: 700px;
+  .w450 {
+    min-width: 450px;
+    max-width: 700px;
   }
 
   #peat {
@@ -128,7 +129,7 @@
   .cite {
     font-size:18px;
     font-family: helvetica;
-    width:1200px;
+    min-width:790px;
     color:#c9ebcd;
   }
 

@@ -4,27 +4,27 @@
     <title>PEATmoss</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-3.1.1.min.js"></script>
     <link rel="shortcut icon" href="/ppatens_db/favicon.ico">
     <link rel="stylesheet" href="/ppatens_db/css/bootstrap.min.css">
     <link rel="stylesheet" href="/ppatens_db/css/PEATmoss_style.css">
-    <script src="js/jquery-3.1.1.min.js"></script>
   </head>
 
   <body style="background-color:#004600">
 
-    <div id="navigation_block">
+    <div id="navigation_block" style="min-width:850px">
 
     <nav class="navbar navbar-default">
-      <div class="container-fluid" style="margin:auto;width:600px">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <div class="container-fluid" style="margin:auto">
+        <!-- <div class="navbar-header"> -->
+          <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </button> -->
           <!-- <a class="navbar-brand" href="pp_search_input.php"><span class="glyphicon glyphicon-home" style="line-height: 0;"></span></a> -->
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
+        <!-- </div> -->
+        <div  id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="/ppatens_db/pp_search_input.php">PpGML DB</a></li>
             <li><a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">PEATmoss</a></li>
@@ -35,3 +35,9 @@
     </nav>
 
   </div>
+
+<style>
+.navbar-nav>li {
+    float: left;
+}
+</style>

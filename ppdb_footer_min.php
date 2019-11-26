@@ -24,6 +24,7 @@
     background-color: #004600;
     font-size: 12px;
     width: 100%;
+    min-width: 850px;
     position: absolute;
     bottom:0;
     left:0;

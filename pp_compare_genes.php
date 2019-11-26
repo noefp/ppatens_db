@@ -14,7 +14,7 @@
 Pp3c1_10000V3.1
 Pp3c2_3600V3.1
 Pp3c1_21730V3.1
-        </textarea>
+</textarea>
 
 				<input type="checkbox" name="chkShowAnnot"> Show annotations
 				<?php
@@ -34,9 +34,12 @@ Pp3c1_21730V3.1
   $(document).ready(function () {
 
     $('#gene_version_lookup').submit(function () {
-      var gene_lookup_input = $('#txtGenes').val();
-      var gene_count = (gene_lookup_input.match(/\n/g)||[]).length
 
+      var gene_lookup_input = $('#txtGenes').val();
+      filtered_input = gene_lookup_input.replace(/\n+/g, '\n');
+      $('#txtGenes').val(filtered_input);
+
+      var gene_count = (filtered_input.match(/\n/g)||[]).length;
       // alert("gene_lookup_input: "+gene_lookup_input+", gene_count: "+gene_count);
 
       //check input genes from gene lookup before sending form

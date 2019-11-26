@@ -12,7 +12,7 @@ $gNamesArr=array_filter(explode("\n",trim($_POST["txtGenes"])),function($gName) 
 
 if(sizeof($gNamesArr)==0)
 {
-	echo "<h1>No genes to search provided.</h1>";
+	echo "<h1>The gene list was empty</h1>";
 }
 else
 {
@@ -38,17 +38,17 @@ else
 	$res=pg_query($query) or die("Couldn't query database.");
 	$annotTypes=pg_fetch_all_columns($res);
 	$gNameValues=implode(",",array_map(function($input) {if(empty(trim($input))) return ""; else  return "'" . trim(pg_escape_string($input))."'" ;},$gNamesArr));
-	 $query="SELECT 
-		searchValues.search_name as \"input\", 
-		array_agg( distinct (gout.gene_name, gout.genome_version)) as \"genes\", 
-		array_agg(distinct (annotation.annot_desc, annotation.annot_type)) \"annot\" 
+	 $query="SELECT
+		searchValues.search_name as \"input\",
+		array_agg( distinct (gout.gene_name, gout.genome_version)) as \"genes\",
+		array_agg(distinct (annotation.annot_desc, annotation.annot_type)) \"annot\"
 		FROM annotation RIGHT JOIN
 			(gene_annotation RIGHT JOIN
 				(gene gout RIGHT JOIN
 					(gene_gene ggout RIGHT JOIN
 						(gene_gene gg RIGHT JOIN
 							(gene ginn
-							RIGHT JOIN unnest(array[{$gNameValues}]) WITH ORDINALITY AS      
+							RIGHT JOIN unnest(array[{$gNameValues}]) WITH ORDINALITY AS
 							searchValues(search_name,ord) on search_name ilike ginn.gene_name
 						) ON ginn.gene_id=gene_id1 or ginn.gene_id=gene_id2
 					) ON ggout.gene_id1=gg.gene_id2 or ggout.gene_id1=gg.gene_id1

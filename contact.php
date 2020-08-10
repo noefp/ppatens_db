@@ -44,11 +44,11 @@
      Please cite PEATmoss and the PpGML DB as:
    </p>
    <p class="cite">
-     Fernandez-Pozo N, Haas FB, Meyberg R, Ullrich KK, Hiss M, Perroud PF, Hanke S, Kratz V, Powell A, Vesty EF, Coates JC, Mueller LA, Rensing, SA.
+Fernandez-Pozo, N., Haas, F.B., Meyberg, R., Ullrich, K.K., Hiss, M., Perroud, P.F., Hanke, S., Kratz, V., Powell, A.F., Vesty, E.F., Daum, C.G., Zane, M., Lipzen, A., Sreedasyam, A., Grimwood, J., Coates, J.C., Barry, K., Schmutz, J., Mueller, L.A. and Rensing, S.A. (2020)
      <br>
      <b><a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.14607" target="_blank">PEATmoss (Physcomitrella Expression Atlas Tool): a unified gene expression atlas for the model plant <i>Physcomitrella patens</i>.</a></b>
      <br>
-     The Plant Journal. <a href="https://onlinelibrary.wiley.com/doi/10.1111/tpj.14607" target="_blank">https://doi.org/10.1111/tpj.14607</a>
+     <a href="https://doi.org/10.1111/tpj.14607" target="_blank">Plant J., 102:165</a>
    </p>
    <br>
    <a href="/ppatens_db/video_gallery.php" target="_blank">

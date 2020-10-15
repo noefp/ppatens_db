@@ -2,7 +2,7 @@
 $seperator=';'
 ?>
 <div class="colapse_section pointer_cursor" data-toggle="collapse" data-target="#gene_section">
-  <h3 class="yellow_col">Genes found</h3>
+  <h3 class="yellow_col">Gene lookup</h3>
 </div>
 
 <div id="gene_section" class="collapse in">

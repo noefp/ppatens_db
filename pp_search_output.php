@@ -38,10 +38,9 @@ function test_input($data) {
 
 <?php include_once 'ppdb_search_input_form.php';?>
 
+<?php include_once 'pp_search_annot.php';?>
 
 <?php include_once 'pp_search_gene.php';?>
-
-<?php include_once 'pp_search_annot.php';?>
 
 
 <?php
@@ -52,6 +51,42 @@ pg_close($dbconn);
 <br>
 <br>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  $(".tblAnnotations").dataTable({
+    dom:'Bfrtip',
+    buttons:[{
+      extend:'csv',
+      text:'Download',
+      title:"PpGMLDB_annotations",
+      fieldBoundary: '',
+      fieldSeparator:"\t"},
+      {
+        extend:'excel',
+        text:'Excel',
+        title:"PpGMLDB_annotations",
+        fieldSeparator:"\t"
+      },
+      'copy'],
+      bFilter:false
+    });
+</script>
+
+
+
+
+
 
 
 

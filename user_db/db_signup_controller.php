@@ -16,13 +16,14 @@ try {
       $headers = 'From: '.$contact_email."\r\n".
       'Reply-To:'.$contact_email."\r\n";
 
-      $msg = "Your account in PEATmoss and the PpGML DB was created.\r\n
-      We will contact you to confirm your registration.\r\n
-      Please contact us if you do not get confirmation in the next 3 days.\r\n\r\n
-      Kind regards,\r\n
-      The PEATmoss team.\r\n";
+$msg = "Your account in PEATmoss and the PpGML DB was created.\r\n
+We will contact you to confirm your registration.\r\n
+Please contact us if you do not get confirmation in the next 3 days.\r\n\r\n
+Kind regards,\r\n
+The PEATmoss team.\r\n";
+
       // use wordwrap() if lines are longer than 70 characters
-      $msg = wordwrap($msg,70);
+      // $msg = wordwrap($msg,70);
       mail($_POST['email'],"your account in PEATmoss was created",$msg, $headers);
 
     echo 'Your user was created. We will contact you to confirm your registration. Please contact us if you do not get confirmation in the next 3 days.';

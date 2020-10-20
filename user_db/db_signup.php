@@ -1,5 +1,5 @@
 <!-- <?php //include_once $_SERVER['DOCUMENT_ROOT'].'/ppatens_db/ppdb_header.php'; ?> -->
-<?php include_once '/ppatens_db/ppdb_header.php'; ?>
+<?php include_once '../ppdb_header.php'; ?>
 
 <div class="page_container">
 

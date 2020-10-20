@@ -13,6 +13,6 @@ $db = new \PDO("pgsql:dbname=$dbname;host=$dbhost;", $dbuser, $dbclave);
 
 $auth = new \Delight\Auth\Auth($db);
 
-// $contact_email = getContactEmail();
+$contact_email = getContactEmail();
 
 ?>

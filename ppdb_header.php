@@ -1,38 +1,46 @@
+<?php
+// \ini_set('session.name', 'PEATmossession');
+\ini_set('session.cookie_domain', '*');
+  require __DIR__.'/user_db/vendor/autoload.php';
+  \Delight\Cookie\Session::start(null);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>PpGML DB</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/PEATmoss_style.css">
-	<link rel="stylesheet" type="text/css" href="css/datatables.css">
-	<link rel="stylesheet" href="css/jquery-ui.min.css">
-	<link rel="stylesheet" href="js/DataTables/Select-1.2.6/css/select.dataTables.min.css">
-  <script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/download2.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/DataTables/datatables.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/dataTables.buttons.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.bootstrap.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.flash.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.html5.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.jqueryui.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/DataTables/Buttons-1.5.2/js/buttons.print.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="js/DataTables/Select-1.2.6/js/dataTables.select.min.js"></script>
+    <link rel="shortcut icon" href="/ppatens_db/favicon.ico">
+    <link rel="stylesheet" href="/ppatens_db/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/ppatens_db/css/PEATmoss_style.css">
+	<link rel="stylesheet" type="text/css" href="/ppatens_db/css/datatables.css">
+	<link rel="stylesheet" href="/ppatens_db/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="/ppatens_db/js/DataTables/Select-1.2.6/css/select.dataTables.min.css">
+  <script src="/ppatens_db/js/jquery-3.1.1.min.js"></script>
+	<script src="/ppatens_db/js/jquery-ui.min.js"></script>
+  <script src="/ppatens_db/js/bootstrap.min.js"></script>
+  <script src="/ppatens_db/js/download2.js"></script>
+	<script type="text/javascript" charset="utf8" src="/ppatens_db/js/DataTables/datatables.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/ppatens_db/js/DataTables/Buttons-1.5.2/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/ppatens_db/js/DataTables/Buttons-1.5.2/js/buttons.bootstrap.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/ppatens_db/js/DataTables/Buttons-1.5.2/js/buttons.flash.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/ppatens_db/js/DataTables/Buttons-1.5.2/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/ppatens_db/js/DataTables/Buttons-1.5.2/js/buttons.jqueryui.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/ppatens_db/js/DataTables/Buttons-1.5.2/js/buttons.print.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="/ppatens_db/js/DataTables/Select-1.2.6/js/dataTables.select.min.js"></script>
 	  </head>
 
     <body>
+      <?php include_once 'login_modal.php'; ?>
 
       <div class="container-fluid imoss-top">
         <p class="pull-left cover-title">
           <i>P. patens</i> Gene Model Lookup DB
         </p>
 
-        <div style="background: url(img/cover.jpg) center center; background-size:cover;">
-         <img class="cover-img" src="img/cover.jpg" style="visibility: hidden;" />
+        <div style="background: url(/ppatens_db/img/cover.jpg) center center; background-size:cover;">
+         <img class="cover-img" src="/ppatens_db/img/cover.jpg" style="visibility: hidden;" />
         </div>
         <!-- <img class="pull-left cover-img" src="img/cover.jpg"> -->
       </div>
@@ -48,22 +56,31 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="pp_search_input.php"><span class="glyphicon glyphicon-home" style="line-height: 0;"></span></a>
+            <a class="navbar-brand" href="/ppatens_db/pp_search_input.php"><span class="glyphicon glyphicon-home" style="line-height: 0;"></span></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li><a href="blast_input.php">BLAST</a></li>
-              <li><a href="downloads.php">Downloads</a></li>
-              <li><a href="links.php">Links</a></li>
-              <li><a href="contact.php">About Us</a></li>
+              <li><a href="/ppatens_db/blast_input.php">BLAST</a></li>
+              <li><a href="/ppatens_db/downloads.php">Downloads</a></li>
+              <li><a href="/ppatens_db/links.php">Links</a></li>
+              <li><a href="/ppatens_db/contact.php">About Us</a></li>
               <li><a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input" target="_blank">PEATmoss</a></li>
               <li><a class="pmoss_menu_tab" href="https://www.plantco.de/" target="_blank"><span class="plant">plant</span><span class="plantco">co</span><span class="plantco-dot">.</span><span class="plantco">de</span></a></li>
+              <li id="login_li">
+                <a id="login_link" style="font-size:16px; cursor:pointer" data-toggle="modal" data-target="#loginModal">
+                  Log In <span class="glyphicon glyphicon-log-in" style="line-height: 1.2;"></span>
+                </a>
+                <a id="logout_link" style="font-size:16px; cursor:pointer; display:none">
+                  Log Out <span class="glyphicon glyphicon-log-out" style="line-height: 1.2;"></span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
 
     </div>
+
 
   <style>
 
@@ -102,6 +119,11 @@
       width: 100%;
       height: 277px;
       padding:0px
+    }
+
+    .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+      color: #fff;
+      background-color: transparent;
     }
 
   </style>

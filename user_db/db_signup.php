@@ -1,10 +1,11 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/ppatens_db/ppdb_header.php'; ?>
+<!-- <?php //include_once $_SERVER['DOCUMENT_ROOT'].'/ppatens_db/ppdb_header.php'; ?> -->
+<?php include_once '/ppatens_db/ppdb_header.php'; ?>
 
 <div class="page_container">
 
   <br>
 
-  <h2 class="text-center yellow_col">Create An Account</h2>
+  <h2 class="text-center yellow_col">Create an account</h2>
   <br>
 
   <div class="well" style="width:900px; margin:auto; padding-bottom:45px">

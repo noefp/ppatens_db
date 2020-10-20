@@ -14,9 +14,11 @@ try {
       $db->prepare($sql2)->execute([$_POST['first_name'], $_POST['last_name'],$_POST['university'],$_POST['department'],$_POST['city'],$_POST['country'], $userId]);
 
       $headers = 'From: '.$contact_email."\r\n".
+      'Cc:'.$contact_email."\r\n".
       'Reply-To:'.$contact_email."\r\n";
 
-$msg = "Your account in PEATmoss and the PpGML DB was created.\r\n
+$msg = "Dear ".$_POST['first_name'].",\r\n
+Your account in PEATmoss and the PpGML DB was created.\r\n
 We will contact you to confirm your registration.\r\n
 Please contact us if you do not get confirmation in the next 3 days.\r\n\r\n
 Kind regards,\r\n

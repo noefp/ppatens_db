@@ -59,7 +59,7 @@
 <br>
 <br>
 
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/ppatens_db/ppdb_footer.php'; ?>
+<?php include_once '../ppdb_footer.php'; ?>
 
 <script>
   $(document).ready(function() {

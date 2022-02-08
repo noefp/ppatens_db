@@ -8,7 +8,7 @@
     <table>
       <tr>
       <td style="vertical-align:top">
-        <a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input" target="_blank">
+        <a href="/expression_viewer/input" target="_blank">
           <img src="/ppatens_db/img/PEATmoss_400.png" width="300px"/>
         </a>
       </td>
@@ -17,9 +17,9 @@
          <div id="landing_text">
            <span id="welcome_text">Welcome to</span>
            <div style="height:0px;margin:0px;padding:0px"></div>
-             <a class="peatmoss_text" href="https://peatmoss.online.uni-marburg.de/expression_viewer/input" target="_blank"><span id="peat">PEAT</span>moss</a>
+             <a class="peatmoss_text" href="/expression_viewer/input" target="_blank"><span id="peat">PEAT</span>moss</a>
 
-           and the <a class="peatmoss_text" href="https://peatmoss.online.uni-marburg.de/ppatens_db/pp_search_input.php" target="_blank"><span style="white-space: nowrap;">PpGML DB</span></a>
+           and the <a class="peatmoss_text" href="/ppatens_db/pp_search_input.php" target="_blank"><span style="white-space: nowrap;">PpGML DB</span></a>
 
            <p class="font22 w450">
              PEATmoss is an expression atlas for <i>Physcomitrella patens</i> gene expression data from RNA-seq and expression microarrays.

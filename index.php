@@ -11,7 +11,7 @@
     <table>
       <tr>
       <td>
-        <a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">
+        <a href="/expression_viewer/input">
           <img src="/ppatens_db/img/PEATmoss_400.png" width="300px"/>
         </a>
       </td>
@@ -20,7 +20,7 @@
          <div id="landing_text">
            <span id="welcome_text">Welcome to</span>
            <div style="height:0px;margin:0px;padding:0px"></div>
-           <a class="peatmoss_text" href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">
+           <a class="peatmoss_text" href="/expression_viewer/input">
              <span id="peat">PEAT</span>moss
            </a>
            <br>

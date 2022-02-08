@@ -10,7 +10,7 @@ include_once 'ppdb_header.php';
 <br>
 <ul class="well pp_list">
   <li>
-    <b><a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input" target="_blank">PEATmoss</a></b>
+    <b><a href="/expression_viewer/input" target="_blank">PEATmoss</a></b>
     - The Physcomitrella Expression Atlas Tool.
   </li>
   <li>

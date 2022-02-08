@@ -27,7 +27,7 @@
         <div  id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="/ppatens_db/pp_search_input.php">PpGML DB</a></li>
-            <li><a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input">PEATmoss</a></li>
+            <li><a href="/expression_viewer/input">PEATmoss</a></li>
             <li><a class="pmoss_menu_tab" href="https://www.plantco.de/" target="_blank"><span class="plant">plant</span><span class="plantco">co</span><span class="plantco-dot">.</span><span class="plantco">de</span></a></li>
           </ul>
         </div>

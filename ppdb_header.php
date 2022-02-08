@@ -64,7 +64,7 @@
               <li><a href="/ppatens_db/downloads.php">Downloads</a></li>
               <li><a href="/ppatens_db/links.php">Links</a></li>
               <li><a href="/ppatens_db/contact.php">About Us</a></li>
-              <li><a href="https://peatmoss.online.uni-marburg.de/expression_viewer/input" target="_blank">PEATmoss</a></li>
+              <li><a href="/expression_viewer/input" target="_blank">PEATmoss</a></li>
               <li><a class="pmoss_menu_tab" href="https://www.plantco.de/" target="_blank"><span class="plant">plant</span><span class="plantco">co</span><span class="plantco-dot">.</span><span class="plantco">de</span></a></li>
               <li id="login_li">
                 <a id="login_link" style="font-size:16px; cursor:pointer" data-toggle="modal" data-target="#loginModal">

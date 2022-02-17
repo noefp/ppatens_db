@@ -117,7 +117,7 @@ pg_free_result($res);
       title:"PpGMLDB_gene_list",
       fieldSeparator:"\t"
     },
-    'copy'],
-    bFilter:false
+    'copy', 'colvis'],
+    bFilter:true
   });
 </script>

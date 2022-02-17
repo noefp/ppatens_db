@@ -78,8 +78,8 @@ pg_close($dbconn);
         title:"PpGMLDB_annotations",
         fieldSeparator:"\t"
       },
-      'copy'],
-      bFilter:false
+      'copy']
+//      bFilter:false
     });
 </script>
 

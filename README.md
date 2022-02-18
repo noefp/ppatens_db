@@ -1,5 +1,5 @@
 # PpGmlDB
-Physcomitrella patens gene model lookup database
+Physcomitrium patens gene model lookup database
 
 #Setup
 To run this application you have to add a file named pp_paths.php.

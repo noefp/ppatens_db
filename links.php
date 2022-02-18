@@ -11,7 +11,7 @@ include_once 'ppdb_header.php';
 <ul class="well pp_list">
   <li>
     <b><a href="/expression_viewer/input" target="_blank">PEATmoss</a></b>
-    - The Physcomitrella Expression Atlas Tool.
+    - The Physcomitrium Expression Atlas Tool.
   </li>
   <li>
       <b><a href="https://plantcode.online.uni-marburg.de/tapscan/TAPs_for_species.php?species=Physcomitrella%20patens&id=98" target="_blank">TAPscan</a></b>

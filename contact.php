@@ -22,8 +22,8 @@
            and the <a class="peatmoss_text" href="/ppatens_db/pp_search_input.php" target="_blank"><span style="white-space: nowrap;">PpGML DB</span></a>
 
            <p class="font22 w450">
-             PEATmoss is an expression atlas for <i>Physcomitrella patens</i> gene expression data from RNA-seq and expression microarrays.
-             The <i>Physcomitrella patens</i> Gene Model Lookup Database (PpGML DB), contains tools,
+             PEATmoss is an expression atlas for bryophyte gene expression data.
+             The <i>Physcomitrium patens</i> Gene Model Lookup Database (PpGML DB), contains tools,
              sequences and annotations to lookup between the different gene model version of <i>P. patens</i>.
              <br>
              These tools were developed by the <a href="https://www.plantco.de" target="_blank">Rensing Lab</a>
